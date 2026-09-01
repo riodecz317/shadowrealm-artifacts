@@ -1,111 +1,300 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ShadowRealm Artifact Index</title>
+<title>The Manifest</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0b0d12;
-    --bg-elevated: #14171f;
-    --border: #262b36;
-    --text: #e7e9ee;
-    --text-dim: #9aa3b2;
-    --accent: #7c9cff;
+    --ground: #EEF0EA;
+    --surface: #FFFFFF;
+    --surface-2: #E3E7DD;
+    --ink: #171A15;
+    --ink-dim: #58604F;
+    --ink-faint: #8B9280;
+    --line: #D4D9C8;
+    --accent: #96660F;
+    --accent-strong: #714C0A;
+    --accent-soft: rgba(150,102,15,0.10);
+    --focus: #2B5CAD;
   }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground: #12140D;
+      --surface: #1B1E14;
+      --surface-2: #23271A;
+      --ink: #ECEFE4;
+      --ink-dim: #A9AF9B;
+      --ink-faint: #6E7462;
+      --line: #2E3324;
+      --accent: #DDA33F;
+      --accent-strong: #F0BB63;
+      --accent-soft: rgba(221,163,63,0.14);
+      --focus: #7FA8E8;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground: #12140D;
+    --surface: #1B1E14;
+    --surface-2: #23271A;
+    --ink: #ECEFE4;
+    --ink-dim: #A9AF9B;
+    --ink-faint: #6E7462;
+    --line: #2E3324;
+    --accent: #DDA33F;
+    --accent-strong: #F0BB63;
+    --accent-soft: rgba(221,163,63,0.14);
+    --focus: #7FA8E8;
+  }
+
   * { box-sizing: border-box; }
+  html { color-scheme: light dark; }
   body {
     margin: 0;
-    background: var(--bg);
-    color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
-    padding: 48px 24px 80px;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: "Work Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
   }
-  .wrap { max-width: 880px; margin: 0 auto; }
-  header { margin-bottom: 40px; }
-  h1 { font-size: 1.6rem; margin: 0 0 6px; letter-spacing: -0.01em; }
-  .sub { color: var(--text-dim); font-size: 0.92rem; }
-  .meta {
-    color: var(--text-dim);
-    font-size: 0.8rem;
-    margin-top: 12px;
+
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 64px 24px 96px;
   }
-  ul.list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
-  li.card {
-    background: var(--bg-elevated);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 16px 18px;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    transition: border-color 0.15s ease, transform 0.15s ease;
+
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 14px;
   }
-  li.card:hover { border-color: var(--accent); transform: translateY(-1px); }
-  .icon { font-size: 1.6rem; line-height: 1; width: 32px; text-align: center; flex-shrink: 0; }
-  .info { flex: 1; min-width: 0; }
-  .title a {
-    color: var(--text);
-    text-decoration: none;
-    font-weight: 600;
+
+  h1 {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.1rem, 1.7rem + 1.6vw, 3rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    margin: 0 0 16px;
+    color: var(--ink);
+  }
+
+  .dek {
     font-size: 1rem;
+    line-height: 1.55;
+    color: var(--ink-dim);
+    max-width: 60ch;
+    margin: 0;
   }
-  .title a:hover { color: var(--accent); }
-  .date { color: var(--text-dim); font-size: 0.78rem; margin-top: 2px; }
-  .live-link {
-    color: var(--text-dim);
-    font-size: 0.78rem;
+
+  .statline {
+    display: flex;
+    align-items: baseline;
+    gap: 18px;
+    margin-top: 28px;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px;
+    color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+  }
+  .statline strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .register {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .entry {
+    display: grid;
+    grid-template-columns: 34px 26px 1fr auto auto;
+    align-items: baseline;
+    gap: 14px;
+    padding: 16px 4px;
+    border-bottom: 1px solid var(--line);
+  }
+  .entry:hover { background: var(--accent-soft); }
+  .entry:first-child { border-top: 1px solid var(--line); }
+
+  .num {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px;
+    color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+    align-self: center;
+  }
+
+  .glyph {
+    font-size: 1.15rem;
+    line-height: 1;
+    align-self: center;
+  }
+
+  .entry-body {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .entry-title {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 1.02rem;
+    color: var(--ink);
+    letter-spacing: -0.003em;
     text-decoration: none;
-    flex-shrink: 0;
-    border: 1px solid var(--border);
+  }
+  .entry-title:hover { color: var(--accent-strong); }
+  .entry-title:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+  .entry-date {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px;
+    color: var(--ink-faint);
+  }
+
+  .go, .live {
+    align-self: center;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    white-space: nowrap;
+    text-decoration: none;
+    border: 1px solid var(--line);
     border-radius: 6px;
-    padding: 4px 10px;
+    padding: 4px 9px;
   }
-  .live-link:hover { color: var(--accent); border-color: var(--accent); }
+  .go:hover, .live:hover { color: var(--accent); border-color: var(--accent); }
+  .go:focus-visible, .live:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+
   footer {
-    margin-top: 48px;
-    color: var(--text-dim);
-    font-size: 0.78rem;
-    border-top: 1px solid var(--border);
-    padding-top: 16px;
+    margin-top: 44px;
+    padding-top: 20px;
+    border-top: 1px solid var(--line);
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--ink-faint);
   }
-  @media (prefers-color-scheme: light) {
-    :root:not([data-theme="dark"]) {
-      --bg: #f6f7f9;
-      --bg-elevated: #ffffff;
-      --border: #e3e6ec;
-      --text: #14171f;
-      --text-dim: #6b7280;
-      --accent: #3b5bdb;
-    }
+  footer a { color: var(--ink-dim); }
+  footer a:hover { color: var(--accent-strong); }
+  footer code {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px;
+    background: var(--surface-2);
+    padding: 1px 5px;
+    border-radius: 3px;
+  }
+
+  @media (max-width: 560px) {
+    .entry { grid-template-columns: 20px 20px 1fr; row-gap: 8px; }
+    .go, .live { display: none; }
   }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <h1>ShadowRealm Artifact Index</h1>
-    <div class="sub">A running list of Claude Artifacts, with full copies stored in this repo so they're one click away instead of buried in chat history.</div>
-    <div class="meta">Last regenerated: <strong id="gen-date">2026-09-01</strong> &middot; <span id="count">12</span> artifacts</div>
-  </header>
+<div class="page">
+  <p class="eyebrow">ShadowRealm — Artifact Archive</p>
+  <h1>The Manifest</h1>
+  <p class="dek">Every Claude Artifact built across ShadowRealm's work, logged in one place instead of scattered across old conversations. Newest entries first — open any line to view it.</p>
 
-  <ul class="list" id="artifact-list">
-    <li class="card"><span class="icon">🔀</span><div class="info"><div class="title"><a href="artifacts/the-agent-relay.html" target="_blank">The Agent Relay</a></div><div class="date">Updated 2026-09-01</div></div><a class="live-link" href="https://claude.ai/code/artifact/f39ea48c-f30a-4c9b-843c-61f3d7e3e886" target="_blank" rel="noopener">live ↗</a></li>
-    <li class="card"><span class="icon">🧾</span><div class="info"><div class="title"><a href="artifacts/the-ledger-read.html" target="_blank">The Ledger Read</a></div><div class="date">Updated 2026-09-01</div></div><a class="live-link" href="https://claude.ai/code/artifact/ef42df40-1e45-4359-9799-7af428948d03" target="_blank" rel="noopener">live ↗</a></li>
-    <li class="card"><span class="icon">🧪</span><div class="info"><div class="title"><a href="artifacts/the-grading-ledger.html" target="_blank">The Grading Ledger</a></div><div class="date">Updated 2026-09-01</div></div><a class="live-link" href="https://claude.ai/code/artifact/6afa24a4-863d-473a-9569-24934d05ddcc" target="_blank" rel="noopener">live ↗</a></li>
-    <li class="card"><span class="icon">💰</span><div class="info"><div class="title"><a href="artifacts/finforecast-pro.html" target="_blank">FinForecast Pro</a></div><div class="date">Updated 2026-08-30</div></div><a class="live-link" href="https://claude.ai/code/artifact/ebcf971c-d256-46d0-9e79-a35a3432caf8" target="_blank" rel="noopener">live ↗</a></li>
-    <li class="card"><span class="icon">💠</span><div class="info"><div class="title"><a href="artifacts/glimmerfield-finance.html" target="_blank">Glimmerfield Finance</a></div><div class="date">Updated 2026-08-30</div></div><a class="live-link" href="https://claude.ai/code/artifact/0b97b343-665f-4083-be56-ffbf8a04dc96" target="_blank" rel="noopener">live ↗</a></li>
-    <li class="card"><span class="icon">🛰️</span><div class="info"><div class="title"><a href="artifacts/shadowrealm-agents.html" target="_blank">ShadowRealm Agents</a></div><div class="date">Updated 2026-08-30</div></div><a class="live-link" href="https://claude.ai/code/artifact/c0bcbbf0-7856-45d9-8770-9170ce87eb6b" target="_blank" rel="noopener">live ↗</a></li>
-    <li class="card"><span class="icon">🔀</span><div class="info"><div class="title"><a href="artifacts/cross-skill-mapping-overview.html" target="_blank">Cross-Skill Mapping Overview</a></div><div class="date">Updated 2026-08-26</div></div><a class="live-link" href="https://claude.ai/code/artifact/532e41b3-2ddd-48a1-833f-e7e0d0e6e68c" target="_blank" rel="noopener">live ↗</a></li>
-    <li class="card"><span class="icon">🔀</span><div class="info"><div class="title"><a href="artifacts/cross-skill-ledger.html" target="_blank">Cross-Skill Ledger</a></div><div class="date">Updated 2026-08-26</div></div><a class="live-link" href="https://claude.ai/code/artifact/f584e081-d61a-476a-b6a9-b7b71b565bb7" target="_blank" rel="noopener">live ↗</a></li>
-    <li class="card"><span class="icon">🩺</span><div class="info"><div class="title"><a href="artifacts/contoso-health-headcount.html" target="_blank">Contoso Health Headcount</a></div><div class="date">Updated 2026-08-25</div></div><a class="live-link" href="https://claude.ai/code/artifact/dc0c55ed-f104-4547-89fa-ed8730fd9733" target="_blank" rel="noopener">live ↗</a></li>
-    <li class="card"><span class="icon">🩺</span><div class="info"><div class="title"><a href="artifacts/cigna-clinical-headcount.html" target="_blank">Cigna Clinical Headcount</a></div><div class="date">Updated 2026-08-25</div></div><a class="live-link" href="https://claude.ai/code/artifact/0f04db35-a79a-45d4-848e-d5cf4e65cb59" target="_blank" rel="noopener">live ↗</a></li>
-    <li class="card"><span class="icon">🗺️</span><div class="info"><div class="title"><a href="artifacts/situation-brief.html" target="_blank">Situation Brief</a></div><div class="date">Updated 2026-08-25</div></div><a class="live-link" href="https://claude.ai/code/artifact/98ebef56-cd4b-47b1-8b1f-212945990405" target="_blank" rel="noopener">live ↗</a></li>
-    <li class="card"><span class="icon">🆘</span><div class="info"><div class="title"><a href="artifacts/who-needs-help.html" target="_blank">Who Needs Help</a></div><div class="date">Updated 2026-08-25</div></div><a class="live-link" href="https://claude.ai/code/artifact/399c00d4-aa4b-4342-ba92-5937942b8974" target="_blank" rel="noopener">live ↗</a></li>
-  </ul>
+  <div class="statline">
+    <span><strong>12</strong> entries</span>
+    <span>logged through <strong>2026-09-01</strong></span>
+  </div>
+
+  <div class="register" id="register">
+    <div class="entry">
+      <span class="num">12</span><span class="glyph">🔀</span>
+      <div class="entry-body"><a class="entry-title" href="artifacts/the-agent-relay.html" target="_blank">The Agent Relay</a><span class="entry-date">2026-09-01</span></div>
+      <a class="go" href="artifacts/the-agent-relay.html" target="_blank">Open ↗</a>
+      <a class="live" href="https://claude.ai/code/artifact/f39ea48c-f30a-4c9b-843c-61f3d7e3e886" target="_blank" rel="noopener">Live ↗</a>
+    </div>
+    <div class="entry">
+      <span class="num">11</span><span class="glyph">🧾</span>
+      <div class="entry-body"><a class="entry-title" href="artifacts/the-ledger-read.html" target="_blank">The Ledger Read</a><span class="entry-date">2026-09-01</span></div>
+      <a class="go" href="artifacts/the-ledger-read.html" target="_blank">Open ↗</a>
+      <a class="live" href="https://claude.ai/code/artifact/ef42df40-1e45-4359-9799-7af428948d03" target="_blank" rel="noopener">Live ↗</a>
+    </div>
+    <div class="entry">
+      <span class="num">10</span><span class="glyph">🧪</span>
+      <div class="entry-body"><a class="entry-title" href="artifacts/the-grading-ledger.html" target="_blank">The Grading Ledger</a><span class="entry-date">2026-09-01</span></div>
+      <a class="go" href="artifacts/the-grading-ledger.html" target="_blank">Open ↗</a>
+      <a class="live" href="https://claude.ai/code/artifact/6afa24a4-863d-473a-9569-24934d05ddcc" target="_blank" rel="noopener">Live ↗</a>
+    </div>
+    <div class="entry">
+      <span class="num">09</span><span class="glyph">💰</span>
+      <div class="entry-body"><a class="entry-title" href="artifacts/finforecast-pro.html" target="_blank">FinForecast Pro</a><span class="entry-date">2026-08-30</span></div>
+      <a class="go" href="artifacts/finforecast-pro.html" target="_blank">Open ↗</a>
+      <a class="live" href="https://claude.ai/code/artifact/ebcf971c-d256-46d0-9e79-a35a3432caf8" target="_blank" rel="noopener">Live ↗</a>
+    </div>
+    <div class="entry">
+      <span class="num">08</span><span class="glyph">💠</span>
+      <div class="entry-body"><a class="entry-title" href="artifacts/glimmerfield-finance.html" target="_blank">Glimmerfield Finance</a><span class="entry-date">2026-08-30</span></div>
+      <a class="go" href="artifacts/glimmerfield-finance.html" target="_blank">Open ↗</a>
+      <a class="live" href="https://claude.ai/code/artifact/0b97b343-665f-4083-be56-ffbf8a04dc96" target="_blank" rel="noopener">Live ↗</a>
+    </div>
+    <div class="entry">
+      <span class="num">07</span><span class="glyph">🛰️</span>
+      <div class="entry-body"><a class="entry-title" href="artifacts/shadowrealm-agents.html" target="_blank">ShadowRealm Agents</a><span class="entry-date">2026-08-30</span></div>
+      <a class="go" href="artifacts/shadowrealm-agents.html" target="_blank">Open ↗</a>
+      <a class="live" href="https://claude.ai/code/artifact/c0bcbbf0-7856-45d9-8770-9170ce87eb6b" target="_blank" rel="noopener">Live ↗</a>
+    </div>
+    <div class="entry">
+      <span class="num">06</span><span class="glyph">🔀</span>
+      <div class="entry-body"><a class="entry-title" href="artifacts/cross-skill-mapping-overview.html" target="_blank">Cross-Skill Mapping Overview</a><span class="entry-date">2026-08-26</span></div>
+      <a class="go" href="artifacts/cross-skill-mapping-overview.html" target="_blank">Open ↗</a>
+      <a class="live" href="https://claude.ai/code/artifact/532e41b3-2ddd-48a1-833f-e7e0d0e6e68c" target="_blank" rel="noopener">Live ↗</a>
+    </div>
+    <div class="entry">
+      <span class="num">05</span><span class="glyph">🔀</span>
+      <div class="entry-body"><a class="entry-title" href="artifacts/cross-skill-ledger.html" target="_blank">Cross-Skill Ledger</a><span class="entry-date">2026-08-26</span></div>
+      <a class="go" href="artifacts/cross-skill-ledger.html" target="_blank">Open ↗</a>
+      <a class="live" href="https://claude.ai/code/artifact/f584e081-d61a-476a-b6a9-b7b71b565bb7" target="_blank" rel="noopener">Live ↗</a>
+    </div>
+    <div class="entry">
+      <span class="num">04</span><span class="glyph">🩺</span>
+      <div class="entry-body"><a class="entry-title" href="artifacts/contoso-health-headcount.html" target="_blank">Contoso Health Headcount</a><span class="entry-date">2026-08-25</span></div>
+      <a class="go" href="artifacts/contoso-health-headcount.html" target="_blank">Open ↗</a>
+      <a class="live" href="https://claude.ai/code/artifact/dc0c55ed-f104-4547-89fa-ed8730fd9733" target="_blank" rel="noopener">Live ↗</a>
+    </div>
+    <div class="entry">
+      <span class="num">03</span><span class="glyph">🩺</span>
+      <div class="entry-body"><a class="entry-title" href="artifacts/cigna-clinical-headcount.html" target="_blank">Cigna Clinical Headcount</a><span class="entry-date">2026-08-25</span></div>
+      <a class="go" href="artifacts/cigna-clinical-headcount.html" target="_blank">Open ↗</a>
+      <a class="live" href="https://claude.ai/code/artifact/0f04db35-a79a-45d4-848e-d5cf4e65cb59" target="_blank" rel="noopener">Live ↗</a>
+    </div>
+    <div class="entry">
+      <span class="num">02</span><span class="glyph">🗺️</span>
+      <div class="entry-body"><a class="entry-title" href="artifacts/situation-brief.html" target="_blank">Situation Brief</a><span class="entry-date">2026-08-25</span></div>
+      <a class="go" href="artifacts/situation-brief.html" target="_blank">Open ↗</a>
+      <a class="live" href="https://claude.ai/code/artifact/98ebef56-cd4b-47b1-8b1f-212945990405" target="_blank" rel="noopener">Live ↗</a>
+    </div>
+    <div class="entry">
+      <span class="num">01</span><span class="glyph">🆘</span>
+      <div class="entry-body"><a class="entry-title" href="artifacts/who-needs-help.html" target="_blank">Who Needs Help</a><span class="entry-date">2026-08-25</span></div>
+      <a class="go" href="artifacts/who-needs-help.html" target="_blank">Open ↗</a>
+      <a class="live" href="https://claude.ai/code/artifact/399c00d4-aa4b-4342-ba92-5937942b8974" target="_blank" rel="noopener">Live ↗</a>
+    </div>
+  </div>
 
   <footer>
-    Generated from Claude's artifact list on 2026-09-01. Titles link to the full local copy stored in <code>artifacts/</code>; "live" links open the current version on claude.ai. To refresh, ask Claude in this project to "update the artifact index" — it will re-pull the list, re-fetch each artifact's content, and push the update.
+    "Open" loads the full standalone copy stored in <code>artifacts/</code> — works offline, no claude.ai session needed. "Live" opens the current hosted version on claude.ai. This page is also published as a Claude Artifact of its own, for viewing without cloning the repo. To add new entries, ask Claude to "update the artifact index."
   </footer>
 </div>
 </body>
