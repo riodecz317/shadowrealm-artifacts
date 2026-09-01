@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,6 +25,7 @@
     --cat-finance-bg: #E1EEDF; --cat-finance-ink: #2F5D33;
     --cat-ops-bg: #F4E1DE;     --cat-ops-ink: #8B3B33;
     --cat-testing-bg: #EDE1F5; --cat-testing-ink: #5C3585;
+    --cat-project-bg: #DCEEF3; --cat-project-ink: #1B6B76;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -44,6 +45,7 @@
       --cat-finance-bg: #1E3324; --cat-finance-ink: #8FD79A;
       --cat-ops-bg: #3A2420;     --cat-ops-ink: #E8A99A;
       --cat-testing-bg: #2E2140; --cat-testing-ink: #C9A6EE;
+      --cat-project-bg: #163238; --cat-project-ink: #7FD8E3;
     }
   }
   :root[data-theme="dark"] {
@@ -63,6 +65,7 @@
     --cat-finance-bg: #1E3324; --cat-finance-ink: #8FD79A;
     --cat-ops-bg: #3A2420;     --cat-ops-ink: #E8A99A;
     --cat-testing-bg: #2E2140; --cat-testing-ink: #C9A6EE;
+    --cat-project-bg: #163238; --cat-project-ink: #7FD8E3;
   }
 
   * { box-sizing: border-box; }
@@ -213,7 +216,7 @@
 
   .entry {
     display: grid;
-    grid-template-columns: 30px 24px 1fr auto auto auto auto;
+    grid-template-columns: 30px 24px 1fr 96px 68px 78px 78px;
     align-items: center;
     gap: 14px;
     padding: 14px 4px;
@@ -267,11 +270,13 @@
     padding: 3px 8px;
     border-radius: 5px;
     white-space: nowrap;
+    justify-self: start;
   }
   .tag-agents  { background: var(--cat-agents-bg);  color: var(--cat-agents-ink); }
   .tag-finance { background: var(--cat-finance-bg); color: var(--cat-finance-ink); }
   .tag-ops     { background: var(--cat-ops-bg);     color: var(--cat-ops-ink); }
   .tag-testing { background: var(--cat-testing-bg); color: var(--cat-testing-ink); }
+  .tag-project { background: var(--cat-project-bg); color: var(--cat-project-ink); }
 
   .size {
     font-family: "IBM Plex Mono", ui-monospace, monospace;
@@ -360,9 +365,10 @@
   <div class="filterbar" id="filterbar">
     <button class="pill" data-filter="all" aria-pressed="true">All <span class="n">12</span></button>
     <button class="pill" data-filter="agents" aria-pressed="false">Agents <span class="n">4</span></button>
-    <button class="pill" data-filter="finance" aria-pressed="false">Finance <span class="n">3</span></button>
+    <button class="pill" data-filter="finance" aria-pressed="false">Finance <span class="n">2</span></button>
     <button class="pill" data-filter="ops" aria-pressed="false">Ops &amp; HR <span class="n">4</span></button>
     <button class="pill" data-filter="testing" aria-pressed="false">Testing <span class="n">1</span></button>
+    <button class="pill" data-filter="project" aria-pressed="false">Project <span class="n">1</span></button>
     <label class="search">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
       <input type="text" id="search-input" placeholder="Search titles…" autocomplete="off">
@@ -394,10 +400,10 @@
       <a class="go" href="artifacts/the-grading-ledger.html" target="_blank">Open ↗</a>
       <a class="live" href="https://claude.ai/code/artifact/6afa24a4-863d-473a-9569-24934d05ddcc" target="_blank" rel="noopener">Live ↗</a>
     </div>
-    <div class="entry" data-category="finance" data-title="finforecast pro">
+    <div class="entry" data-category="project" data-title="finforecast pro">
       <span class="num">09</span><span class="glyph">💰</span>
       <div class="entry-body"><a class="entry-title" href="artifacts/finforecast-pro.html" target="_blank">FinForecast Pro</a><span class="entry-date">2026-08-30</span></div>
-      <span class="tag tag-finance">Finance</span>
+      <span class="tag tag-project">Project</span>
       <span class="size">603.8 KB</span>
       <a class="go" href="artifacts/finforecast-pro.html" target="_blank">Open ↗</a>
       <a class="live" href="https://claude.ai/code/artifact/ebcf971c-d256-46d0-9e79-a35a3432caf8" target="_blank" rel="noopener">Live ↗</a>
