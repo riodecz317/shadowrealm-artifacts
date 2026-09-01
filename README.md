@@ -13,6 +13,10 @@ This index and the files under `artifacts/` are a static snapshot. To refresh af
 3. Regenerate `index.html`
 4. Commit and push the change to this repo
 
+## Live page
+
+https://riodecz317.github.io/shadowrealm-artifacts/
+
 ## Repo
 
-Private repo, pushed via GitHub CLI (`gh`). No GitHub Pages hosting is enabled (requires a paid plan for private repos) — view the dashboard by opening `index.html` locally, or by cloning/pulling this repo.
+Public repo, pushed via GitHub CLI (`gh`), with GitHub Pages serving `index.html` and everything under `artifacts/` at the URL above. Made public specifically so Pages hosting works (private-repo Pages needs a paid plan) — anyone with the link can view the repo and its contents.
