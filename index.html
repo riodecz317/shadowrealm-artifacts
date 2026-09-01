@@ -20,6 +20,11 @@
     --accent-strong: #714C0A;
     --accent-soft: rgba(150,102,15,0.10);
     --focus: #2B5CAD;
+
+    --cat-agents-bg: #E2E6F5;   --cat-agents-ink: #33417C;
+    --cat-finance-bg: #E1EEDF; --cat-finance-ink: #2F5D33;
+    --cat-ops-bg: #F4E1DE;     --cat-ops-ink: #8B3B33;
+    --cat-testing-bg: #EDE1F5; --cat-testing-ink: #5C3585;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -34,6 +39,11 @@
       --accent-strong: #F0BB63;
       --accent-soft: rgba(221,163,63,0.14);
       --focus: #7FA8E8;
+
+      --cat-agents-bg: #262B45;  --cat-agents-ink: #9DAEEF;
+      --cat-finance-bg: #1E3324; --cat-finance-ink: #8FD79A;
+      --cat-ops-bg: #3A2420;     --cat-ops-ink: #E8A99A;
+      --cat-testing-bg: #2E2140; --cat-testing-ink: #C9A6EE;
     }
   }
   :root[data-theme="dark"] {
@@ -48,6 +58,11 @@
     --accent-strong: #F0BB63;
     --accent-soft: rgba(221,163,63,0.14);
     --focus: #7FA8E8;
+
+    --cat-agents-bg: #262B45;  --cat-agents-ink: #9DAEEF;
+    --cat-finance-bg: #1E3324; --cat-finance-ink: #8FD79A;
+    --cat-ops-bg: #3A2420;     --cat-ops-ink: #E8A99A;
+    --cat-testing-bg: #2E2140; --cat-testing-ink: #C9A6EE;
   }
 
   * { box-sizing: border-box; }
@@ -61,7 +76,7 @@
   }
 
   .page {
-    max-width: 780px;
+    max-width: 860px;
     margin: 0 auto;
     padding: 64px 24px 96px;
   }
@@ -95,52 +110,129 @@
     margin: 0;
   }
 
-  .statline {
+  /* ---- stat panel ---- */
+  .stats {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .stat {
+    background: var(--surface);
+    padding: 14px 16px;
     display: flex;
-    align-items: baseline;
-    gap: 18px;
-    margin-top: 28px;
-    padding-top: 18px;
-    border-top: 1px solid var(--line);
+    flex-direction: column;
+    gap: 4px;
+  }
+  .stat-label {
     font-family: "IBM Plex Mono", ui-monospace, monospace;
-    font-size: 12px;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--ink-faint);
+  }
+  .stat-value {
+    font-family: "Bricolage Grotesque", system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--ink);
     font-variant-numeric: tabular-nums;
   }
-  .statline strong {
-    color: var(--ink);
-    font-weight: 600;
+  .stat-value small {
+    font-family: "Work Sans", sans-serif;
+    font-weight: 500;
+    font-size: 0.62em;
+    color: var(--ink-faint);
   }
 
+  /* ---- filter bar ---- */
+  .filterbar {
+    margin-top: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+  }
+  .pill {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11.5px;
+    letter-spacing: 0.02em;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink-dim);
+    border-radius: 999px;
+    padding: 6px 12px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .pill .n { color: var(--ink-faint); }
+  .pill:hover { border-color: var(--accent); color: var(--ink); }
+  .pill[aria-pressed="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--surface);
+  }
+  .pill[aria-pressed="true"] .n { color: inherit; opacity: 0.75; }
+
+  .search {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 6px 10px;
+    min-width: 190px;
+  }
+  .search svg { flex-shrink: 0; color: var(--ink-faint); }
+  .search input {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--ink);
+    font-family: "Work Sans", sans-serif;
+    font-size: 13px;
+    width: 100%;
+  }
+  .search input::placeholder { color: var(--ink-faint); }
+  .search:focus-within { border-color: var(--focus); }
+
+  /* ---- register ---- */
   .register {
-    margin-top: 40px;
+    margin-top: 24px;
     display: flex;
     flex-direction: column;
   }
 
   .entry {
     display: grid;
-    grid-template-columns: 34px 26px 1fr auto auto;
-    align-items: baseline;
+    grid-template-columns: 30px 24px 1fr auto auto auto auto;
+    align-items: center;
     gap: 14px;
-    padding: 16px 4px;
+    padding: 14px 4px;
     border-bottom: 1px solid var(--line);
   }
   .entry:hover { background: var(--accent-soft); }
   .entry:first-child { border-top: 1px solid var(--line); }
+  .entry[hidden] { display: none; }
 
   .num {
     font-family: "IBM Plex Mono", ui-monospace, monospace;
     font-size: 12px;
     color: var(--ink-faint);
     font-variant-numeric: tabular-nums;
-    align-self: center;
   }
 
   .glyph {
-    font-size: 1.15rem;
+    font-size: 1.1rem;
     line-height: 1;
-    align-self: center;
   }
 
   .entry-body {
@@ -167,8 +259,29 @@
     color: var(--ink-faint);
   }
 
+  .tag {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 5px;
+    white-space: nowrap;
+  }
+  .tag-agents  { background: var(--cat-agents-bg);  color: var(--cat-agents-ink); }
+  .tag-finance { background: var(--cat-finance-bg); color: var(--cat-finance-ink); }
+  .tag-ops     { background: var(--cat-ops-bg);     color: var(--cat-ops-ink); }
+  .tag-testing { background: var(--cat-testing-bg); color: var(--cat-testing-ink); }
+
+  .size {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px;
+    color: var(--ink-faint);
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
   .go, .live {
-    align-self: center;
     font-family: "IBM Plex Mono", ui-monospace, monospace;
     font-size: 11px;
     letter-spacing: 0.04em;
@@ -182,6 +295,16 @@
   }
   .go:hover, .live:hover { color: var(--accent); border-color: var(--accent); }
   .go:focus-visible, .live:focus-visible { outline: 2px solid var(--focus); outline-offset: 1px; }
+
+  .empty {
+    display: none;
+    padding: 32px 4px;
+    text-align: center;
+    color: var(--ink-faint);
+    font-size: 13.5px;
+    border-bottom: 1px solid var(--line);
+  }
+  .empty.show { display: block; }
 
   footer {
     margin-top: 44px;
@@ -201,9 +324,11 @@
     border-radius: 3px;
   }
 
-  @media (max-width: 560px) {
-    .entry { grid-template-columns: 20px 20px 1fr; row-gap: 8px; }
-    .go, .live { display: none; }
+  @media (max-width: 640px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .search { margin-left: 0; width: 100%; }
+    .entry { grid-template-columns: 18px 18px 1fr; row-gap: 6px; }
+    .tag, .size, .go, .live { display: none; }
   }
 </style>
 </head>
@@ -211,91 +336,176 @@
 <div class="page">
   <p class="eyebrow">ShadowRealm — Artifact Archive</p>
   <h1>The Manifest</h1>
-  <p class="dek">Every Claude Artifact built across ShadowRealm's work, logged in one place instead of scattered across old conversations. Newest entries first — open any line to view it.</p>
+  <p class="dek">Every Claude Artifact built across ShadowRealm's work, logged in one place instead of scattered across old conversations. Filter by kind or search by name — open any line to view it.</p>
 
-  <div class="statline">
-    <span><strong>12</strong> entries</span>
-    <span>logged through <strong>2026-09-01</strong></span>
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-label">Entries</span>
+      <span class="stat-value" id="stat-count">12</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Archive Size</span>
+      <span class="stat-value">1.09 <small>MB</small></span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Most Recent</span>
+      <span class="stat-value">Sep 1</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Regenerated</span>
+      <span class="stat-value">23:38 <small>UTC+8</small></span>
+    </div>
+  </div>
+
+  <div class="filterbar" id="filterbar">
+    <button class="pill" data-filter="all" aria-pressed="true">All <span class="n">12</span></button>
+    <button class="pill" data-filter="agents" aria-pressed="false">Agents <span class="n">4</span></button>
+    <button class="pill" data-filter="finance" aria-pressed="false">Finance <span class="n">3</span></button>
+    <button class="pill" data-filter="ops" aria-pressed="false">Ops &amp; HR <span class="n">4</span></button>
+    <button class="pill" data-filter="testing" aria-pressed="false">Testing <span class="n">1</span></button>
+    <label class="search">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="text" id="search-input" placeholder="Search titles…" autocomplete="off">
+    </label>
   </div>
 
   <div class="register" id="register">
-    <div class="entry">
+    <div class="entry" data-category="agents" data-title="the agent relay">
       <span class="num">12</span><span class="glyph">🔀</span>
       <div class="entry-body"><a class="entry-title" href="artifacts/the-agent-relay.html" target="_blank">The Agent Relay</a><span class="entry-date">2026-09-01</span></div>
+      <span class="tag tag-agents">Agents</span>
+      <span class="size">48.4 KB</span>
       <a class="go" href="artifacts/the-agent-relay.html" target="_blank">Open ↗</a>
       <a class="live" href="https://claude.ai/code/artifact/f39ea48c-f30a-4c9b-843c-61f3d7e3e886" target="_blank" rel="noopener">Live ↗</a>
     </div>
-    <div class="entry">
+    <div class="entry" data-category="finance" data-title="the ledger read">
       <span class="num">11</span><span class="glyph">🧾</span>
       <div class="entry-body"><a class="entry-title" href="artifacts/the-ledger-read.html" target="_blank">The Ledger Read</a><span class="entry-date">2026-09-01</span></div>
+      <span class="tag tag-finance">Finance</span>
+      <span class="size">67.7 KB</span>
       <a class="go" href="artifacts/the-ledger-read.html" target="_blank">Open ↗</a>
       <a class="live" href="https://claude.ai/code/artifact/ef42df40-1e45-4359-9799-7af428948d03" target="_blank" rel="noopener">Live ↗</a>
     </div>
-    <div class="entry">
+    <div class="entry" data-category="testing" data-title="the grading ledger">
       <span class="num">10</span><span class="glyph">🧪</span>
       <div class="entry-body"><a class="entry-title" href="artifacts/the-grading-ledger.html" target="_blank">The Grading Ledger</a><span class="entry-date">2026-09-01</span></div>
+      <span class="tag tag-testing">Testing</span>
+      <span class="size">34.1 KB</span>
       <a class="go" href="artifacts/the-grading-ledger.html" target="_blank">Open ↗</a>
       <a class="live" href="https://claude.ai/code/artifact/6afa24a4-863d-473a-9569-24934d05ddcc" target="_blank" rel="noopener">Live ↗</a>
     </div>
-    <div class="entry">
+    <div class="entry" data-category="finance" data-title="finforecast pro">
       <span class="num">09</span><span class="glyph">💰</span>
       <div class="entry-body"><a class="entry-title" href="artifacts/finforecast-pro.html" target="_blank">FinForecast Pro</a><span class="entry-date">2026-08-30</span></div>
+      <span class="tag tag-finance">Finance</span>
+      <span class="size">603.8 KB</span>
       <a class="go" href="artifacts/finforecast-pro.html" target="_blank">Open ↗</a>
       <a class="live" href="https://claude.ai/code/artifact/ebcf971c-d256-46d0-9e79-a35a3432caf8" target="_blank" rel="noopener">Live ↗</a>
     </div>
-    <div class="entry">
+    <div class="entry" data-category="finance" data-title="glimmerfield finance">
       <span class="num">08</span><span class="glyph">💠</span>
       <div class="entry-body"><a class="entry-title" href="artifacts/glimmerfield-finance.html" target="_blank">Glimmerfield Finance</a><span class="entry-date">2026-08-30</span></div>
+      <span class="tag tag-finance">Finance</span>
+      <span class="size">53.9 KB</span>
       <a class="go" href="artifacts/glimmerfield-finance.html" target="_blank">Open ↗</a>
       <a class="live" href="https://claude.ai/code/artifact/0b97b343-665f-4083-be56-ffbf8a04dc96" target="_blank" rel="noopener">Live ↗</a>
     </div>
-    <div class="entry">
+    <div class="entry" data-category="agents" data-title="shadowrealm agents">
       <span class="num">07</span><span class="glyph">🛰️</span>
       <div class="entry-body"><a class="entry-title" href="artifacts/shadowrealm-agents.html" target="_blank">ShadowRealm Agents</a><span class="entry-date">2026-08-30</span></div>
+      <span class="tag tag-agents">Agents</span>
+      <span class="size">53.4 KB</span>
       <a class="go" href="artifacts/shadowrealm-agents.html" target="_blank">Open ↗</a>
       <a class="live" href="https://claude.ai/code/artifact/c0bcbbf0-7856-45d9-8770-9170ce87eb6b" target="_blank" rel="noopener">Live ↗</a>
     </div>
-    <div class="entry">
+    <div class="entry" data-category="agents" data-title="cross-skill mapping overview">
       <span class="num">06</span><span class="glyph">🔀</span>
       <div class="entry-body"><a class="entry-title" href="artifacts/cross-skill-mapping-overview.html" target="_blank">Cross-Skill Mapping Overview</a><span class="entry-date">2026-08-26</span></div>
+      <span class="tag tag-agents">Agents</span>
+      <span class="size">100.3 KB</span>
       <a class="go" href="artifacts/cross-skill-mapping-overview.html" target="_blank">Open ↗</a>
       <a class="live" href="https://claude.ai/code/artifact/532e41b3-2ddd-48a1-833f-e7e0d0e6e68c" target="_blank" rel="noopener">Live ↗</a>
     </div>
-    <div class="entry">
+    <div class="entry" data-category="agents" data-title="cross-skill ledger">
       <span class="num">05</span><span class="glyph">🔀</span>
       <div class="entry-body"><a class="entry-title" href="artifacts/cross-skill-ledger.html" target="_blank">Cross-Skill Ledger</a><span class="entry-date">2026-08-26</span></div>
+      <span class="tag tag-agents">Agents</span>
+      <span class="size">27.5 KB</span>
       <a class="go" href="artifacts/cross-skill-ledger.html" target="_blank">Open ↗</a>
       <a class="live" href="https://claude.ai/code/artifact/f584e081-d61a-476a-b6a9-b7b71b565bb7" target="_blank" rel="noopener">Live ↗</a>
     </div>
-    <div class="entry">
+    <div class="entry" data-category="ops" data-title="contoso health headcount">
       <span class="num">04</span><span class="glyph">🩺</span>
       <div class="entry-body"><a class="entry-title" href="artifacts/contoso-health-headcount.html" target="_blank">Contoso Health Headcount</a><span class="entry-date">2026-08-25</span></div>
+      <span class="tag tag-ops">Ops &amp; HR</span>
+      <span class="size">35.1 KB</span>
       <a class="go" href="artifacts/contoso-health-headcount.html" target="_blank">Open ↗</a>
       <a class="live" href="https://claude.ai/code/artifact/dc0c55ed-f104-4547-89fa-ed8730fd9733" target="_blank" rel="noopener">Live ↗</a>
     </div>
-    <div class="entry">
+    <div class="entry" data-category="ops" data-title="cigna clinical headcount">
       <span class="num">03</span><span class="glyph">🩺</span>
       <div class="entry-body"><a class="entry-title" href="artifacts/cigna-clinical-headcount.html" target="_blank">Cigna Clinical Headcount</a><span class="entry-date">2026-08-25</span></div>
+      <span class="tag tag-ops">Ops &amp; HR</span>
+      <span class="size">34.8 KB</span>
       <a class="go" href="artifacts/cigna-clinical-headcount.html" target="_blank">Open ↗</a>
       <a class="live" href="https://claude.ai/code/artifact/0f04db35-a79a-45d4-848e-d5cf4e65cb59" target="_blank" rel="noopener">Live ↗</a>
     </div>
-    <div class="entry">
+    <div class="entry" data-category="ops" data-title="situation brief">
       <span class="num">02</span><span class="glyph">🗺️</span>
       <div class="entry-body"><a class="entry-title" href="artifacts/situation-brief.html" target="_blank">Situation Brief</a><span class="entry-date">2026-08-25</span></div>
+      <span class="tag tag-ops">Ops &amp; HR</span>
+      <span class="size">30.0 KB</span>
       <a class="go" href="artifacts/situation-brief.html" target="_blank">Open ↗</a>
       <a class="live" href="https://claude.ai/code/artifact/98ebef56-cd4b-47b1-8b1f-212945990405" target="_blank" rel="noopener">Live ↗</a>
     </div>
-    <div class="entry">
+    <div class="entry" data-category="ops" data-title="who needs help">
       <span class="num">01</span><span class="glyph">🆘</span>
       <div class="entry-body"><a class="entry-title" href="artifacts/who-needs-help.html" target="_blank">Who Needs Help</a><span class="entry-date">2026-08-25</span></div>
+      <span class="tag tag-ops">Ops &amp; HR</span>
+      <span class="size">28.6 KB</span>
       <a class="go" href="artifacts/who-needs-help.html" target="_blank">Open ↗</a>
       <a class="live" href="https://claude.ai/code/artifact/399c00d4-aa4b-4342-ba92-5937942b8974" target="_blank" rel="noopener">Live ↗</a>
     </div>
+    <p class="empty" id="empty-state">No entries match that filter.</p>
   </div>
 
   <footer>
-    "Open" loads the full standalone copy stored in <code>artifacts/</code> — works offline, no claude.ai session needed. "Live" opens the current hosted version on claude.ai. This page is also published as a Claude Artifact of its own, for viewing without cloning the repo. To add new entries, ask Claude to "update the artifact index."
+    "Open" loads the full standalone copy stored in <code>artifacts/</code> — works offline, no claude.ai session needed. "Live" opens the current hosted version on claude.ai. "Regenerated" above is the timestamp of the last time this page was rebuilt, not a live clock. This page is also published as a Claude Artifact of its own, for viewing without cloning the repo. To add new entries or refresh the timestamp, ask Claude to "update the artifact index."
   </footer>
 </div>
+
+<script>
+(function () {
+  var entries = Array.prototype.slice.call(document.querySelectorAll('.entry'));
+  var pills = Array.prototype.slice.call(document.querySelectorAll('.pill'));
+  var searchInput = document.getElementById('search-input');
+  var emptyState = document.getElementById('empty-state');
+  var activeCategory = 'all';
+
+  function applyFilters() {
+    var query = searchInput.value.trim().toLowerCase();
+    var visible = 0;
+    entries.forEach(function (entry) {
+      var matchesCategory = activeCategory === 'all' || entry.dataset.category === activeCategory;
+      var matchesQuery = query === '' || entry.dataset.title.indexOf(query) !== -1;
+      var show = matchesCategory && matchesQuery;
+      entry.hidden = !show;
+      if (show) visible++;
+    });
+    emptyState.classList.toggle('show', visible === 0);
+  }
+
+  pills.forEach(function (pill) {
+    pill.addEventListener('click', function () {
+      pills.forEach(function (p) { p.setAttribute('aria-pressed', 'false'); });
+      pill.setAttribute('aria-pressed', 'true');
+      activeCategory = pill.dataset.filter;
+      applyFilters();
+    });
+  });
+
+  searchInput.addEventListener('input', applyFilters);
+})();
+</script>
 </body>
 </html>
