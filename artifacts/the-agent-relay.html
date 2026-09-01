@@ -1,0 +1,519 @@
+<!doctype html><html><head><!-- frame-runtime --><script>window.__FRAME_PREAMBLE={"v":1,"capabilities":{"artifact":"artifact.DF6_9MzE.js","assets":"assets.8Gk803W0.js","comments":"comments.vw5vQdGA.js","db":"db.h-3sndFg.js","downloads":"downloads.C3GSvEDP.js","embed":"embed.CxGAyc-v.js","mcp":"mcp.Bvma3qD7.js","network":"network.B5UA9Su4.js","notifications":"notifications.ssU4jy7G.js","permissions":"permissions.BNySkLV5.js","room":"room.BMMoe2BY.js","sample":"sample.BW2Uysoh.js","self":"artifact.DF6_9MzE.js","user":"user.BpKav-Rf.js"},"transforms":"_transforms.DSB5x63f.js","comments":"_comments.C6E0cR5g.js","translate":"_translate.5HCW4BJh.js"}</script><script>(function(){"use strict";var te=["light","dark","system"],re=/^[A-Za-z0-9_-]{1,64}$/,$=/^[a-zA-Z_:][a-zA-Z0-9_:.-]{0,127}$/,ne=new Set(["class","hidden","value","checked","style","title","alt","placeholder","lang","dir","role","tabindex","disabled","readonly","contenteditable","open","colspan","rowspan"]);function oe(e){const t=e.toLowerCase();return t.startsWith("data-")||t.startsWith("aria-")||ne.has(t)}var Be="http://www.w3.org/1999/xhtml",se="http://www.w3.org/2000/svg",ae=new Set(["script","style","iframe","noscript","noframes","noembed","xmp","plaintext","template","title","textarea","object","embed"]),ie=new Set(["script","style"]);function ce(e){const t=e.localName.toLowerCase();return e.namespaceURI==="http://www.w3.org/1999/xhtml"?!ae.has(t):e.namespaceURI===se?!ie.has(t):!1}function M(e,t){return e===t||(e===160||e===32)&&(t===160||t===32)}function le(e,t){const r=e.length,n=t.length;let s=0;for(;s<r&&s<n&&M(e.charCodeAt(s),t.charCodeAt(s));)s++;let o=0;for(;o<r-s&&o<n-s&&M(e.charCodeAt(r-1-o),t.charCodeAt(n-1-o));)o++;return{p:s,s:o}}function ue(e,t){const r=e.firstChild;if(e.childNodes.length!==1||r===null||r.nodeType!==Node.TEXT_NODE){e.textContent=t;return}const n=r.data,s=n.length,o=t.length,{p:i,s:c}=le(n,t);i===s&&c===0&&s===o||r.replaceData(i,s-i-c,t.slice(i,o-c));const h=r.data,p=e.ownerDocument.getSelection?.()??null,w=p!==null&&p.rangeCount>0&&(p.anchorNode===r||p.focusNode===r)?{anchor:p.anchorNode,anchorOffset:p.anchorOffset,focus:p.focusNode,focusOffset:p.focusOffset}:null;let m=-1,g=-1;for(let f=0;f<h.length&&f<t.length;f++){const v=h.charCodeAt(f),b=t.charCodeAt(f);v!==b&&M(v,b)&&(m<0&&(m=f),g=f)}const a=m>=0;if(a&&r.replaceData(m,g-m+1,t.slice(m,g+1)),a&&w!==null&&w.anchor!==null&&w.focus!==null)try{p.setBaseAndExtent(w.anchor,w.anchorOffset,w.focus,w.focusOffset)}catch{}}var fe=new Set(["html","head","body","frameset"]);function de(e){return e.namespaceURI==="http://www.w3.org/1999/xhtml"&&fe.has(e.localName)}function pe(e){if(e===null||typeof e!="object")return!1;const t=e;if(typeof t.target!="string"||!re.test(t.target)||t.text!==void 0&&typeof t.text!="string")return!1;if(t.attrsSet!==void 0){if(t.attrsSet===null||typeof t.attrsSet!="object")return!1;for(const[r,n]of Object.entries(t.attrsSet))if(!$.test(r)||typeof n!="string")return!1}if(t.attrsRemoved!==void 0){if(!Array.isArray(t.attrsRemoved))return!1;for(const r of t.attrsRemoved)if(typeof r!="string"||!$.test(r))return!1}return!0}function me(e,t){if(e===null||typeof e!="object")return!1;const{seq:r,elements:n}=e;if(typeof r!="number"||!Number.isSafeInteger(r)||!Array.isArray(n)||n.length===0||n.length>64)return!1;for(let s=0;s<n.length;s++)if(!t(n[s]))return!1;return!0}function he(e){return e===null||typeof e!="object"?!1:me(e.__frame_patch,pe)}function _e(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function ve(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function ye(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const r=t.theme;return typeof r=="string"&&te.includes(r)}var A=/^[\w.-]+\.js$/;function we(e,t,r){return r?"inert":typeof t=="string"&&A.test(t)?e?[t]:"inert":e?"inert":"framed"}function ge(){return{post(e,t){parent.postMessage(e,t)},on(e){const t=r=>{r.source===parent&&e(r.data,r.origin,r.isTrusted)};return addEventListener("message",t),()=>removeEventListener("message",t)}}}function be(){return{post:()=>{},on:()=>()=>{}}}var j="__frame_scroll",Ee=150,Ae=310,Se=160,Te=3e4;function ke(){let e=0,t=!1,r=!1,n=!1,s=0,o=null;const i=l=>{try{sessionStorage.setItem(j,JSON.stringify({y:l}))}catch{}},c=()=>{if(clearTimeout(e),o===null)return;const l=o;o=null,i(l)},h=()=>{if(t){t=!1;return}r=!0,o=scrollY,clearTimeout(e),e=setTimeout(c,Ee)};try{addEventListener("scroll",h,{passive:!0}),addEventListener("pagehide",c)}catch{}const p=()=>{let l;try{l=sessionStorage.getItem(j)}catch{return null}if(l===null)return null;let _;try{_=JSON.parse(l)}catch{_=null}const d=_?.y;if(!(typeof d=="number"&&Number.isFinite(d)&&d>=0)){try{sessionStorage.removeItem(j)}catch{}return null}return d};let w=!1;const m=l=>{try{const _=scrollY;scrollTo({top:l,left:0,behavior:"instant"}),s=l,n=!0,clearTimeout(e),o=null,i(l);const d=scrollY;d!==_&&(t=!0),d!==l&&!w&&(w=!0,addEventListener("load",()=>{try{if(scrollY===d){const T=p();m(T!==null?T:s)}}catch{}},{once:!0}))}catch{}},g=()=>{try{return!!location.hash}catch{return!0}};let a=!1;const f=()=>{try{if(a||innerWidth>Ae||innerHeight>Se)return;a=!0;const l=Date.now(),_=()=>{try{removeEventListener("resize",_)}catch{}if(Date.now()-l>Te||r||g())return;const d=p();m(d!==null?d:s)};addEventListener("resize",_)}catch{}};let v=!1,b=!1;return{restore(){if(v||(v=!0,g()))return;const l=p();l!==null&&(m(l),f())},promoted(){if(b||(b=!0,g()))return;const l=p();l!==null?(m(l),f()):n&&m(s)}}}function Re(e,t,r,n){let s=null;try{s=window.trustedTypes?.createPolicy("frame-runtime",{createScriptURL:h=>h})??null}catch{}const o=window.Worker,i=o?.prototype,c=Object.freeze({Worker:o,workerOn:i?.addEventListener,workerPost:i?.postMessage,workerTerminate:i?.terminate,fetch:window.fetch.bind(window),preventDefault:Event.prototype.preventDefault,policy:s,origins:t});r(e).then(h=>h?.bootTopLevel?h.bootTopLevel(c,n):n.settle()).catch(()=>n.settle())}var De="modulepreload",Ie=function(e){return"/"+e},Ue={},Le=function(t,r,n){let s=Promise.resolve();function o(i){const c=new Event("vite:preloadError",{cancelable:!0});if(c.payload=i,window.dispatchEvent(c),!c.defaultPrevented)throw i}return s.then(i=>{for(const c of i||[])c.status==="rejected"&&o(c.reason);return t().catch(o)})},Oe=window===top,q=Object.getOwnPropertyDescriptor(window,"claude"),k=we(Oe,window.__FRAME_PREAMBLE?.topLevel,q?.writable===!1),N=typeof k=="object"&&k[0],y=N?be():ge();(function(){const e=Object.defineProperty,t=globalThis,r=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let n=0;for(let s=0;s<r.length;s++){const o=r[s];try{e(t,o,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[o]}catch{}try{e(t,o,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[o]=="function"&&n++}if(n&&k==="framed")try{y.post({__frame_rtc_lockdown_failed:n},"*")}catch{}})();var Pe=1e4,Y=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function X(e){for(const t of Y)if(t.endsWith(":*"))try{const r=new URL(e);if(`${r.protocol}//${r.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}var R=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),B=window.__FRAME_PREAMBLE?.transforms,D=window.__FRAME_PREAMBLE?.comments,I=window.__FRAME_PREAMBLE?.translate;function S(e){return Le(()=>import("/_runtime/"+e),void 0)}function G(e,t){return{contract:e.contract,changes:new Set(e.changes??[]),flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:new Map,shellOrigin:t,mount:x,hooks:O,pipe:()=>({wrap:(r,n)=>(...s)=>{try{return n(...s)}catch(o){return Promise.reject(o)}}})}}var L=null,E=null;function V(e,t,r){try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var U=!1,O={editBefore:null,edit:null};function Ce(e,t,r=!1){const n=[];let s;if(r)try{O.editBefore?.(e)}catch{}for(const o of e.elements){const i=document.querySelector(`[data-id="${o.target}"]`);if(!i){s=o.target;break}if([...Object.keys(o.attrsSet??{}),...o.attrsRemoved??[]].some(c=>!oe(c))){s=o.target;break}if(o.text!==void 0&&(!ce(i)||de(i))){s=o.target;break}for(const[c,h]of Object.entries(o.attrsSet??{}))if(!J(i,c)){try{i.setAttribute(c,h)}catch{}Z(i,c,h)}for(const c of o.attrsRemoved??[])J(i,c)||(i.removeAttribute(c),Z(i,c,null));typeof o.text=="string"&&ue(i,o.text),n.push(o.target)}if(r)try{O.edit?.(e.seq,n,s)}catch{}if(s!==void 0){y.post({__frame_patch_miss:{seq:e.seq}},t);return}try{document.dispatchEvent(new CustomEvent("claude:edit",{detail:{seq:e.seq,targets:n}}))}catch{}}function Z(e,t,r){if(!(e instanceof HTMLInputElement))return;const n=t.toLowerCase();n==="checked"?e.checked=r!==null:n==="value"&&e.type!=="file"&&(e.value=r??"")}function J(e,t){const r=t.toLowerCase(),n=e;return r==="data-id"||(r==="value"||r==="checked")&&(n.__artifactSecret===!0||/^(password|hidden|file)$/.test(n.type??"")||/(^|\s)(cc-|one-time-code|current-password|new-password)/i.test(`${e.getAttribute("autocomplete")??""} ${n.autocomplete??""}`))}function Q(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,U=!0):U&&(delete t.dataset.theme,t.style.colorScheme="",U=!1)}var P=new Map;function Me(){let e;const t={u:new Promise(r=>{e=r}),r:r=>{t.done=!0,e(r)},done:!1,nulled:!1};return t}function F(){for(const e of P.values())e.done||(e.nulled=!0,e.r(null))}var je=Object.freeze(Object.assign(Object.create(null),{call:Function.prototype.call,apply:Function.prototype.apply,bind:Function.prototype.bind})),x=(e,t)=>{const r=P.get(e);if(!r||r.done){r?.nulled&&E&&y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:e}},E);return}const n=typeof t=="function"?Object.setPrototypeOf(t,je):Object.assign(Object.create(null),t);typeof n.then=="function"&&delete n.then,r.r(Object.freeze(n))};function ee(){const e=q?.value??{};V(window,"claude",e);for(const t of Object.keys(R)){if(e[t]!==void 0){V(e,t,e[t]);continue}P.set(t,Me())}if(e.use===void 0){const t=r=>{if(typeof r!="string"||!Object.hasOwn(R,r))return Promise.resolve(null);const n=P.get(r);return n?n.u:Promise.resolve(e[r]??null)};try{Object.defineProperty(e,"use",{value:t,writable:!0,configurable:!0,enumerable:!1})}catch{}}}if(k==="framed"){const e=B&&A.test(B)?S(B).catch(()=>{}):Promise.resolve(void 0),t=a=>{if(a.type==="auxclick"&&a.button!==1)return;const f=a.target,v=f&&f.closest?f.closest("a[href],area[href]"):null;if(!v)return;const b=v.getAttribute("href");if(!b)return;let l;try{l=new URL(b,document.baseURI)}catch{return}if((l.protocol==="http:"||l.protocol==="https:")&&l.origin!==location.origin){a.preventDefault();const _=(v.getAttribute("target")??"").toLowerCase(),d=a.type==="auxclick"||a.metaKey||a.ctrlKey||a.shiftKey||a.altKey||!["","_self","_top","_parent"].includes(_);y.post({__frame_nav:!0,url:l.href,newTab:d},"*")}};addEventListener("click",t,!0),addEventListener("auxclick",t,!0);const r={},n=a=>{a.isTrusted&&(r.pointer=!0)},s=a=>{a.isTrusted&&(r.click=!0)};addEventListener("pointermove",n,{capture:!0,passive:!0}),addEventListener("click",s,{capture:!0,passive:!0}),e.then(a=>{a?.wireNav&&(a.wireNav(),removeEventListener("click",t,!0),removeEventListener("auxclick",t,!0),removeEventListener("pointermove",n,!0),removeEventListener("click",s,!0),a.wireEngagement?.(r))});let o=null;try{o=ke()}catch{}ee();let i=null,c=null,h=0;const p=y.on((a,f)=>{X(f)&&_e(a)&&(i=a.__frame_init,E=f,p(),clearTimeout(h),c?.())});y.post({__frame_connect:!0},"*");const w=new Promise(a=>{c=a,h=setTimeout(()=>{p(),a()},Pe)}),m=document.readyState==="loading"?new Promise(a=>document.addEventListener("DOMContentLoaded",()=>a(),{once:!0})):Promise.resolve();m.then(()=>{try{o?.restore()}catch{}});const g={cb:null};y.on((a,f)=>{if(X(f)&&ve(a)){try{o?.promoted()}catch{}g.cb?.()}}),w.then(async()=>{if(!i||!E){F();return}Q(i.theme);const a=E;let f=!1,v=!1;y.on((u,z,C)=>{if(z!==a)return;ye(u)&&Q(u.__frame_theme.theme),he(u)&&Ce(u.__frame_patch,a,C);const H=u?.__fc_mode;H&&typeof H=="object"&&!f&&D&&A.test(D)&&(f=!0,S(D).then(K=>K.install?.(a,H.on===!0)).catch(()=>{}));const W=u?.__ft_cmd;W&&typeof W=="object"&&!v&&I&&A.test(I)&&(v=!0,S(I).then(K=>K.install?.(a,W)).catch(()=>{}))});const b=Object.keys(i.capabilities??{}).filter(u=>Object.hasOwn(R,u)).map(u=>[u,R[u]]).filter(u=>typeof u[1]=="string"&&A.test(u[1])),l=await Promise.allSettled(b.map(([,u])=>S(u))),_=await e,d=E;if(_?.buildBoot||y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},d),_?.buildBoot)try{L=_.buildBoot(i,_.TRANSFORMS??{},{shellOrigin:d,mount:x,hooks:O},u=>y.post({__frame_cap_telemetry:u},d))}catch{y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},d),L=G(i,d)}else L=G(i,d);const T=u=>y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:u}},d),Ne=L;l.forEach((u,z)=>{const C=b[z][0];if(u.status!=="fulfilled"){T(C);return}try{u.value?.install?.(Ne)}catch{T(C)}}),F(),await m,y.post({__frame_ready:!0},E),e.then(u=>u?.installSizeReporter?.(d,g))})}else N&&(ee(),Re(N,Y,S,{settle:F,mount:x}))})();</script><!-- /frame-runtime --><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found]){display:none!important}</style></head><body>
+<title>The Agent Relay</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap">
+<style>
+  :root{
+    color-scheme: light;
+    --bg:#f2f4f7; --surface:#ffffff; --surface-2:#e9edf2;
+    --ink:#161b22; --ink-2:#4b5563; --ink-3:#7c8794;
+    --line:#dde3ea; --line-strong:#c7d0da;
+    --accent:#b3591a; --accent-ink:#8f4513; --accent-soft:rgba(179,89,26,0.10);
+    --good:#1a8a4a; --good-bg:rgba(26,138,74,0.12);
+    --warn:#a5760a; --warn-bg:rgba(181,137,0,0.16);
+    --critical:#c23b3b; --critical-bg:rgba(194,59,59,0.12);
+    --shadow: 0 1px 2px rgba(22,27,34,0.04), 0 10px 26px -14px rgba(22,27,34,0.16);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      color-scheme: dark;
+      --bg:#0b0f16; --surface:#131924; --surface-2:#19212e;
+      --ink:#e7ebf1; --ink-2:#aab3c0; --ink-3:#78828f;
+      --line:#232c3a; --line-strong:#2f3a4a;
+      --accent:#e2914a; --accent-ink:#f0aa6c; --accent-soft:rgba(226,145,74,0.16);
+      --good:#3ecb84; --good-bg:rgba(62,203,132,0.14);
+      --warn:#e0b03c; --warn-bg:rgba(224,176,60,0.16);
+      --critical:#ff6f6f; --critical-bg:rgba(255,111,111,0.14);
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 10px 26px -14px rgba(0,0,0,0.6);
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme: dark;
+    --bg:#0b0f16; --surface:#131924; --surface-2:#19212e;
+    --ink:#e7ebf1; --ink-2:#aab3c0; --ink-3:#78828f;
+    --line:#232c3a; --line-strong:#2f3a4a;
+    --accent:#e2914a; --accent-ink:#f0aa6c; --accent-soft:rgba(226,145,74,0.16);
+    --good:#3ecb84; --good-bg:rgba(62,203,132,0.14);
+    --warn:#e0b03c; --warn-bg:rgba(224,176,60,0.16);
+    --critical:#ff6f6f; --critical-bg:rgba(255,111,111,0.14);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 10px 26px -14px rgba(0,0,0,0.6);
+  }
+
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:var(--bg); color:var(--ink); font-family:"Source Sans 3", system-ui, sans-serif; -webkit-font-smoothing:antialiased; }
+  .page{ max-width:980px; margin:0 auto; padding:48px 24px 96px; }
+  h1,h2,h3{ font-family:"JetBrains Mono", ui-monospace, monospace; letter-spacing:-0.01em; margin:0; text-wrap:balance; }
+  code{ font-family:"JetBrains Mono", monospace; font-size:0.92em; background:var(--surface-2); padding:1px 5px; border-radius:4px; border:1px solid var(--line); }
+  .mono{ font-family:"JetBrains Mono", monospace; font-variant-numeric:tabular-nums; }
+  p{ line-height:1.65; color:var(--ink-2); }
+  a{ color:var(--accent-ink); }
+
+  header{ border-bottom:1px solid var(--line-strong); padding-bottom:28px; margin-bottom:36px; }
+  .eyebrow{ font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:0.13em; text-transform:uppercase; color:var(--accent-ink); margin-bottom:14px; }
+  h1{ font-size:36px; font-weight:600; margin-bottom:12px; }
+  header p{ font-size:14.5px; max-width:72ch; margin:0; }
+
+  section{ margin-bottom:44px; }
+  .sec-head{ display:flex; align-items:baseline; gap:12px; margin-bottom:6px; }
+  .sec-num{ font-family:"JetBrains Mono",monospace; font-size:13px; color:var(--accent-ink); font-weight:600; }
+  .sec-head h2{ font-size:21px; }
+  .sec-sub{ font-size:13px; color:var(--ink-3); margin:2px 0 20px; max-width:70ch; line-height:1.55; }
+
+  /* callout: key adaptation */
+  .callout{ background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:10px; padding:18px 20px; box-shadow:var(--shadow); margin-bottom:16px; }
+  .callout h4{ font-family:"JetBrains Mono",monospace; font-size:11.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--accent-ink); font-weight:600; margin:0 0 8px; }
+  .callout p{ font-size:13.5px; margin:0; }
+  .callout p + p{ margin-top:8px; }
+
+  /* comparison grid: github-fetch design vs agent-relay adaptation */
+  .compare-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-bottom:16px; }
+  .compare-card{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:16px 18px; box-shadow:var(--shadow); }
+  .compare-card.was{ opacity:0.85; }
+  .compare-card h4{ font-family:"JetBrains Mono",monospace; font-size:10.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--ink-3); font-weight:600; margin:0 0 8px; }
+  .compare-card.now h4{ color:var(--accent-ink); }
+  .compare-card p{ font-size:13px; margin:0; color:var(--ink-2); line-height:1.55; }
+
+  /* mermaid container */
+  .diagram-card{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px 20px; box-shadow:var(--shadow); overflow-x:auto; margin-bottom:10px; }
+  .diagram-caption{ font-size:12px; color:var(--ink-3); margin:8px 2px 0; line-height:1.5; }
+
+  /* component list */
+  .component{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin-bottom:10px; box-shadow:var(--shadow); }
+  .component h4{ font-size:14px; font-weight:600; margin:0 0 6px; font-family:"Source Sans 3",sans-serif; color:var(--ink); }
+  .component p{ font-size:13px; margin:0; }
+  .component .tag{ font-family:"JetBrains Mono",monospace; font-size:10px; text-transform:uppercase; letter-spacing:0.05em; color:var(--accent-ink); background:var(--accent-soft); padding:2px 8px; border-radius:999px; margin-left:8px; vertical-align:middle; }
+
+  /* tables */
+  .table-wrap{ overflow-x:auto; background:var(--surface); border:1px solid var(--line); border-radius:12px; box-shadow:var(--shadow); margin-bottom:8px; }
+  table{ width:100%; border-collapse:collapse; font-size:12.5px; min-width:600px; }
+  thead th{ text-align:left; font-family:"JetBrains Mono",monospace; font-size:10px; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-3); font-weight:600; padding:11px 14px; border-bottom:1px solid var(--line-strong); white-space:nowrap; }
+  tbody td{ padding:11px 14px; border-bottom:1px solid var(--line); color:var(--ink-2); vertical-align:top; line-height:1.5; }
+  tbody tr:last-child td{ border-bottom:none; }
+  tbody td.num{ font-family:"JetBrains Mono",monospace; color:var(--ink); white-space:nowrap; }
+  tbody td:first-child{ color:var(--ink); font-weight:600; white-space:nowrap; }
+  .foot-note{ font-size:11.5px; color:var(--ink-3); margin:6px 2px 0; line-height:1.5; }
+
+  .chip{ font-family:"JetBrains Mono",monospace; font-size:10px; font-weight:700; padding:2px 8px; border-radius:999px; display:inline-flex; align-items:center; gap:4px; white-space:nowrap; }
+  .chip::before{ content:""; width:6px; height:6px; border-radius:50%; background:currentColor; }
+  .chip.good{ background:var(--good-bg); color:var(--good); }
+  .chip.warn{ background:var(--warn-bg); color:var(--warn); }
+  .chip.critical{ background:var(--critical-bg); color:var(--critical); }
+
+  .takeaway-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .takeaway{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:16px 18px; box-shadow:var(--shadow); }
+  .takeaway h4{ font-size:13px; font-weight:600; margin:0 0 6px; color:var(--accent-ink); font-family:"JetBrains Mono",monospace; text-transform:uppercase; letter-spacing:0.04em; }
+  .takeaway p{ font-size:13px; margin:0; }
+
+  footer{ border-top:1px solid var(--line-strong); padding-top:20px; margin-top:8px; }
+  footer p{ font-size:11.5px; color:var(--ink-3); line-height:1.6; max-width:78ch; margin:0; }
+
+  @media (max-width:720px){
+    .compare-grid, .takeaway-grid{ grid-template-columns:1fr; }
+    h1{ font-size:28px; }
+  }
+</style>
+
+<div class="page">
+
+  <header>
+    <div class="eyebrow">Systems Architecture &middot; Adapted from the GitHub-fetch relay design</div>
+    <h1>The Agent Relay</h1>
+    <p>The same caching/queueing/edge pattern used for a GitHub-data dashboard, re-derived for a fleet of Claude-powered financial agents — <code>behavioral-spending-analyst</code>, <code>financial-performance-rating</code>, <code>money-risk-management</code>, <code>buffett-style-alignment</code>, and <code>data-privacy-auditor</code> — served to iOS, Android, and Web at once. Every timing and token figure below is measured from this project's own pilot runs, not assumed.</p>
+  </header>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">00</span><h2>Why this isn't a straight port</h2></div>
+    <p class="sec-sub">The reference design optimizes for a fast, deterministic, rate-limited REST API (GitHub). An LLM agent call is none of those three things. Four properties change the architecture, not just the labels on the boxes.</p>
+
+    <div class="compare-grid">
+      <div class="compare-card was">
+        <h4>GitHub-fetch design assumed</h4>
+        <p>Sub-2-second responses. A GitHub API call for the same repo returns the same bytes every time. Rate limits are GitHub's, fixed and published. Many users share one repo → one fetch serves all of them.</p>
+      </div>
+      <div class="compare-card now">
+        <h4>What this system actually has</h4>
+        <p><b style="color:var(--ink)">35 seconds to 4.6 minutes per agent call</b>, measured. The same agent given the same input can score it differently run to run — proven in this project's own eval pilot. Rate limits are the model provider's, usage-tier-dependent. Every user's financial data is unique — nothing to batch across users.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <h4>The four adaptations that actually matter</h4>
+      <p><b>1. Latency, not milliseconds.</b> An agent call is 15–100&times; slower than a GitHub fetch. Stale-while-revalidate stops being a nice-to-have and becomes the only way the UI ever feels responsive.</p>
+      <p><b>2. Non-determinism is a first-class risk, not an edge case.</b> This project's own regression pilot found two identical financial fixtures — same numbers, only a name and city swapped — score 45 vs. 38 from the same agent. A relay that caches an agent's answer as "the" answer, forever, freezes in whichever run happened to land. The cache needs an expiry tied to agent-version hash, and a background consistency check, not just a TTL.</p>
+      <p><b>3. "Batching" doesn't mean the same thing.</b> GitHub-fetch batching merges <i>different users'</i> requests for the <i>same</i> resource. There's no equivalent here — one person's financial analysis can't be merged with another's. What replaces it is <b>fan-out/fan-in</b>: one report (a "Ledger Read") is 4–5 independent agent calls that must run in parallel and then be assembled, not one call that serves many people.</p>
+      <p><b>4. A wrong answer is a different kind of failure than a slow one.</b> GitHub rate-limiting degrades speed. An agent giving a subtly wrong risk assessment degrades trust. That's why an evaluator step belongs in the architecture itself, not just in a test suite off to the side.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">01</span><h2>System architecture</h2></div>
+    <p class="sec-sub">Six layers. The shape matches the reference design; layers 4 and 5 are rebuilt around agent economics rather than API-fetch economics.</p>
+    <div class="diagram-card">
+<pre class="mermaid">
+flowchart TB
+  subgraph CLIENT["Client Layer — multi-platform"]
+    direction LR
+    iOS["iOS App"]
+    AND["Android APK"]
+    WEB["Web PWA"]
+  end
+
+  subgraph EDGE["Edge & Delivery Layer"]
+    direction LR
+    CDN["CDN — static assets"]
+    GW["API Gateway — auth, per-user rate limit, region routing"]
+  end
+
+  subgraph APP["Relay Service — synchronous, fast path"]
+    direction LR
+    LB["Load Balancer"]
+    API["Relay API Servers — stateless"]
+    WS["WebSocket Server"]
+  end
+
+  subgraph CACHE["Cache Service"]
+    direction LR
+    REDIS["Redis — key = agent + agent-version-hash + input-hash"]
+    LRU["Per-pod LRU"]
+  end
+
+  subgraph ORCH["Agent Orchestration Layer"]
+    direction LR
+    QUEUE["Job Queue — fan-out per report"]
+    WORKERS["Agent Workers — one Claude call each, parallel"]
+    EVAL["Evaluator Worker — QA gate on flagged categories"]
+  end
+
+  subgraph DATA["Data Layer"]
+    direction LR
+    PG[("PostgreSQL — users, jobs, agent registry")]
+    TS[("TimescaleDB — score history, trajectory")]
+    OBJ[("Object Storage — report artifacts")]
+  end
+
+  LLM["Claude API — claude-sonnet-5"]
+
+  CLIENT --> EDGE --> APP
+  API --> REDIS
+  API --> LRU
+  API -- cache miss / stale --> QUEUE
+  QUEUE --> WORKERS
+  WORKERS --> LLM
+  WORKERS --> EVAL
+  EVAL --> LLM
+  WORKERS --> REDIS
+  WORKERS --> PG
+  WORKERS --> TS
+  WORKERS --> OBJ
+  WORKERS -.notify.-> WS
+  WS -.push.-> CLIENT
+</pre>
+    </div>
+    <p class="diagram-caption">The GitHub-fetch reference had one "Background Workers" box. Here it splits into agent workers (produce a finding) and an evaluator worker (grades it) — because the two failure modes, slow and wrong, need different responses.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">02</span><h2>Request lifecycle — a Ledger Read refresh</h2></div>
+    <p class="sec-sub">The path a single "refresh my report" tap actually takes, including the fan-out that a flat GitHub-fetch sequence diagram never has to show.</p>
+    <div class="diagram-card">
+<pre class="mermaid">
+sequenceDiagram
+  participant U as User
+  participant A as App
+  participant R as Relay API
+  participant C as Cache
+  participant Q as Queue
+  participant W as Agent Workers (x5, parallel)
+  participant E as Evaluator
+  participant M as Claude API
+
+  U->>A: Opens report
+  A->>R: GET /report/latest
+  R->>C: lookup(agent+version+input hash)
+  C-->>R: hit — last known result
+  R-->>A: 200 OK (instant, possibly stale)
+  A-->>U: Display cached report + "last updated" stamp
+
+  U->>A: Taps "Refresh"
+  A->>R: POST /report/refresh
+  R->>Q: enqueue 5 jobs (one per agent)
+  R-->>A: 202 Accepted
+
+  par financial-performance-rating
+    Q->>W: job 1
+    W->>M: agent call (~55–190s observed)
+    M-->>W: result
+  and money-risk-management
+    Q->>W: job 2
+    W->>M: agent call (~160–190s observed)
+    M-->>W: result
+  and buffett-style-alignment
+    Q->>W: job 3
+    W->>M: agent call (~100s observed)
+    M-->>W: result
+  and behavioral-spending-analyst
+    Q->>W: job 4
+    W->>M: agent call (~90–280s observed)
+    M-->>W: result
+  and data-privacy-auditor
+    Q->>W: job 5
+    W->>M: agent call
+    M-->>W: result
+  end
+
+  W->>E: grade flagged findings (Safety/Adversarial/Privacy categories)
+  E->>M: evaluator call
+  M-->>E: verdict + severity
+  E-->>W: pass / hold for review
+
+  W->>C: write result, keyed to current agent-version hash
+  W-->>R: job set complete
+  R-->>U: WebSocket push — new report ready
+</pre>
+    </div>
+    <p class="diagram-caption">The user never waits on the slowest agent synchronously — they see the old report immediately, then get pushed the new one whenever the fan-out finishes. This is the same stale-while-revalidate idea as the reference design, just load-bearing here because the wait is minutes, not seconds.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">03</span><h2>Cache Service — versioned by content hash, not just time</h2></div>
+    <p class="sec-sub">This is the layer that changes the most. A GitHub API response is cacheable because it's deterministic. An agent's output is cacheable only until either the input or the agent itself changes — so the cache key has to encode both.</p>
+
+    <div class="component">
+      <h4>Cache key = agent name + agent-version-hash + input-hash <span class="tag">Redis</span></h4>
+      <p>Directly reuses this project's own <code>ai-eval/results/baseline.md</code> model: every agent definition is content-hashed (<code>sha256sum | cut -c1-12</code>). When an agent's prompt is edited, its hash changes, and every cache entry keyed to the old hash is unreachable — no manual invalidation step, no stale-forever entries. In production this is the same mechanism the project's <code>PostToolUse</code> hook already uses in development, just applied to the live cache instead of a local markdown file.</p>
+    </div>
+    <div class="component">
+      <h4>TTL is data-driven, not flat <span class="tag">policy</span></h4>
+      <p>The reference design used a flat 15-minute TTL because GitHub data drifts continuously. Financial data doesn't — a user's report is valid until they import a new statement or edit a wallet. Invalidate on <i>that</i> event, not a clock; a flat TTL either re-runs expensive agent calls for no reason or serves a report that's gone stale for a real reason (new debt logged) while the clock hasn't expired yet.</p>
+    </div>
+    <div class="component">
+      <h4>Consistency sampling, not blind trust <span class="tag">new — no GitHub-fetch equivalent</span></h4>
+      <p>Because two runs of the same agent on the same input can legitimately disagree (this project's BIAS-001a/b finding — a 45 vs. 38 score gap on identical numbers), a cached result is not ground truth by construction. Periodically — or whenever a user's report swings unexpectedly between refreshes — replay the input through <code>ledger-read-evaluator</code> exactly as the <code>regression-sweep</code> skill does offline. If the delta exceeds a threshold, flag the report for review before serving it as authoritative rather than silently trusting whichever run got cached first.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">04</span><h2>Agent Orchestration Layer</h2></div>
+    <p class="sec-sub">Replaces the reference design's flat worker pool. A report is a small DAG (parallel agent calls, then an optional QA gate, then aggregation), not one job per worker.</p>
+
+    <div class="component">
+      <h4>Fan-out / fan-in, not batching <span class="tag">core difference</span></h4>
+      <p>A "Ledger Read refresh" is 4–5 independent jobs dispatched together and joined when all complete (or after a timeout, serving whichever finished with the rest marked pending). This is exactly the pattern executed manually in this project's own pilot: 10 agent invocations launched in parallel, tracked to completion, then synthesized into one report. Production needs to do that automatically — a queue that understands "these N jobs belong to one report," not just independent tasks.</p>
+    </div>
+    <div class="component">
+      <h4>Circuit breaker — against the model provider's limits <span class="tag">was: GitHub 403</span></h4>
+      <p>Same exponential-backoff idea as the reference (1s, 2s, 4s, 8s…), but tripped by the LLM provider's 429/529 responses instead of GitHub's rate-limit header. Usage-tier limits are typically requests-per-minute <i>and</i> tokens-per-minute together — a worker pool sized for request count alone can still get throttled on token volume during a burst of large-context reports.</p>
+    </div>
+    <div class="component">
+      <h4>Evaluator Worker — a QA gate in the critical path, not a side test suite</h4>
+      <p>Route a finding through <code>ledger-read-evaluator</code> before it's cached whenever it falls in a flagged category (this project's own test-bank categories: Safety, Adversarial/injection, Privacy). This costs a second model call (observed: 35–150s, 8K–31K tokens per grading pass) but catches exactly the failure this pilot demonstrated in ADV-001 — a transaction note engineered to look like a system instruction — before it ever reaches a user, not after.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">05</span><h2>Data Layer</h2></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Store</th><th>Holds</th><th>Why it's here (vs. the reference design)</th></tr></thead>
+        <tbody>
+          <tr><td>PostgreSQL</td><td>Users, auth, job records</td><td>Same role as the reference design.</td></tr>
+          <tr><td>TimescaleDB</td><td>Every agent score, over time, per user</td><td><b style="color:var(--ink)">New requirement, not optional.</b> This project's own agents keep returning "Insufficient History" for trajectory findings because there's only ever one snapshot to compare against. Storing every run's scores turns that into an actually-answerable question next time.</td></tr>
+          <tr><td>Object Storage</td><td>Rendered report artifacts (dashboards, PDFs)</td><td>Same role as the reference design's report/CSV exports.</td></tr>
+          <tr><td>Agent Registry <span class="tag">new</span></td><td>Agent definitions + their content hash, versioned</td><td>Production form of <code>ai-eval/results/baseline.md</code>. Lets the relay answer "which version of this agent produced this cached result," and supports canarying a prompt change to a slice of traffic before promoting it — the same rollback the <code>regression-sweep</code> skill was built to verify offline, now gating a live rollout.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">06</span><h2>Traffic &amp; capacity model — measured, not assumed</h2></div>
+    <p class="sec-sub">Every figure here is from this project's own pilot runs (10 test-case agent calls, 9 evaluator calls, and one live 4-agent Ledger Read refresh) — not a guess ported from the GitHub-fetch reference.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Operation</th><th>Observed duration</th><th>Observed tokens</th><th>Capacity implication</th></tr></thead>
+        <tbody>
+          <tr><td>Single agent call — small fixture</td><td class="num">35s – 191s</td><td class="num">7.8K – 34.9K</td><td>Even the "fast" end is 15–100&times; a GitHub fetch. Cache-first design isn't optional.</td></tr>
+          <tr><td>Single agent call — real report-sized data</td><td class="num">54s – 278s</td><td class="num">27K – 82K</td><td>Worst observed case (<code>behavioral-spending-analyst</code>, full transaction history): 4.6 minutes. Set client-side expectations accordingly — this is a "notify me" job, not a spinner.</td></tr>
+          <tr><td>Full 5-agent report (parallel fan-out)</td><td class="num">~4.6 min wall-clock (slowest agent)</td><td class="num">~210K – 260K total</td><td>Wall-clock ≈ the slowest single agent, <i>if</i> truly parallel. A relay that runs these sequentially turns a 5-minute report into a 15-minute one.</td></tr>
+          <tr><td>Evaluator QA pass (per flagged finding)</td><td class="num">35s – 150s</td><td class="num">8.3K – 31.5K</td><td>Only route Safety/Adversarial/Privacy-category findings through this — gating every finding roughly doubles report latency for no benefit on low-risk categories.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="foot-note">For comparison, the GitHub-fetch reference assumed 5–15 second analysis jobs. This system's jobs are its slowest-case tail, not its typical case — worker pool sizing and autoscale thresholds need to target the 191s–278s band, not an optimistic median.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">07</span><h2>Deployment</h2></div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Component</th><th>Pods</th><th>Autoscale trigger</th><th>Note</th></tr></thead>
+        <tbody>
+          <tr><td>Relay API</td><td class="num">4 min / 10 max</td><td>CPU &gt; 60%</td><td>Stateless; same role as the reference design's API tier.</td></tr>
+          <tr><td>WebSocket Server</td><td class="num">2</td><td>Active connections</td><td>Unchanged from the reference design.</td></tr>
+          <tr><td>Agent Workers</td><td class="num">6 min / 20 max</td><td>Queue length &gt; 20 jobs</td><td>Lower threshold than a GitHub-fetch worker pool would use — each job holds a slot for up to ~5 minutes, so backlog builds fast under a lower trigger than the reference's "queue &gt; 100."</td></tr>
+          <tr><td>Evaluator Workers</td><td class="num">2 min / 6 max</td><td>Flagged-finding queue &gt; 10</td><td>Small, separate pool — most findings never reach this tier.</td></tr>
+          <tr><td>Redis</td><td class="num">3 (cluster)</td><td>Manual</td><td>Unchanged.</td></tr>
+          <tr><td>PostgreSQL + TimescaleDB</td><td class="num">1 primary + 1 replica</td><td>Manual</td><td>TimescaleDB is now load-bearing (trajectory analysis), not optional.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">08</span><h2>Tech stack</h2></div>
+    <div class="callout">
+      <h4>An honest scoping note</h4>
+      <p>This project's agent definitions today (<code>.claude/agents/*.md</code>) are Claude Code subagent instructions — they run inside a Claude Code session, a single-user developer tool, not a multi-tenant backend. Everything in that instruction text (the guardrails, the evidence-tier scales, the reasoning-chain structure) is portable prompt engineering and carries over directly. What doesn't carry over as-is is the <i>runtime</i>: an always-on relay serving thousands of users needs the Agent Workers calling the Claude API (or Managed Agents) directly from custom backend code, not shelling out to a Claude Code CLI session. Treat this repo's agent files as the source of truth for prompts to port, not as the production worker code itself.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Layer</th><th>Technology</th></tr></thead>
+        <tbody>
+          <tr><td>Client framework</td><td>Flutter or React Native + Web PWA — unchanged from the reference</td></tr>
+          <tr><td>Backend language</td><td>Go or Node.js — unchanged from the reference</td></tr>
+          <tr><td>Agent runtime</td><td class="num" style="font-family:'Source Sans 3',sans-serif;color:var(--ink-2)"><b style="color:var(--ink)">Claude API</b> (<code>claude-sonnet-5</code>) via the Anthropic SDK, called from Agent Worker code — <span class="tag">was: GitHub REST API</span></td></tr>
+          <tr><td>Multi-agent orchestration</td><td>Claude API + tool use (custom fan-out/fan-in), or Managed Agents multiagent sessions if server-managed orchestration is preferred over owning the queue/worker layer</td></tr>
+          <tr><td>Message queue</td><td>RabbitMQ or Kafka — unchanged, but jobs are now DAG-aware (grouped by report ID)</td></tr>
+          <tr><td>Cache</td><td>Redis Cluster, keyed by agent-version-hash + input-hash</td></tr>
+          <tr><td>Databases</td><td>PostgreSQL + TimescaleDB — unchanged, TimescaleDB now required not optional</td></tr>
+          <tr><td>Orchestration platform</td><td>Kubernetes (EKS/GKE/AKS) — unchanged</td></tr>
+          <tr><td>Observability</td><td>Prometheus + Grafana + Jaeger, plus an eval/consistency-drift dashboard (see below) — <span class="tag">new</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">09</span><h2>Monitoring &amp; alerting</h2></div>
+    <p class="sec-sub">The reference design's alerts (queue length, API latency, rate-limit remaining) all carry over. Two are new, both direct products of this project's own eval work.</p>
+    <div class="component">
+      <h4>Consistency-drift alert <span class="tag">new</span></h4>
+      <p>Page when a live consistency sample (§03) finds a score delta past threshold on identical input — this is the production version of the <code>ledger-read-evaluator</code>'s Consistency dimension, running continuously instead of only in the offline test bank.</p>
+    </div>
+    <div class="component">
+      <h4>Severity-tier alert <span class="tag">new</span></h4>
+      <p>Page immediately on any 🔴 Critical evaluator finding in production (a fabricated fact, a dangerous recommendation, compliance with an injected instruction) — reuse this project's own severity scale (🔴 Critical / 🟠 Major / 🟡 Minor / 🟢 Pass) as the literal alerting taxonomy rather than inventing a separate one.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Metric</th><th>Threshold</th></tr></thead>
+        <tbody>
+          <tr><td>Agent job queue length</td><td>&gt; 20 for 5 min (lowered from the reference's 500 — jobs here hold a slot for minutes, not seconds)</td></tr>
+          <tr><td>Agent call p95 latency</td><td>&gt; 300s (above this project's observed 278s worst case)</td></tr>
+          <tr><td>Claude API rate-limit remaining</td><td>&lt; 10% of tier limit</td></tr>
+          <tr><td>Evaluator Critical findings</td><td>&gt; 0 — page immediately, don't batch</td></tr>
+          <tr><td>Consistency-sample score delta</td><td>&gt; 10 points on identical input — page for review</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">10</span><h2>Cost — measured tokens, current pricing</h2></div>
+    <p class="sec-sub"><code>claude-sonnet-5</code> list pricing: <b class="mono" style="color:var(--ink)">$2.00</b> / MTok input, <b class="mono" style="color:var(--ink)">$10.00</b> / MTok output. This project's pilot didn't log the input/output split, so the range below is bounded honestly rather than presented as one precise number.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Item</th><th>Tokens (observed)</th><th>Cost range (bounded, not exact)</th></tr></thead>
+        <tbody>
+          <tr><td>One full 5-agent Ledger Read refresh</td><td class="num">~211K – 260K</td><td class="num">$0.42 – $2.60 per report</td></tr>
+          <tr><td>+ evaluator QA gate on flagged findings</td><td class="num">+8K – 31K per finding</td><td class="num">+$0.02 – $0.31 per finding</td></tr>
+          <tr><td>Infra (K8s nodes, RDS, Redis, MQ, LB, CDN) — reference design's estimate, largely unaffected by the agent-vs-GitHub swap</td><td class="num">—</td><td class="num">~$605 / month</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="foot-note">At 2,000 users refreshing once a week: ~8,000 reports/month &times; $0.42–$2.60 ≈ <b class="mono" style="color:var(--ink)">$3,400 – $20,800/month</b> in model spend — the dominant cost, unlike the GitHub-fetch design where infra dominated at ~$605/month against near-zero marginal API cost. Batch API (50% cost, for non-latency-sensitive nightly report refreshes rather than on-demand ones) and prompt caching (stable system-prompt content across a user's repeated refreshes) are the first two levers worth measuring before anything else.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><span class="sec-num">11</span><h2>Key takeaways</h2></div>
+    <div class="takeaway-grid">
+      <div class="takeaway"><h4>Scalability</h4><p>Scale by parallel fan-out per report, not by request throughput alone — the bottleneck is concurrent agent-worker slots (each held for minutes), not request count.</p></div>
+      <div class="takeaway"><h4>Network</h4><p>There's nothing to batch across users the way GitHub-fetch batches shared repos. The network win here is caching + stale-while-revalidate, not request coalescing.</p></div>
+      <div class="takeaway"><h4>Efficiency</h4><p>The expensive resource is model tokens, not bandwidth. Cache-hit rate and evaluator-gate scoping (only flagged categories) are the two levers that actually move the cost curve.</p></div>
+      <div class="takeaway"><h4>Trust</h4><p>Not in the original brief, but load-bearing here: an agent can be confidently wrong. The evaluator + consistency-sampling loop exists because "fast and cached" isn't the same guarantee as "correct."</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Adapted from a GitHub-API-relay architecture originally designed for 2,000 concurrent users fetching repo data. Timing, token, and severity figures are drawn from this project's own <code>ai-eval/</code> pilot run (10 target-agent calls, 9 evaluator calls) and its original 4-agent Ledger Read refresh — not estimated. <code>claude-sonnet-5</code> pricing per Anthropic's published rate card at time of writing. Not a deployment guide — a design adaptation.</p>
+  </footer>
+
+</div>
+
+<!--claude-mermaid-runtime-begin:3477-->
+<style>.mermaid-diagram{margin-block:4px}.mermaid-diagram svg{display:block;margin:0 auto;max-width:100%;height:auto}</style>
+<script src="/_runtime/mermaid-11.16.1.min.js"></script>
+<script>(function(){
+var CFG={"palettes":{"light":{"surface":"#f4efe4","text":"#42392e","line":"#8a7f6d","border":"#7a6c52","bg":"#fffdf8"},"dark":{"surface":"#262b34","text":"#f2f3f5","line":"#a8adb8","border":"#9aa4b8","bg":"#1f232b"}}};
+if(typeof mermaid==='undefined')return;
+var pres=Array.prototype.slice.call(document.querySelectorAll('pre.mermaid')).filter(function(p){if(p.hasAttribute('data-claude-mermaid-claimed'))return false;p.setAttribute('data-claude-mermaid-claimed','1');return true;});
+if(!pres.length)return;
+var mq=window.matchMedia?window.matchMedia('(prefers-color-scheme: dark)'):null;
+var root=document.documentElement;
+var items=pres.map(function(pre){
+var mount=document.createElement('div');mount.className='mermaid-diagram';
+return {pre:pre,mount:mount,src:pre.textContent||''};
+});
+var seq=0;
+var renderGen=0;
+var lastKey='';
+function pageBg(fallback){
+var els=[document.body,document.documentElement];
+for(var i=0;i<els.length;i++){
+var c=els[i]&&getComputedStyle(els[i]).backgroundColor;
+if(c&&c!=='transparent'&&c!=='rgba(0, 0, 0, 0)')return c;
+}
+return fallback;
+}
+function render(){
+var theme=root.getAttribute('data-theme');
+var dark=theme==='dark'||(!!(mq&&mq.matches)&&theme!=='light');
+var pal=dark?CFG.palettes.dark:CFG.palettes.light;
+var bg=pageBg(pal.bg);
+var key=(dark?'d':'l')+'|'+bg;
+if(key===lastKey)return;
+lastKey=key;
+var gen=++renderGen;
+var font=getComputedStyle(document.body).fontFamily||'sans-serif';
+var nat={useMaxWidth:false};
+mermaid.initialize({
+startOnLoad:false,securityLevel:'strict',theme:'base',
+flowchart:nat,sequence:nat,er:nat,state:nat,class:nat,pie:nat,
+gantt:nat,journey:nat,timeline:nat,gitGraph:nat,mindmap:nat,xyChart:nat,
+quadrantChart:nat,sankey:nat,c4:nat,requirement:nat,block:nat,
+packet:nat,kanban:nat,architecture:nat,radar:nat,
+themeVariables:{background:bg,mainBkg:pal.surface,primaryColor:pal.surface,
+primaryTextColor:pal.text,lineColor:pal.line,primaryBorderColor:pal.border,
+nodeBorder:pal.border,clusterBorder:pal.border,edgeLabelBackground:bg,
+clusterBkg:'rgba(127,127,127,0.07)',titleColor:pal.text,
+darkMode:dark,rowOdd:bg,rowEven:'rgba(127,127,127,0.07)',
+attributeBackgroundColorOdd:bg,attributeBackgroundColorEven:'rgba(127,127,127,0.07)',
+fontSize:'16px',fontFamily:font},
+themeCSS:'.node rect, .node circle, .node polygon, .node path, .cluster rect { stroke-width: 2px; }'
+});
+items.forEach(function(it){
+var id='claude-mermaid-'+seq++;
+mermaid.render(id,it.src).then(function(r){
+if(gen!==renderGen)return;
+var prev=it.pre.previousElementSibling;
+if(prev&&prev.className==='mermaid-diagram'&&prev!==it.mount)return;
+it.mount.innerHTML=r.svg;
+if(!it.mount.parentNode)it.pre.parentNode.insertBefore(it.mount,it.pre);
+it.pre.style.display='none';
+},function(){
+var scratch=document.getElementById(id);
+if(scratch)scratch.parentNode.removeChild(scratch);
+scratch=document.getElementById('d'+id);
+if(scratch)scratch.parentNode.removeChild(scratch);
+if(gen!==renderGen)return;
+if(it.mount.parentNode)it.mount.parentNode.removeChild(it.mount);
+it.pre.style.display='';
+});
+});
+}
+render();
+if(mq&&mq.addEventListener)mq.addEventListener('change',render);
+if(typeof MutationObserver!=='undefined')new MutationObserver(render).observe(root,{attributes:true,attributeFilter:['data-theme']});
+})();</script>
+<!--claude-mermaid-runtime-end-->
+
+</body></html>

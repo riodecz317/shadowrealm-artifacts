@@ -1,0 +1,229 @@
+<!doctype html><html><head><!-- frame-runtime --><script>window.__FRAME_PREAMBLE={"v":1,"capabilities":{"artifact":"artifact.DF6_9MzE.js","assets":"assets.8Gk803W0.js","comments":"comments.vw5vQdGA.js","db":"db.h-3sndFg.js","downloads":"downloads.C3GSvEDP.js","embed":"embed.CxGAyc-v.js","mcp":"mcp.Bvma3qD7.js","network":"network.B5UA9Su4.js","notifications":"notifications.ssU4jy7G.js","permissions":"permissions.BNySkLV5.js","room":"room.BMMoe2BY.js","sample":"sample.BW2Uysoh.js","self":"artifact.DF6_9MzE.js","user":"user.BpKav-Rf.js"},"transforms":"_transforms.DSB5x63f.js","comments":"_comments.C6E0cR5g.js","translate":"_translate.5HCW4BJh.js"}</script><script>(function(){"use strict";var te=["light","dark","system"],re=/^[A-Za-z0-9_-]{1,64}$/,$=/^[a-zA-Z_:][a-zA-Z0-9_:.-]{0,127}$/,ne=new Set(["class","hidden","value","checked","style","title","alt","placeholder","lang","dir","role","tabindex","disabled","readonly","contenteditable","open","colspan","rowspan"]);function oe(e){const t=e.toLowerCase();return t.startsWith("data-")||t.startsWith("aria-")||ne.has(t)}var Be="http://www.w3.org/1999/xhtml",se="http://www.w3.org/2000/svg",ae=new Set(["script","style","iframe","noscript","noframes","noembed","xmp","plaintext","template","title","textarea","object","embed"]),ie=new Set(["script","style"]);function ce(e){const t=e.localName.toLowerCase();return e.namespaceURI==="http://www.w3.org/1999/xhtml"?!ae.has(t):e.namespaceURI===se?!ie.has(t):!1}function M(e,t){return e===t||(e===160||e===32)&&(t===160||t===32)}function le(e,t){const r=e.length,n=t.length;let s=0;for(;s<r&&s<n&&M(e.charCodeAt(s),t.charCodeAt(s));)s++;let o=0;for(;o<r-s&&o<n-s&&M(e.charCodeAt(r-1-o),t.charCodeAt(n-1-o));)o++;return{p:s,s:o}}function ue(e,t){const r=e.firstChild;if(e.childNodes.length!==1||r===null||r.nodeType!==Node.TEXT_NODE){e.textContent=t;return}const n=r.data,s=n.length,o=t.length,{p:i,s:c}=le(n,t);i===s&&c===0&&s===o||r.replaceData(i,s-i-c,t.slice(i,o-c));const h=r.data,p=e.ownerDocument.getSelection?.()??null,w=p!==null&&p.rangeCount>0&&(p.anchorNode===r||p.focusNode===r)?{anchor:p.anchorNode,anchorOffset:p.anchorOffset,focus:p.focusNode,focusOffset:p.focusOffset}:null;let m=-1,g=-1;for(let f=0;f<h.length&&f<t.length;f++){const v=h.charCodeAt(f),b=t.charCodeAt(f);v!==b&&M(v,b)&&(m<0&&(m=f),g=f)}const a=m>=0;if(a&&r.replaceData(m,g-m+1,t.slice(m,g+1)),a&&w!==null&&w.anchor!==null&&w.focus!==null)try{p.setBaseAndExtent(w.anchor,w.anchorOffset,w.focus,w.focusOffset)}catch{}}var fe=new Set(["html","head","body","frameset"]);function de(e){return e.namespaceURI==="http://www.w3.org/1999/xhtml"&&fe.has(e.localName)}function pe(e){if(e===null||typeof e!="object")return!1;const t=e;if(typeof t.target!="string"||!re.test(t.target)||t.text!==void 0&&typeof t.text!="string")return!1;if(t.attrsSet!==void 0){if(t.attrsSet===null||typeof t.attrsSet!="object")return!1;for(const[r,n]of Object.entries(t.attrsSet))if(!$.test(r)||typeof n!="string")return!1}if(t.attrsRemoved!==void 0){if(!Array.isArray(t.attrsRemoved))return!1;for(const r of t.attrsRemoved)if(typeof r!="string"||!$.test(r))return!1}return!0}function me(e,t){if(e===null||typeof e!="object")return!1;const{seq:r,elements:n}=e;if(typeof r!="number"||!Number.isSafeInteger(r)||!Array.isArray(n)||n.length===0||n.length>64)return!1;for(let s=0;s<n.length;s++)if(!t(n[s]))return!1;return!0}function he(e){return e===null||typeof e!="object"?!1:me(e.__frame_patch,pe)}function _e(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function ve(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function ye(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const r=t.theme;return typeof r=="string"&&te.includes(r)}var A=/^[\w.-]+\.js$/;function we(e,t,r){return r?"inert":typeof t=="string"&&A.test(t)?e?[t]:"inert":e?"inert":"framed"}function ge(){return{post(e,t){parent.postMessage(e,t)},on(e){const t=r=>{r.source===parent&&e(r.data,r.origin,r.isTrusted)};return addEventListener("message",t),()=>removeEventListener("message",t)}}}function be(){return{post:()=>{},on:()=>()=>{}}}var j="__frame_scroll",Ee=150,Ae=310,Se=160,Te=3e4;function ke(){let e=0,t=!1,r=!1,n=!1,s=0,o=null;const i=l=>{try{sessionStorage.setItem(j,JSON.stringify({y:l}))}catch{}},c=()=>{if(clearTimeout(e),o===null)return;const l=o;o=null,i(l)},h=()=>{if(t){t=!1;return}r=!0,o=scrollY,clearTimeout(e),e=setTimeout(c,Ee)};try{addEventListener("scroll",h,{passive:!0}),addEventListener("pagehide",c)}catch{}const p=()=>{let l;try{l=sessionStorage.getItem(j)}catch{return null}if(l===null)return null;let _;try{_=JSON.parse(l)}catch{_=null}const d=_?.y;if(!(typeof d=="number"&&Number.isFinite(d)&&d>=0)){try{sessionStorage.removeItem(j)}catch{}return null}return d};let w=!1;const m=l=>{try{const _=scrollY;scrollTo({top:l,left:0,behavior:"instant"}),s=l,n=!0,clearTimeout(e),o=null,i(l);const d=scrollY;d!==_&&(t=!0),d!==l&&!w&&(w=!0,addEventListener("load",()=>{try{if(scrollY===d){const T=p();m(T!==null?T:s)}}catch{}},{once:!0}))}catch{}},g=()=>{try{return!!location.hash}catch{return!0}};let a=!1;const f=()=>{try{if(a||innerWidth>Ae||innerHeight>Se)return;a=!0;const l=Date.now(),_=()=>{try{removeEventListener("resize",_)}catch{}if(Date.now()-l>Te||r||g())return;const d=p();m(d!==null?d:s)};addEventListener("resize",_)}catch{}};let v=!1,b=!1;return{restore(){if(v||(v=!0,g()))return;const l=p();l!==null&&(m(l),f())},promoted(){if(b||(b=!0,g()))return;const l=p();l!==null?(m(l),f()):n&&m(s)}}}function Re(e,t,r,n){let s=null;try{s=window.trustedTypes?.createPolicy("frame-runtime",{createScriptURL:h=>h})??null}catch{}const o=window.Worker,i=o?.prototype,c=Object.freeze({Worker:o,workerOn:i?.addEventListener,workerPost:i?.postMessage,workerTerminate:i?.terminate,fetch:window.fetch.bind(window),preventDefault:Event.prototype.preventDefault,policy:s,origins:t});r(e).then(h=>h?.bootTopLevel?h.bootTopLevel(c,n):n.settle()).catch(()=>n.settle())}var De="modulepreload",Ie=function(e){return"/"+e},Ue={},Le=function(t,r,n){let s=Promise.resolve();function o(i){const c=new Event("vite:preloadError",{cancelable:!0});if(c.payload=i,window.dispatchEvent(c),!c.defaultPrevented)throw i}return s.then(i=>{for(const c of i||[])c.status==="rejected"&&o(c.reason);return t().catch(o)})},Oe=window===top,q=Object.getOwnPropertyDescriptor(window,"claude"),k=we(Oe,window.__FRAME_PREAMBLE?.topLevel,q?.writable===!1),N=typeof k=="object"&&k[0],y=N?be():ge();(function(){const e=Object.defineProperty,t=globalThis,r=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let n=0;for(let s=0;s<r.length;s++){const o=r[s];try{e(t,o,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[o]}catch{}try{e(t,o,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[o]=="function"&&n++}if(n&&k==="framed")try{y.post({__frame_rtc_lockdown_failed:n},"*")}catch{}})();var Pe=1e4,Y=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function X(e){for(const t of Y)if(t.endsWith(":*"))try{const r=new URL(e);if(`${r.protocol}//${r.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}var R=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),B=window.__FRAME_PREAMBLE?.transforms,D=window.__FRAME_PREAMBLE?.comments,I=window.__FRAME_PREAMBLE?.translate;function S(e){return Le(()=>import("/_runtime/"+e),void 0)}function G(e,t){return{contract:e.contract,changes:new Set(e.changes??[]),flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:new Map,shellOrigin:t,mount:x,hooks:O,pipe:()=>({wrap:(r,n)=>(...s)=>{try{return n(...s)}catch(o){return Promise.reject(o)}}})}}var L=null,E=null;function V(e,t,r){try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var U=!1,O={editBefore:null,edit:null};function Ce(e,t,r=!1){const n=[];let s;if(r)try{O.editBefore?.(e)}catch{}for(const o of e.elements){const i=document.querySelector(`[data-id="${o.target}"]`);if(!i){s=o.target;break}if([...Object.keys(o.attrsSet??{}),...o.attrsRemoved??[]].some(c=>!oe(c))){s=o.target;break}if(o.text!==void 0&&(!ce(i)||de(i))){s=o.target;break}for(const[c,h]of Object.entries(o.attrsSet??{}))if(!J(i,c)){try{i.setAttribute(c,h)}catch{}Z(i,c,h)}for(const c of o.attrsRemoved??[])J(i,c)||(i.removeAttribute(c),Z(i,c,null));typeof o.text=="string"&&ue(i,o.text),n.push(o.target)}if(r)try{O.edit?.(e.seq,n,s)}catch{}if(s!==void 0){y.post({__frame_patch_miss:{seq:e.seq}},t);return}try{document.dispatchEvent(new CustomEvent("claude:edit",{detail:{seq:e.seq,targets:n}}))}catch{}}function Z(e,t,r){if(!(e instanceof HTMLInputElement))return;const n=t.toLowerCase();n==="checked"?e.checked=r!==null:n==="value"&&e.type!=="file"&&(e.value=r??"")}function J(e,t){const r=t.toLowerCase(),n=e;return r==="data-id"||(r==="value"||r==="checked")&&(n.__artifactSecret===!0||/^(password|hidden|file)$/.test(n.type??"")||/(^|\s)(cc-|one-time-code|current-password|new-password)/i.test(`${e.getAttribute("autocomplete")??""} ${n.autocomplete??""}`))}function Q(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,U=!0):U&&(delete t.dataset.theme,t.style.colorScheme="",U=!1)}var P=new Map;function Me(){let e;const t={u:new Promise(r=>{e=r}),r:r=>{t.done=!0,e(r)},done:!1,nulled:!1};return t}function F(){for(const e of P.values())e.done||(e.nulled=!0,e.r(null))}var je=Object.freeze(Object.assign(Object.create(null),{call:Function.prototype.call,apply:Function.prototype.apply,bind:Function.prototype.bind})),x=(e,t)=>{const r=P.get(e);if(!r||r.done){r?.nulled&&E&&y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:e}},E);return}const n=typeof t=="function"?Object.setPrototypeOf(t,je):Object.assign(Object.create(null),t);typeof n.then=="function"&&delete n.then,r.r(Object.freeze(n))};function ee(){const e=q?.value??{};V(window,"claude",e);for(const t of Object.keys(R)){if(e[t]!==void 0){V(e,t,e[t]);continue}P.set(t,Me())}if(e.use===void 0){const t=r=>{if(typeof r!="string"||!Object.hasOwn(R,r))return Promise.resolve(null);const n=P.get(r);return n?n.u:Promise.resolve(e[r]??null)};try{Object.defineProperty(e,"use",{value:t,writable:!0,configurable:!0,enumerable:!1})}catch{}}}if(k==="framed"){const e=B&&A.test(B)?S(B).catch(()=>{}):Promise.resolve(void 0),t=a=>{if(a.type==="auxclick"&&a.button!==1)return;const f=a.target,v=f&&f.closest?f.closest("a[href],area[href]"):null;if(!v)return;const b=v.getAttribute("href");if(!b)return;let l;try{l=new URL(b,document.baseURI)}catch{return}if((l.protocol==="http:"||l.protocol==="https:")&&l.origin!==location.origin){a.preventDefault();const _=(v.getAttribute("target")??"").toLowerCase(),d=a.type==="auxclick"||a.metaKey||a.ctrlKey||a.shiftKey||a.altKey||!["","_self","_top","_parent"].includes(_);y.post({__frame_nav:!0,url:l.href,newTab:d},"*")}};addEventListener("click",t,!0),addEventListener("auxclick",t,!0);const r={},n=a=>{a.isTrusted&&(r.pointer=!0)},s=a=>{a.isTrusted&&(r.click=!0)};addEventListener("pointermove",n,{capture:!0,passive:!0}),addEventListener("click",s,{capture:!0,passive:!0}),e.then(a=>{a?.wireNav&&(a.wireNav(),removeEventListener("click",t,!0),removeEventListener("auxclick",t,!0),removeEventListener("pointermove",n,!0),removeEventListener("click",s,!0),a.wireEngagement?.(r))});let o=null;try{o=ke()}catch{}ee();let i=null,c=null,h=0;const p=y.on((a,f)=>{X(f)&&_e(a)&&(i=a.__frame_init,E=f,p(),clearTimeout(h),c?.())});y.post({__frame_connect:!0},"*");const w=new Promise(a=>{c=a,h=setTimeout(()=>{p(),a()},Pe)}),m=document.readyState==="loading"?new Promise(a=>document.addEventListener("DOMContentLoaded",()=>a(),{once:!0})):Promise.resolve();m.then(()=>{try{o?.restore()}catch{}});const g={cb:null};y.on((a,f)=>{if(X(f)&&ve(a)){try{o?.promoted()}catch{}g.cb?.()}}),w.then(async()=>{if(!i||!E){F();return}Q(i.theme);const a=E;let f=!1,v=!1;y.on((u,z,C)=>{if(z!==a)return;ye(u)&&Q(u.__frame_theme.theme),he(u)&&Ce(u.__frame_patch,a,C);const H=u?.__fc_mode;H&&typeof H=="object"&&!f&&D&&A.test(D)&&(f=!0,S(D).then(K=>K.install?.(a,H.on===!0)).catch(()=>{}));const W=u?.__ft_cmd;W&&typeof W=="object"&&!v&&I&&A.test(I)&&(v=!0,S(I).then(K=>K.install?.(a,W)).catch(()=>{}))});const b=Object.keys(i.capabilities??{}).filter(u=>Object.hasOwn(R,u)).map(u=>[u,R[u]]).filter(u=>typeof u[1]=="string"&&A.test(u[1])),l=await Promise.allSettled(b.map(([,u])=>S(u))),_=await e,d=E;if(_?.buildBoot||y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},d),_?.buildBoot)try{L=_.buildBoot(i,_.TRANSFORMS??{},{shellOrigin:d,mount:x,hooks:O},u=>y.post({__frame_cap_telemetry:u},d))}catch{y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},d),L=G(i,d)}else L=G(i,d);const T=u=>y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:u}},d),Ne=L;l.forEach((u,z)=>{const C=b[z][0];if(u.status!=="fulfilled"){T(C);return}try{u.value?.install?.(Ne)}catch{T(C)}}),F(),await m,y.post({__frame_ready:!0},E),e.then(u=>u?.installSizeReporter?.(d,g))})}else N&&(ee(),Re(N,Y,S,{settle:F,mount:x}))})();</script><!-- /frame-runtime --><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Cross-Skill Ledger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F6F7FA; --surface:#FFFFFF; --surface-2:#EEF1F6; --line:#E1E4EA;
+    --ink:#14171F; --ink-soft:#5B6172; --ink-faint:#8A90A0;
+    --accent:#2453B8; --accent-soft:#EAF0FC; --accent-ink:#1B3E93;
+    --warn-bg:#FFF6E4; --warn-line:#EFCD82; --warn-ink:#7A5300;
+    --nonrn:#9A6B00; --nonrn-bg:#FBF1DE;
+    --phrn:#0E7057; --phrn-bg:#E4F5EF;
+    --usrn:#2F4FB0; --usrn-bg:#E9EDFB;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#12141C; --surface:#191C27; --surface-2:#20232F; --line:#2B2F3D;
+      --ink:#E8EAF0; --ink-soft:#9BA1B4; --ink-faint:#6D7386;
+      --accent:#7FA4FF; --accent-soft:#1E2A47; --accent-ink:#AFC5FF;
+      --warn-bg:#2C230F; --warn-line:#4A3A16; --warn-ink:#E7C271;
+      --nonrn:#E0B45C; --nonrn-bg:#2E2611;
+      --phrn:#5AD1A8; --phrn-bg:#132A22;
+      --usrn:#9FB4FF; --usrn-bg:#1B2242;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#12141C; --surface:#191C27; --surface-2:#20232F; --line:#2B2F3D;
+    --ink:#E8EAF0; --ink-soft:#9BA1B4; --ink-faint:#6D7386;
+    --accent:#7FA4FF; --accent-soft:#1E2A47; --accent-ink:#AFC5FF;
+    --warn-bg:#2C230F; --warn-line:#4A3A16; --warn-ink:#E7C271;
+    --nonrn:#E0B45C; --nonrn-bg:#2E2611;
+    --phrn:#5AD1A8; --phrn-bg:#132A22;
+    --usrn:#9FB4FF; --usrn-bg:#1B2242;
+  }
+  *{ box-sizing:border-box; }
+  html,body{ background:var(--bg); }
+  body{
+    margin:0; color:var(--ink);
+    font-family:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;
+    font-size:14.5px; line-height:1.5;
+    padding:56px 24px 80px;
+  }
+  .page{ max-width:920px; margin:0 auto; display:flex; flex-direction:column; gap:34px; }
+
+  header{ display:flex; flex-direction:column; gap:10px; }
+  .eyebrow{
+    font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:11px; font-weight:600;
+    letter-spacing:.09em; text-transform:uppercase; color:var(--accent);
+  }
+  h1{
+    font-family:'Fraunces',Georgia,'Times New Roman',serif; font-weight:600;
+    font-size:clamp(30px,4vw,40px); margin:0; letter-spacing:-.01em; text-wrap:balance;
+    color:var(--ink);
+  }
+  .meta{ color:var(--ink-soft); font-size:13px; }
+  .meta code{
+    font-family:'IBM Plex Mono',ui-monospace,monospace; font-size:12px;
+    background:var(--surface-2); padding:1px 6px; border-radius:4px; color:var(--ink);
+  }
+
+  .callout{
+    display:flex; gap:12px; align-items:flex-start;
+    background:var(--warn-bg); border:1px solid var(--warn-line); color:var(--warn-ink);
+    font-size:13px; line-height:1.55; padding:14px 16px; border-radius:8px;
+  }
+  .callout .mark{ font-family:'IBM Plex Mono',monospace; font-weight:600; flex-shrink:0; }
+
+  .accounts{ display:flex; flex-direction:column; gap:22px; }
+  .account{
+    background:var(--surface); border:1px solid var(--line); border-radius:10px;
+    padding:20px 22px 22px; display:flex; flex-direction:column; gap:14px;
+  }
+  .account-head{ display:flex; align-items:baseline; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+  h2{
+    font-family:'Fraunces',Georgia,serif; font-weight:600; font-size:19px; margin:0;
+    letter-spacing:-.005em;
+  }
+  .count{
+    font-family:'IBM Plex Mono',monospace; font-size:11.5px; font-weight:600;
+    font-variant-numeric:tabular-nums; color:var(--accent-ink);
+    background:var(--accent-soft); border-radius:999px; padding:3px 11px;
+    white-space:nowrap;
+  }
+
+  .table-scroll{ overflow-x:auto; }
+  table{ width:100%; min-width:640px; border-collapse:collapse; font-size:13px; }
+  th{
+    text-align:left; font-family:'IBM Plex Mono',monospace; font-weight:600;
+    font-size:10.5px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-faint);
+    padding:0 10px 8px; border-bottom:1px solid var(--line);
+  }
+  td{ padding:10px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  tbody tr:last-child td{ border-bottom:none; }
+
+  .profile{
+    display:inline-block; font-family:'IBM Plex Mono',monospace; font-size:10.5px;
+    font-weight:600; letter-spacing:.03em; padding:2px 8px; border-radius:5px; white-space:nowrap;
+  }
+  .profile.NON-RN{ color:var(--nonrn); background:var(--nonrn-bg); }
+  .profile.PHRN{ color:var(--phrn); background:var(--phrn-bg); }
+  .profile.USRN{ color:var(--usrn); background:var(--usrn-bg); }
+
+  .sp{ font-weight:600; color:var(--ink); }
+  .flow{ font-variant-numeric:tabular-nums; }
+  .flow .arrow{ color:var(--accent); }
+  .remark{ color:var(--ink-soft); font-size:12px; }
+  .unspecified{ color:var(--ink-faint); font-style:italic; }
+
+  footer{
+    font-size:12px; color:var(--ink-faint); border-top:1px solid var(--line);
+    padding-top:16px; line-height:1.6;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="eyebrow">Internal Staffing Operations</div>
+    <h1>Cross-Skill Ledger</h1>
+    <div class="meta">
+      Source <code>LOB Masterfile (Process Scope).xlsx</code> — Cross-Skill_Mapping tab · transcribed 2026-08-26 · internal leadership use only
+    </div>
+  </header>
+
+  <div class="callout">
+    <span class="mark">Δ</span>
+    <span><strong>Coverage gap:</strong> rows 8–14 of the source sheet were hidden/filtered at the time of capture, so whichever accounts or sub-processes live there are not represented below. Pull the live workbook for full coverage.</span>
+  </div>
+
+  <div class="accounts">
+
+    <section class="account">
+      <div class="account-head"><h2>Cigna Clinical</h2><span class="count">7 sub-processes</span></div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th style="width:9%">Profile</th><th style="width:27%">Sub-process</th><th>Cross-skilled to</th><th style="width:22%">Remarks</th></tr></thead>
+          <tbody>
+            <tr><td><span class="profile NON-RN">NON-RN</span></td><td class="sp">US Commercial – CIGNA THN ADHOC</td><td class="flow">4 EISS <span class="arrow">→</span> TOC/COC <span class="remark">(same sub-process)</span></td><td class="remark">—</td></tr>
+            <tr><td><span class="profile PHRN">PHRN</span></td><td class="sp">Cigna Medical Case Mgt PA</td><td class="flow">EHE PA <span class="arrow">→</span> PPA: 2 · Case Review <span class="arrow">→</span> PPA: 2 · THN/ADHOC <span class="arrow">→</span> PPA: 2</td><td class="remark">No instance to work / re-skilled to previous L…</td></tr>
+            <tr><td><span class="profile PHRN">PHRN</span></td><td class="sp">CIGNA THN ADHOC</td><td class="flow">EISS <span class="arrow">→</span> THN Adhoc: 1</td><td class="remark">—</td></tr>
+            <tr><td><span class="profile USRN">USRN</span></td><td class="sp">CIGNA Medical Case Mgt PCM</td><td class="flow">PNA <span class="arrow">→</span> PCM: 8 · TCM: 2</td><td class="remark">—</td></tr>
+            <tr><td><span class="profile USRN">USRN</span></td><td class="sp">CIGNA Medical Case Mgt PNA</td><td class="flow">CHIL <span class="arrow">→</span> PNA: 7</td><td class="remark">—</td></tr>
+            <tr><td><span class="profile USRN">USRN</span></td><td class="sp">US Commercial – Cigna Med Case Mgt CPAN</td><td class="flow">CPAN <span class="arrow">→</span> IPCM: 10</td><td class="remark">—</td></tr>
+            <tr><td><span class="profile USRN">USRN</span></td><td class="sp">US Commercial – Cigna Med Case Mgt IPCM</td><td class="flow">CPAN <span class="arrow">→</span> IPCM: 13</td><td class="remark">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="account">
+      <div class="account-head"><h2>Cohere</h2><span class="count">2 sub-processes</span></div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th style="width:9%">Profile</th><th style="width:27%">Sub-process</th><th>Cross-skilled to</th><th style="width:22%">Remarks</th></tr></thead>
+          <tbody>
+            <tr><td><span class="profile NON-RN">NON-RN</span></td><td class="sp">Cohere Intake</td><td class="flow"><em>Non-clinical:</em> Intake Inbound <span class="arrow">→</span> Fax, Offline P2P and/or Missing Info: 37</td><td class="remark">Clinical nurses hold ≥2 skill sets for exam</td></tr>
+            <tr><td><span class="profile USRN">USRN</span></td><td class="sp">Cohere Clinician</td><td class="flow">Injection, Ortho, Surgical, DI, PET, Therapy, Cardio, CV Invasive, MCOT/ILR: 60</td><td class="remark">Calls overflow; therapy notes/precerts; Med CS QL1</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="account">
+      <div class="account-head"><h2>Enlyte Clinical</h2><span class="count">5 sub-processes</span></div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th style="width:9%">Profile</th><th style="width:27%">Sub-process</th><th>Cross-skilled to</th><th style="width:22%">Remarks</th></tr></thead>
+          <tbody>
+            <tr><td><span class="profile NON-RN">NON-RN</span></td><td class="sp">Qual-Lynx – QL1</td><td class="flow"><span class="arrow">→</span> QL2</td><td class="remark">—</td></tr>
+            <tr><td><span class="profile NON-RN">NON-RN</span></td><td class="sp">Qual-Lynx – QL2</td><td class="flow"><span class="arrow">→</span> QL1</td><td class="remark">—</td></tr>
+            <tr><td><span class="profile NON-RN">NON-RN</span></td><td class="sp">Qual-Lynx – QL4</td><td class="flow">QL4 <span class="arrow">→</span> QL1: 1</td><td class="remark">—</td></tr>
+            <tr><td><span class="profile NON-RN">NON-RN</span></td><td class="sp">Qual-Lynx – QL5</td><td class="flow">QL5 <span class="arrow">→</span> QL4: 2</td><td class="remark">—</td></tr>
+            <tr><td><span class="profile PHRN">PHRN</span></td><td class="sp">Qual-Lynx – QL1</td><td class="flow"><span class="arrow">→</span> QL2</td><td class="remark">Calls overflow</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="account">
+      <div class="account-head"><h2>Humana Clinical</h2><span class="count">11 sub-processes</span></div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th style="width:9%">Profile</th><th style="width:27%">Sub-process</th><th>Cross-skilled to</th><th style="width:22%">Remarks</th></tr></thead>
+          <tbody>
+            <tr><td><span class="profile NON-RN">NON-RN</span></td><td class="sp">Humana Care Coach – Post ER</td><td class="flow"><span class="arrow">→</span> Care Coach Controlling Blood Pressure</td><td class="remark">—</td></tr>
+            <tr><td><span class="profile NON-RN">NON-RN</span></td><td class="sp">Humana Care Coach Controlling Blood Pressure</td><td class="flow"><span class="arrow">→</span> Care Coach – Post ER</td><td class="remark">—</td></tr>
+            <tr><td><span class="profile NON-RN">NON-RN</span></td><td class="sp">Humana CIT Fax</td><td class="flow"><span class="arrow">→</span> CIT Special Projects</td><td class="remark">PHL Humana CIT</td></tr>
+            <tr><td><span class="profile NON-RN">NON-RN</span></td><td class="sp">Humana CIT Medicaid &amp; LTC</td><td class="unspecified">Not specified in source</td><td class="remark">—</td></tr>
+            <tr><td><span class="profile NON-RN">NON-RN</span></td><td class="sp">Humana CIT Special Projects</td><td class="flow"><span class="arrow">→</span> CIT Fax</td><td class="remark">PHL Humana P2P; PHL Humana CIT</td></tr>
+            <tr><td><span class="profile NON-RN">NON-RN</span></td><td class="sp">PHL Humana CIT</td><td class="unspecified">Not specified in source</td><td class="remark">—</td></tr>
+            <tr><td><span class="profile NON-RN">NON-RN</span></td><td class="sp">PHL Humana P2P</td><td class="unspecified">Not specified in source</td><td class="remark">—</td></tr>
+            <tr><td><span class="profile PHRN">PHRN</span></td><td class="sp">Humana PHP Clinical Appeals</td><td class="flow">Cross-trained to IP and OP: 9</td><td class="remark">—</td></tr>
+            <tr><td><span class="profile PHRN">PHRN</span></td><td class="sp">Humana PHP Clinical Expedited Appeals</td><td class="flow">Triage <span class="arrow">→</span> Clinical Prep: 24 · Genetics <span class="arrow">→</span> Medicare Pre Auth: 19 · Transplant <span class="arrow">→</span> Genetics: 5 · Diagnostic Imaging <span class="arrow">→</span> Genetics: 5 · Pre Auth <span class="arrow">→</span> DME: 2 · Sleep <span class="arrow">→</span> Pre Auth: 3 · DME <span class="arrow">→</span> Pre Auth: 5</td><td class="remark">Row boundary ambiguous in photo — verify vs. live file</td></tr>
+            <tr><td><span class="profile USRN">USRN</span></td><td class="sp">Humana PHP CIT Clinical</td><td class="unspecified">Not specified in source</td><td class="remark">—</td></tr>
+            <tr><td><span class="profile USRN">USRN</span></td><td class="sp">Humana PHP CIT Clinical CCR DME</td><td class="unspecified">Not separately legible</td><td class="remark">See DME → Pre Auth: 5 above</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="account">
+      <div class="account-head"><h2>SmithRx</h2><span class="count">1 sub-process</span></div>
+      <div class="table-scroll">
+        <table>
+          <thead><tr><th style="width:9%">Profile</th><th style="width:27%">Sub-process</th><th>Cross-skilled to</th><th style="width:22%">Remarks</th></tr></thead>
+          <tbody>
+            <tr><td><span class="profile NON-RN">NON-RN</span></td><td class="sp">Intake</td><td class="flow"><em>Non-clinical:</em> Intake Data Entry <span class="arrow">→</span> IRO (Appeal Review)</td><td class="remark">—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    Every figure above is transcribed as-is from the source screenshot — nothing estimated or rounded. Where a destination sub-process wasn't legible in the photo, it's marked <span class="unspecified">not specified in source</span> rather than guessed. Internal leadership use only — not for external distribution.
+  </footer>
+
+</div>
+</body>
+</html>
+
+</body></html>

@@ -1,0 +1,664 @@
+<!doctype html><html><head><!-- frame-runtime --><script>window.__FRAME_PREAMBLE={"v":1,"capabilities":{"artifact":"artifact.DF6_9MzE.js","assets":"assets.8Gk803W0.js","comments":"comments.vw5vQdGA.js","db":"db.h-3sndFg.js","downloads":"downloads.C3GSvEDP.js","embed":"embed.CxGAyc-v.js","mcp":"mcp.Bvma3qD7.js","network":"network.B5UA9Su4.js","notifications":"notifications.ssU4jy7G.js","permissions":"permissions.BNySkLV5.js","room":"room.BMMoe2BY.js","sample":"sample.BW2Uysoh.js","self":"artifact.DF6_9MzE.js","user":"user.BpKav-Rf.js"},"transforms":"_transforms.DSB5x63f.js","comments":"_comments.C6E0cR5g.js","translate":"_translate.5HCW4BJh.js"}</script><script>(function(){"use strict";var te=["light","dark","system"],re=/^[A-Za-z0-9_-]{1,64}$/,$=/^[a-zA-Z_:][a-zA-Z0-9_:.-]{0,127}$/,ne=new Set(["class","hidden","value","checked","style","title","alt","placeholder","lang","dir","role","tabindex","disabled","readonly","contenteditable","open","colspan","rowspan"]);function oe(e){const t=e.toLowerCase();return t.startsWith("data-")||t.startsWith("aria-")||ne.has(t)}var Be="http://www.w3.org/1999/xhtml",se="http://www.w3.org/2000/svg",ae=new Set(["script","style","iframe","noscript","noframes","noembed","xmp","plaintext","template","title","textarea","object","embed"]),ie=new Set(["script","style"]);function ce(e){const t=e.localName.toLowerCase();return e.namespaceURI==="http://www.w3.org/1999/xhtml"?!ae.has(t):e.namespaceURI===se?!ie.has(t):!1}function M(e,t){return e===t||(e===160||e===32)&&(t===160||t===32)}function le(e,t){const r=e.length,n=t.length;let s=0;for(;s<r&&s<n&&M(e.charCodeAt(s),t.charCodeAt(s));)s++;let o=0;for(;o<r-s&&o<n-s&&M(e.charCodeAt(r-1-o),t.charCodeAt(n-1-o));)o++;return{p:s,s:o}}function ue(e,t){const r=e.firstChild;if(e.childNodes.length!==1||r===null||r.nodeType!==Node.TEXT_NODE){e.textContent=t;return}const n=r.data,s=n.length,o=t.length,{p:i,s:c}=le(n,t);i===s&&c===0&&s===o||r.replaceData(i,s-i-c,t.slice(i,o-c));const h=r.data,p=e.ownerDocument.getSelection?.()??null,w=p!==null&&p.rangeCount>0&&(p.anchorNode===r||p.focusNode===r)?{anchor:p.anchorNode,anchorOffset:p.anchorOffset,focus:p.focusNode,focusOffset:p.focusOffset}:null;let m=-1,g=-1;for(let f=0;f<h.length&&f<t.length;f++){const v=h.charCodeAt(f),b=t.charCodeAt(f);v!==b&&M(v,b)&&(m<0&&(m=f),g=f)}const a=m>=0;if(a&&r.replaceData(m,g-m+1,t.slice(m,g+1)),a&&w!==null&&w.anchor!==null&&w.focus!==null)try{p.setBaseAndExtent(w.anchor,w.anchorOffset,w.focus,w.focusOffset)}catch{}}var fe=new Set(["html","head","body","frameset"]);function de(e){return e.namespaceURI==="http://www.w3.org/1999/xhtml"&&fe.has(e.localName)}function pe(e){if(e===null||typeof e!="object")return!1;const t=e;if(typeof t.target!="string"||!re.test(t.target)||t.text!==void 0&&typeof t.text!="string")return!1;if(t.attrsSet!==void 0){if(t.attrsSet===null||typeof t.attrsSet!="object")return!1;for(const[r,n]of Object.entries(t.attrsSet))if(!$.test(r)||typeof n!="string")return!1}if(t.attrsRemoved!==void 0){if(!Array.isArray(t.attrsRemoved))return!1;for(const r of t.attrsRemoved)if(typeof r!="string"||!$.test(r))return!1}return!0}function me(e,t){if(e===null||typeof e!="object")return!1;const{seq:r,elements:n}=e;if(typeof r!="number"||!Number.isSafeInteger(r)||!Array.isArray(n)||n.length===0||n.length>64)return!1;for(let s=0;s<n.length;s++)if(!t(n[s]))return!1;return!0}function he(e){return e===null||typeof e!="object"?!1:me(e.__frame_patch,pe)}function _e(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function ve(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function ye(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const r=t.theme;return typeof r=="string"&&te.includes(r)}var A=/^[\w.-]+\.js$/;function we(e,t,r){return r?"inert":typeof t=="string"&&A.test(t)?e?[t]:"inert":e?"inert":"framed"}function ge(){return{post(e,t){parent.postMessage(e,t)},on(e){const t=r=>{r.source===parent&&e(r.data,r.origin,r.isTrusted)};return addEventListener("message",t),()=>removeEventListener("message",t)}}}function be(){return{post:()=>{},on:()=>()=>{}}}var j="__frame_scroll",Ee=150,Ae=310,Se=160,Te=3e4;function ke(){let e=0,t=!1,r=!1,n=!1,s=0,o=null;const i=l=>{try{sessionStorage.setItem(j,JSON.stringify({y:l}))}catch{}},c=()=>{if(clearTimeout(e),o===null)return;const l=o;o=null,i(l)},h=()=>{if(t){t=!1;return}r=!0,o=scrollY,clearTimeout(e),e=setTimeout(c,Ee)};try{addEventListener("scroll",h,{passive:!0}),addEventListener("pagehide",c)}catch{}const p=()=>{let l;try{l=sessionStorage.getItem(j)}catch{return null}if(l===null)return null;let _;try{_=JSON.parse(l)}catch{_=null}const d=_?.y;if(!(typeof d=="number"&&Number.isFinite(d)&&d>=0)){try{sessionStorage.removeItem(j)}catch{}return null}return d};let w=!1;const m=l=>{try{const _=scrollY;scrollTo({top:l,left:0,behavior:"instant"}),s=l,n=!0,clearTimeout(e),o=null,i(l);const d=scrollY;d!==_&&(t=!0),d!==l&&!w&&(w=!0,addEventListener("load",()=>{try{if(scrollY===d){const T=p();m(T!==null?T:s)}}catch{}},{once:!0}))}catch{}},g=()=>{try{return!!location.hash}catch{return!0}};let a=!1;const f=()=>{try{if(a||innerWidth>Ae||innerHeight>Se)return;a=!0;const l=Date.now(),_=()=>{try{removeEventListener("resize",_)}catch{}if(Date.now()-l>Te||r||g())return;const d=p();m(d!==null?d:s)};addEventListener("resize",_)}catch{}};let v=!1,b=!1;return{restore(){if(v||(v=!0,g()))return;const l=p();l!==null&&(m(l),f())},promoted(){if(b||(b=!0,g()))return;const l=p();l!==null?(m(l),f()):n&&m(s)}}}function Re(e,t,r,n){let s=null;try{s=window.trustedTypes?.createPolicy("frame-runtime",{createScriptURL:h=>h})??null}catch{}const o=window.Worker,i=o?.prototype,c=Object.freeze({Worker:o,workerOn:i?.addEventListener,workerPost:i?.postMessage,workerTerminate:i?.terminate,fetch:window.fetch.bind(window),preventDefault:Event.prototype.preventDefault,policy:s,origins:t});r(e).then(h=>h?.bootTopLevel?h.bootTopLevel(c,n):n.settle()).catch(()=>n.settle())}var De="modulepreload",Ie=function(e){return"/"+e},Ue={},Le=function(t,r,n){let s=Promise.resolve();function o(i){const c=new Event("vite:preloadError",{cancelable:!0});if(c.payload=i,window.dispatchEvent(c),!c.defaultPrevented)throw i}return s.then(i=>{for(const c of i||[])c.status==="rejected"&&o(c.reason);return t().catch(o)})},Oe=window===top,q=Object.getOwnPropertyDescriptor(window,"claude"),k=we(Oe,window.__FRAME_PREAMBLE?.topLevel,q?.writable===!1),N=typeof k=="object"&&k[0],y=N?be():ge();(function(){const e=Object.defineProperty,t=globalThis,r=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let n=0;for(let s=0;s<r.length;s++){const o=r[s];try{e(t,o,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[o]}catch{}try{e(t,o,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[o]=="function"&&n++}if(n&&k==="framed")try{y.post({__frame_rtc_lockdown_failed:n},"*")}catch{}})();var Pe=1e4,Y=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function X(e){for(const t of Y)if(t.endsWith(":*"))try{const r=new URL(e);if(`${r.protocol}//${r.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}var R=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),B=window.__FRAME_PREAMBLE?.transforms,D=window.__FRAME_PREAMBLE?.comments,I=window.__FRAME_PREAMBLE?.translate;function S(e){return Le(()=>import("/_runtime/"+e),void 0)}function G(e,t){return{contract:e.contract,changes:new Set(e.changes??[]),flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:new Map,shellOrigin:t,mount:x,hooks:O,pipe:()=>({wrap:(r,n)=>(...s)=>{try{return n(...s)}catch(o){return Promise.reject(o)}}})}}var L=null,E=null;function V(e,t,r){try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var U=!1,O={editBefore:null,edit:null};function Ce(e,t,r=!1){const n=[];let s;if(r)try{O.editBefore?.(e)}catch{}for(const o of e.elements){const i=document.querySelector(`[data-id="${o.target}"]`);if(!i){s=o.target;break}if([...Object.keys(o.attrsSet??{}),...o.attrsRemoved??[]].some(c=>!oe(c))){s=o.target;break}if(o.text!==void 0&&(!ce(i)||de(i))){s=o.target;break}for(const[c,h]of Object.entries(o.attrsSet??{}))if(!J(i,c)){try{i.setAttribute(c,h)}catch{}Z(i,c,h)}for(const c of o.attrsRemoved??[])J(i,c)||(i.removeAttribute(c),Z(i,c,null));typeof o.text=="string"&&ue(i,o.text),n.push(o.target)}if(r)try{O.edit?.(e.seq,n,s)}catch{}if(s!==void 0){y.post({__frame_patch_miss:{seq:e.seq}},t);return}try{document.dispatchEvent(new CustomEvent("claude:edit",{detail:{seq:e.seq,targets:n}}))}catch{}}function Z(e,t,r){if(!(e instanceof HTMLInputElement))return;const n=t.toLowerCase();n==="checked"?e.checked=r!==null:n==="value"&&e.type!=="file"&&(e.value=r??"")}function J(e,t){const r=t.toLowerCase(),n=e;return r==="data-id"||(r==="value"||r==="checked")&&(n.__artifactSecret===!0||/^(password|hidden|file)$/.test(n.type??"")||/(^|\s)(cc-|one-time-code|current-password|new-password)/i.test(`${e.getAttribute("autocomplete")??""} ${n.autocomplete??""}`))}function Q(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,U=!0):U&&(delete t.dataset.theme,t.style.colorScheme="",U=!1)}var P=new Map;function Me(){let e;const t={u:new Promise(r=>{e=r}),r:r=>{t.done=!0,e(r)},done:!1,nulled:!1};return t}function F(){for(const e of P.values())e.done||(e.nulled=!0,e.r(null))}var je=Object.freeze(Object.assign(Object.create(null),{call:Function.prototype.call,apply:Function.prototype.apply,bind:Function.prototype.bind})),x=(e,t)=>{const r=P.get(e);if(!r||r.done){r?.nulled&&E&&y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:e}},E);return}const n=typeof t=="function"?Object.setPrototypeOf(t,je):Object.assign(Object.create(null),t);typeof n.then=="function"&&delete n.then,r.r(Object.freeze(n))};function ee(){const e=q?.value??{};V(window,"claude",e);for(const t of Object.keys(R)){if(e[t]!==void 0){V(e,t,e[t]);continue}P.set(t,Me())}if(e.use===void 0){const t=r=>{if(typeof r!="string"||!Object.hasOwn(R,r))return Promise.resolve(null);const n=P.get(r);return n?n.u:Promise.resolve(e[r]??null)};try{Object.defineProperty(e,"use",{value:t,writable:!0,configurable:!0,enumerable:!1})}catch{}}}if(k==="framed"){const e=B&&A.test(B)?S(B).catch(()=>{}):Promise.resolve(void 0),t=a=>{if(a.type==="auxclick"&&a.button!==1)return;const f=a.target,v=f&&f.closest?f.closest("a[href],area[href]"):null;if(!v)return;const b=v.getAttribute("href");if(!b)return;let l;try{l=new URL(b,document.baseURI)}catch{return}if((l.protocol==="http:"||l.protocol==="https:")&&l.origin!==location.origin){a.preventDefault();const _=(v.getAttribute("target")??"").toLowerCase(),d=a.type==="auxclick"||a.metaKey||a.ctrlKey||a.shiftKey||a.altKey||!["","_self","_top","_parent"].includes(_);y.post({__frame_nav:!0,url:l.href,newTab:d},"*")}};addEventListener("click",t,!0),addEventListener("auxclick",t,!0);const r={},n=a=>{a.isTrusted&&(r.pointer=!0)},s=a=>{a.isTrusted&&(r.click=!0)};addEventListener("pointermove",n,{capture:!0,passive:!0}),addEventListener("click",s,{capture:!0,passive:!0}),e.then(a=>{a?.wireNav&&(a.wireNav(),removeEventListener("click",t,!0),removeEventListener("auxclick",t,!0),removeEventListener("pointermove",n,!0),removeEventListener("click",s,!0),a.wireEngagement?.(r))});let o=null;try{o=ke()}catch{}ee();let i=null,c=null,h=0;const p=y.on((a,f)=>{X(f)&&_e(a)&&(i=a.__frame_init,E=f,p(),clearTimeout(h),c?.())});y.post({__frame_connect:!0},"*");const w=new Promise(a=>{c=a,h=setTimeout(()=>{p(),a()},Pe)}),m=document.readyState==="loading"?new Promise(a=>document.addEventListener("DOMContentLoaded",()=>a(),{once:!0})):Promise.resolve();m.then(()=>{try{o?.restore()}catch{}});const g={cb:null};y.on((a,f)=>{if(X(f)&&ve(a)){try{o?.promoted()}catch{}g.cb?.()}}),w.then(async()=>{if(!i||!E){F();return}Q(i.theme);const a=E;let f=!1,v=!1;y.on((u,z,C)=>{if(z!==a)return;ye(u)&&Q(u.__frame_theme.theme),he(u)&&Ce(u.__frame_patch,a,C);const H=u?.__fc_mode;H&&typeof H=="object"&&!f&&D&&A.test(D)&&(f=!0,S(D).then(K=>K.install?.(a,H.on===!0)).catch(()=>{}));const W=u?.__ft_cmd;W&&typeof W=="object"&&!v&&I&&A.test(I)&&(v=!0,S(I).then(K=>K.install?.(a,W)).catch(()=>{}))});const b=Object.keys(i.capabilities??{}).filter(u=>Object.hasOwn(R,u)).map(u=>[u,R[u]]).filter(u=>typeof u[1]=="string"&&A.test(u[1])),l=await Promise.allSettled(b.map(([,u])=>S(u))),_=await e,d=E;if(_?.buildBoot||y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},d),_?.buildBoot)try{L=_.buildBoot(i,_.TRANSFORMS??{},{shellOrigin:d,mount:x,hooks:O},u=>y.post({__frame_cap_telemetry:u},d))}catch{y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},d),L=G(i,d)}else L=G(i,d);const T=u=>y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:u}},d),Ne=L;l.forEach((u,z)=>{const C=b[z][0];if(u.status!=="fulfilled"){T(C);return}try{u.value?.install?.(Ne)}catch{T(C)}}),F(),await m,y.post({__frame_ready:!0},E),e.then(u=>u?.installSizeReporter?.(d,g))})}else N&&(ee(),Re(N,Y,S,{settle:F,mount:x}))})();</script><!-- /frame-runtime --><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found]){display:none!important}</style></head><body>
+<title>The Ledger Read</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    color-scheme: light;
+    --page:#f7f5ef; --surface:#ffffff; --surface-2:#fbfaf4;
+    --ink:#1c1a16; --ink-2:#5c5748; --ink-3:#8b8577;
+    --line:#e4e0d2; --line-strong:#d4cebb;
+    --accent:#a87c2b; --accent-ink:#6e5220; --accent-soft:rgba(168,124,43,0.12);
+    --bar:#2a78d6; --bar-soft:rgba(42,120,214,0.14);
+    --good:#0ca30c; --good-bg:rgba(12,163,12,0.10); --good-ink:#0b6d0b;
+    --warning:#fab219; --warning-bg:rgba(250,178,25,0.18); --warning-ink:#93650a;
+    --serious:#ec835a; --serious-bg:rgba(236,131,90,0.16); --serious-ink:#a3421f;
+    --critical:#d03b3b; --critical-bg:rgba(208,59,59,0.10); --critical-ink:#a4201f;
+    --neutral-bg:#eeece3; --neutral-ink:#5c5748;
+    --shadow: 0 1px 2px rgba(28,26,22,0.04), 0 8px 24px -12px rgba(28,26,22,0.12);
+  }
+
+  *{ box-sizing:border-box; }
+  body{
+    margin:0; background:var(--page); color:var(--ink);
+    font-family:"Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .page{ max-width:920px; margin:0 auto; padding:48px 24px 80px; }
+  h1,h2,h3{ font-family:"Fraunces", Georgia, serif; font-weight:600; letter-spacing:-0.01em; text-wrap:balance; margin:0; }
+  a{ color:var(--accent-ink); }
+
+  /* ---- masthead ---- */
+  .masthead{ border-bottom:1px solid var(--line-strong); padding-bottom:28px; margin-bottom:32px; }
+  .masthead-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:16px; }
+  .masthead-eyebrow{
+    font-family:"IBM Plex Mono", monospace; font-size:11.5px; letter-spacing:0.11em; text-transform:uppercase;
+    color:var(--accent-ink); margin-bottom:10px;
+  }
+  .download-btn{
+    font-family:"IBM Plex Mono", monospace; font-size:11px; font-weight:600; letter-spacing:0.03em;
+    color:var(--accent-ink); background:var(--accent-soft); border:1px solid var(--line-strong);
+    padding:7px 13px; border-radius:8px; cursor:pointer; white-space:nowrap; flex-shrink:0;
+    display:inline-flex; align-items:center; gap:6px; transition:background .12s, color .12s, transform .08s;
+  }
+  .download-btn:hover:not(:disabled){ background:var(--accent); color:#fff; }
+  .download-btn:active:not(:disabled){ transform:translateY(1px); }
+  .download-btn:disabled{ cursor:default; opacity:0.75; }
+  .masthead h1{ font-size:42px; font-style:italic; margin-bottom:10px; }
+  .masthead-meta{ font-size:14px; color:var(--ink-2); margin-bottom:14px; }
+  .masthead-meta .dot{ margin:0 8px; color:var(--ink-3); }
+  .masthead-note{
+    font-size:13px; color:var(--ink-3); max-width:62ch; line-height:1.55; margin:0;
+    padding-top:14px; border-top:1px dashed var(--line);
+  }
+
+  /* ---- stamps ---- */
+  .stamps{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:16px; }
+  .stamp{
+    background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:22px 20px;
+    box-shadow:var(--shadow); position:relative; overflow:hidden;
+  }
+  .stamp::before{ content:""; position:absolute; top:0; left:0; right:0; height:3px; background:var(--tone); }
+  .stamp--warning{ --tone:var(--warning); }
+  .stamp--critical{ --tone:var(--critical); }
+  .stamp--good{ --tone:var(--good); }
+  .stamp-label{ font-size:11px; text-transform:uppercase; letter-spacing:0.09em; color:var(--ink-3); font-weight:600; margin-bottom:10px; }
+  .stamp-value{ font-family:"Fraunces", serif; font-size:40px; font-weight:600; line-height:1; }
+  .stamp-value span{ font-size:16px; font-weight:500; color:var(--ink-3); font-family:"Public Sans",sans-serif; }
+  .stamp-grade{
+    display:inline-block; margin-top:8px; font-family:"IBM Plex Mono",monospace; font-size:12px; font-weight:600;
+    padding:3px 9px; border-radius:999px; background:var(--warning-bg); color:var(--warning-ink);
+  }
+  .stamp-value-text{ font-family:"Fraunces", serif; font-size:28px; font-weight:600; color:var(--tone); }
+
+  .bottom-line{
+    font-size:15px; line-height:1.6; color:var(--ink-2); background:var(--surface-2); border:1px solid var(--line);
+    border-radius:12px; padding:16px 18px; margin-bottom:48px;
+  }
+  .bottom-line strong{ color:var(--ink); }
+
+  /* ---- section shell ---- */
+  section.block{ margin-bottom:52px; }
+  .section-head{ display:flex; align-items:baseline; gap:12px; margin-bottom:6px; }
+  .section-num{ font-family:"IBM Plex Mono",monospace; font-size:13px; color:var(--accent-ink); font-weight:600; }
+  .section-head h2{ font-size:24px; }
+  .section-sub{ font-size:13.5px; color:var(--ink-3); margin:2px 0 22px; max-width:64ch; line-height:1.5; }
+
+  /* ---- snapshot charts ---- */
+  .snapshot-grid{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .chart-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px 20px 16px;
+    box-shadow:var(--shadow);
+  }
+  .chart-card h3{ font-family:"Public Sans",sans-serif; font-size:12.5px; font-weight:600; text-transform:uppercase;
+    letter-spacing:0.05em; color:var(--ink-2); margin-bottom:14px; }
+  .bar-row{ display:grid; grid-template-columns:108px 1fr auto; align-items:center; gap:10px; margin-bottom:10px; position:relative; }
+  .bar-row:last-child{ margin-bottom:0; }
+  .bar-label{ font-size:12.5px; color:var(--ink-2); }
+  .bar-track{ height:16px; background:var(--surface-2); border:1px solid var(--line); border-radius:5px; overflow:hidden; position:relative; }
+  .bar-fill{ height:100%; min-width:3px; background:var(--bar); border-radius:4px; position:relative; }
+  .bar-fill.status-good{ background:var(--good); }
+  .bar-fill.status-warning{ background:var(--warning); }
+  .bar-fill.status-critical{ background:var(--critical); }
+  .bar-val{ font-family:"IBM Plex Mono",monospace; font-size:12px; color:var(--ink); font-variant-numeric:tabular-nums; white-space:nowrap; }
+  .bar-row[tabindex]{ outline:none; border-radius:4px; }
+  .bar-row .tip{
+    position:absolute; left:108px; bottom:100%; margin-bottom:6px; background:var(--ink); color:var(--page);
+    font-family:"IBM Plex Mono",monospace; font-size:11px; padding:5px 8px; border-radius:6px; white-space:nowrap;
+    opacity:0; pointer-events:none; transform:translateY(3px); transition:opacity .12s, transform .12s; z-index:2;
+  }
+  .bar-row:hover .tip, .bar-row:focus-visible .tip{ opacity:1; transform:translateY(0); }
+  .chart-total{ margin-top:14px; padding-top:12px; border-top:1px dashed var(--line); font-size:12.5px; color:var(--ink-3); }
+  .chart-total b{ font-family:"IBM Plex Mono",monospace; color:var(--ink); font-weight:600; }
+
+  .util-block{ margin-bottom:16px; }
+  .util-block:last-child{ margin-bottom:0; }
+  .util-head{ display:flex; justify-content:space-between; font-size:12px; color:var(--ink-2); margin-bottom:6px; }
+  .util-head b{ font-family:"IBM Plex Mono",monospace; color:var(--ink); font-variant-numeric:tabular-nums; }
+  .util-track{ height:14px; background:var(--surface-2); border:1px solid var(--line); border-radius:5px; overflow:hidden; }
+  .util-fill{ height:100%; border-radius:4px; }
+
+  .stat-card{
+    background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px 20px; box-shadow:var(--shadow);
+    display:flex; flex-direction:column; justify-content:center;
+  }
+  .stat-card h3{ font-family:"Public Sans",sans-serif; font-size:12.5px; font-weight:600; text-transform:uppercase;
+    letter-spacing:0.05em; color:var(--ink-2); margin-bottom:10px; }
+  .big-stat{ font-family:"Fraunces",serif; font-size:44px; font-weight:600; color:var(--accent-ink); line-height:1; }
+  .stat-card p{ font-size:13px; color:var(--ink-2); margin:8px 0 0; line-height:1.5; }
+
+  /* ---- reconciliation table ---- */
+  .recon-table{ width:100%; border-collapse:collapse; font-size:13px; }
+  .recon-table td{ padding:7px 0; border-bottom:1px dashed var(--line); }
+  .recon-table td:first-child{ color:var(--ink-2); }
+  .recon-table td:last-child{ text-align:right; font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums; color:var(--ink); white-space:nowrap; padding-left:12px; }
+  .recon-table tr.total td{ border-bottom:none; border-top:1px solid var(--line-strong); padding-top:10px; font-weight:600; color:var(--ink); }
+  .recon-table tr.sub td{ color:var(--ink-3); font-size:12px; }
+  .recon-table tr.sub td:last-child{ color:var(--ink-3); }
+
+  .two-col{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .list-card{ background:var(--surface-2); border:1px solid var(--line); border-radius:10px; padding:16px 18px; }
+  .list-card h4{ font-size:11.5px; text-transform:uppercase; letter-spacing:0.07em; color:var(--ink-3); font-weight:600; margin:0 0 10px; }
+  .list-card ol{ margin:0; padding-left:19px; font-size:13px; line-height:1.55; color:var(--ink-2); }
+  .list-card li{ margin-bottom:8px; }
+  .list-card li:last-child{ margin-bottom:0; }
+  .list-card li::marker{ color:var(--ink-3); font-family:"IBM Plex Mono",monospace; font-size:12px; }
+
+  .caveat-note{
+    font-size:12.5px; color:var(--ink-3); line-height:1.6; margin-top:16px; padding-top:14px;
+    border-top:1px dashed var(--line);
+  }
+  .caveat-note b{ color:var(--ink-2); font-family:"Public Sans",sans-serif; font-weight:600; }
+
+  /* ---- risk rows ---- */
+  .risk-row{ border:1px solid var(--line); border-radius:10px; padding:14px 16px; margin-bottom:10px; background:var(--surface); }
+  .risk-top{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:6px; }
+  .risk-name{ font-size:14px; font-weight:600; color:var(--ink); }
+  .chip{
+    font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:600; letter-spacing:0.03em;
+    padding:3px 9px; border-radius:999px; white-space:nowrap; text-transform:uppercase;
+  }
+  .chip::before{ content:"● "; font-size:8px; }
+  .chip.good{ background:var(--good-bg); color:var(--good-ink); }
+  .chip.warning{ background:var(--warning-bg); color:var(--warning-ink); }
+  .chip.serious{ background:var(--serious-bg); color:var(--serious-ink); }
+  .chip.critical{ background:var(--critical-bg); color:var(--critical-ink); }
+  .chip.neutral{ background:var(--neutral-bg); color:var(--neutral-ink); }
+  .risk-body{ font-size:13px; color:var(--ink-2); line-height:1.55; }
+  .risk-body b{ color:var(--ink); font-family:"IBM Plex Mono",monospace; font-weight:600; font-size:12.5px; }
+  .risk-mit{ margin-top:8px; padding-top:8px; border-top:1px dashed var(--line); font-size:12.5px; color:var(--ink-2); }
+  .risk-mit b{ color:var(--accent-ink); font-family:"Public Sans",sans-serif; font-weight:600; }
+
+  .overall-line{
+    display:flex; align-items:center; gap:12px; margin-top:18px; padding:14px 16px;
+    background:var(--surface-2); border:1px solid var(--line); border-radius:10px;
+  }
+  .overall-line .chip{ font-size:11.5px; padding:4px 11px; }
+  .overall-line span{ font-size:13.5px; color:var(--ink-2); }
+
+  /* ---- buffett grid ---- */
+  .principle-grid{ display:flex; flex-direction:column; gap:8px; margin-bottom:22px; }
+  .principle-row{
+    display:grid; grid-template-columns:220px 130px 1fr; gap:14px; align-items:start;
+    padding:11px 0; border-bottom:1px solid var(--line);
+  }
+  .principle-row:last-child{ border-bottom:none; }
+  .principle-name{ font-size:13px; font-weight:600; color:var(--ink); }
+  .principle-reason{ font-size:12.5px; color:var(--ink-2); line-height:1.5; }
+  .reco-list{ list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px; }
+  .reco-list li{
+    display:grid; grid-template-columns:28px 1fr; gap:12px; align-items:start; font-size:13.5px;
+    color:var(--ink-2); line-height:1.55; padding:12px 14px; background:var(--surface-2);
+    border:1px solid var(--line); border-radius:10px;
+  }
+  .reco-num{
+    font-family:"IBM Plex Mono",monospace; font-size:12px; font-weight:600; color:var(--accent-ink);
+    background:var(--accent-soft); border-radius:6px; width:24px; height:24px; display:flex; align-items:center; justify-content:center;
+  }
+  .reco-list b{ color:var(--ink); }
+
+  /* ---- behavioral: financial psychology profile table ---- */
+  .profile-note{ font-size:13px; color:var(--ink-2); line-height:1.6; margin-bottom:16px; }
+  .profile-table{ width:100%; border-collapse:collapse; font-size:12.5px; margin:0 0 26px; }
+  .profile-table th{ text-align:left; font-family:"IBM Plex Mono",monospace; font-size:10px; text-transform:uppercase;
+    letter-spacing:0.06em; color:var(--ink-3); font-weight:600; padding:6px 10px 8px; border-bottom:1px solid var(--line-strong); }
+  .profile-table td{ padding:9px 10px; border-bottom:1px dashed var(--line); color:var(--ink-2); vertical-align:top; line-height:1.4; }
+  .profile-table td:first-child{ color:var(--ink); font-weight:600; width:32%; }
+  .profile-table td:nth-child(2){ width:16%; }
+  .sig-chip{
+    font-family:"IBM Plex Mono",monospace; font-size:9.5px; font-weight:600; letter-spacing:0.02em;
+    padding:3px 8px; border-radius:999px; white-space:nowrap; display:inline-block; text-transform:uppercase;
+  }
+  .sig-chip.nosignal{ background:var(--good-bg); color:var(--good-ink); }
+  .sig-chip.insufficient{ background:var(--neutral-bg); color:var(--neutral-ink); }
+  .sig-chip.possible{ background:var(--warning-bg); color:var(--warning-ink); }
+  .sig-chip.probable{ background:var(--serious-bg); color:var(--serious-ink); }
+  .sig-chip.strong{ background:var(--critical-bg); color:var(--critical-ink); }
+
+  /* ---- behavioral: deep finding cards ---- */
+  .finding-card{ border:1px solid var(--line-strong); border-radius:12px; background:var(--surface); padding:18px 20px 20px; margin-bottom:18px; box-shadow:var(--shadow); }
+  .finding-top{ display:flex; justify-content:space-between; align-items:center; gap:14px; margin-bottom:2px; flex-wrap:wrap; }
+  .finding-name{ font-size:16px; font-weight:600; color:var(--ink); font-family:"Fraunces",serif; }
+  .finding-conf{ display:flex; align-items:center; gap:8px; flex-shrink:0; }
+  .conf-track{ width:96px; height:8px; background:var(--surface-2); border:1px solid var(--line); border-radius:5px; overflow:hidden; }
+  .conf-fill{ height:100%; background:var(--warning); border-radius:4px; }
+  .conf-val{ font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--ink-2); font-weight:600; white-space:nowrap; }
+  .layer{ margin-top:13px; }
+  .layer-label{ font-family:"IBM Plex Mono",monospace; font-size:10px; text-transform:uppercase; letter-spacing:0.07em; color:var(--accent-ink); font-weight:600; margin-bottom:5px; }
+  .layer p{ font-size:13px; color:var(--ink-2); line-height:1.58; margin:0; }
+  .layer ul{ margin:0; padding-left:18px; font-size:13px; color:var(--ink-2); line-height:1.58; }
+  .layer li{ margin-bottom:4px; }
+  .tbc{ display:flex; gap:6px; align-items:center; flex-wrap:wrap; font-size:12.5px; color:var(--ink-2); background:var(--surface-2); border:1px solid var(--line); border-radius:8px; padding:11px 13px; }
+  .tbc b{ color:var(--ink); font-family:"IBM Plex Mono",monospace; font-weight:600; font-size:11.5px; }
+  .tbc-arrow{ color:var(--ink-3); margin:0 2px; }
+  .cannot{ font-size:12px; color:var(--ink-3); line-height:1.58; margin-top:13px; padding-top:12px; border-top:1px dashed var(--line); }
+  .cannot b{ color:var(--ink-2); font-family:"Public Sans",sans-serif; font-weight:600; }
+  .layer-mit{ background:var(--accent-soft); border:1px solid var(--line-strong); border-radius:8px; padding:11px 13px; }
+  .layer-mit p{ color:var(--ink-2); }
+  .layer-mit b{ color:var(--accent-ink); font-family:"Public Sans",sans-serif; }
+  .assessment-box{
+    background:var(--surface-2); border:1px solid var(--line); border-radius:12px; padding:18px 20px; margin-top:20px;
+  }
+  .assessment-box h4{ font-family:"IBM Plex Mono",monospace; font-size:11px; text-transform:uppercase; letter-spacing:0.07em; color:var(--accent-ink); font-weight:600; margin:0 0 8px; }
+  .assessment-box p{ font-size:13.5px; color:var(--ink-2); line-height:1.6; margin:0 0 14px; }
+  .assessment-grid{ display:grid; grid-template-columns:1fr 1fr; gap:14px 20px; }
+  .assessment-item b{ display:block; font-size:11px; text-transform:uppercase; letter-spacing:0.05em; color:var(--ink-3); font-weight:600; margin-bottom:4px; }
+  .assessment-item span{ font-size:13px; color:var(--ink-2); line-height:1.5; }
+
+  /* ---- footer ---- */
+  footer{ border-top:1px solid var(--line-strong); padding-top:22px; margin-top:8px; }
+  footer p{ font-size:12px; color:var(--ink-3); line-height:1.6; max-width:70ch; margin:0 0 8px; }
+  .agent-tags{ display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
+  .agent-tag{
+    font-family:"IBM Plex Mono",monospace; font-size:10.5px; color:var(--ink-3); background:var(--surface-2);
+    border:1px solid var(--line); padding:4px 9px; border-radius:6px;
+  }
+
+  @media (max-width:680px){
+    .stamps{ grid-template-columns:1fr; }
+    .snapshot-grid{ grid-template-columns:1fr; }
+    .two-col{ grid-template-columns:1fr; }
+    .principle-row{ grid-template-columns:1fr; gap:4px; }
+    .bar-row{ grid-template-columns:88px 1fr auto; }
+    .masthead h1{ font-size:32px; }
+    .masthead-top{ flex-direction:column; align-items:flex-start; gap:10px; }
+    .profile-table{ display:block; overflow-x:auto; }
+    .assessment-grid{ grid-template-columns:1fr; }
+  }
+</style>
+
+<div class="page">
+
+  <header class="masthead">
+    <div class="masthead-top">
+      <div class="masthead-eyebrow">Independent Four-Agent Review · Re-verified Same Export · Philippine Peso</div>
+      <button class="download-btn" id="download-btn" onclick="downloadLedgerReport()" hidden>&#8595; Download Report</button>
+    </div>
+    <h1>The Ledger Read</h1>
+    <div class="masthead-meta">Ricky D. · Metro Manila<span class="dot">·</span>Data as of 31 Aug 2026<span class="dot">·</span>Refreshed 01 Sep 2026</div>
+    <p class="masthead-note">Re-run in full against the identical 31&nbsp;Aug&nbsp;2026 "Export All Data" snapshot — every wallet, transaction, debt, and holding as recorded in the app — through four independent agent passes: financial performance rating, money risk management (replicating the app's own current, code-verified risk logic), Buffett-style investment alignment, and a rebuilt behavioral/psychological spending analysis. The fourth pass now runs a full reasoning-chain framework — mechanism, evidence tier, alternative explanations, quantified impact, trigger→behavior→consequence, trajectory — instead of a pass/fail checklist; see Section 04.</p>
+  </header>
+
+  <section class="stamps">
+    <div class="stamp stamp--warning">
+      <div class="stamp-label">Financial Performance</div>
+      <div class="stamp-value">68<span>/100</span></div>
+      <div class="stamp-grade">Grade D+</div>
+    </div>
+    <div class="stamp stamp--warning">
+      <div class="stamp-label">Money Risk Level</div>
+      <div class="stamp-value-text" style="color:var(--warning-ink)">Elevated</div>
+      <div class="stamp-grade" style="background:var(--warning-bg);color:var(--warning-ink)">3 red signals · naive avg ~76/100</div>
+    </div>
+    <div class="stamp stamp--critical">
+      <div class="stamp-label">Buffett-Style Alignment</div>
+      <div class="stamp-value-text" style="color:var(--critical-ink)">Misaligned</div>
+      <div class="stamp-grade" style="background:var(--critical-bg);color:var(--critical-ink)">4 of 5 principles</div>
+    </div>
+    <div class="stamp stamp--warning">
+      <div class="stamp-label">Behavioral Read</div>
+      <div class="stamp-value-text" style="color:var(--warning-ink)">Low-Moderate</div>
+      <div class="stamp-grade" style="background:var(--warning-bg);color:var(--warning-ink)">2 of 10 mechanisms POSSIBLE</div>
+    </div>
+  </section>
+
+  <p class="bottom-line"><strong>Bottom line —</strong> your net worth of <strong>₱448,731.96</strong> is still accurate — all four passes independently reconciled it to the peso against the same export. <strong>₱380,000</strong> of the <strong>₱435,541.84</strong> in wallets remains money from two "completed" goals that was never actually moved out of the BDO account you spend from day to day (goal contributions are track-only in this app), so true free cash is really just <strong>₱55,541.84</strong> — sitting at roughly <strong>0.06% p.a.</strong> next to a <strong>₱28,809.88</strong> credit-card balance at <strong>36% p.a.</strong> that grew <strong>₱9,084.29</strong> this cycle rather than shrinking. Clearing it from idle BDO cash costs about ₱16/year in forgone bank interest and saves roughly ₱10,372/year in card interest — the single highest-conviction move in this review. The rebuilt behavioral pass tested 10 cognitive-bias mechanisms and found two at POSSIBLE (not yet PROBABLE) confidence — a same-cycle Lazada purchase-clustering pattern (₱6,931.38, 85.4% of the shopping category) and 100% of this cycle's discretionary/grocery spend routed through the 36% card instead of the ₱435,541.84 sitting in cash — with the other eight either NO SIGNAL or INSUFFICIENT DATA pending a second billing cycle.</p>
+
+  <section class="block">
+    <div class="section-head"><span class="section-num">00</span><h2>Financial Snapshot</h2></div>
+    <p class="section-sub">The raw numbers behind every rating below — unchanged from the source export, cross-verified by all four passes.</p>
+    <div class="snapshot-grid">
+
+      <div class="chart-card">
+        <h3>Liquid cash by account</h3>
+        <div class="bar-row" tabindex="0">
+          <span class="bar-label">BDO&nbsp;Unibank</span>
+          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
+          <span class="bar-val">₱386,228</span>
+          <span class="tip">88.7% of liquid cash, one bank</span>
+        </div>
+        <div class="bar-row" tabindex="0">
+          <span class="bar-label">GoTyme</span>
+          <span class="bar-track"><span class="bar-fill" style="width:7.7%"></span></span>
+          <span class="bar-val">₱29,571</span>
+          <span class="tip">6.8% of liquid cash</span>
+        </div>
+        <div class="bar-row" tabindex="0">
+          <span class="bar-label">Maya Savings</span>
+          <span class="bar-track"><span class="bar-fill" style="width:2.9%"></span></span>
+          <span class="bar-val">₱11,095</span>
+          <span class="tip">2.5% of liquid cash</span>
+        </div>
+        <div class="bar-row" tabindex="0">
+          <span class="bar-label">Cash on Hand</span>
+          <span class="bar-track"><span class="bar-fill" style="width:2.1%"></span></span>
+          <span class="bar-val">₱8,000</span>
+          <span class="tip">1.8% of liquid cash</span>
+        </div>
+        <div class="bar-row" tabindex="0">
+          <span class="bar-label">Maya Wallet</span>
+          <span class="bar-track"><span class="bar-fill" style="width:0.2%"></span></span>
+          <span class="bar-val">₱648</span>
+          <span class="tip">Day-to-day spending wallet, runs near-zero</span>
+        </div>
+        <div class="chart-total">Total across 6 wallets <b>₱435,541.84</b> (UnionBank sits open at ₱0). Well under the ₱1,000,000 PDIC cap at BDO, but 88.7% in one bank is still a single point of access failure.</div>
+      </div>
+
+      <div class="chart-card">
+        <h3>BDO Visa Gold — credit card</h3>
+        <div class="util-block">
+          <div class="util-head"><span>Minimum due vs. total owed</span><b>₱864 of ₱28,810</b></div>
+          <div class="util-track"><span class="util-fill" style="width:3.0%;background:var(--warning)"></span></div>
+        </div>
+        <div class="chart-total">Balance moved from ₱19,725.59 to ₱28,809.88 this cycle despite ₱29,084.29 in new charges — a payment of roughly ₱20,000 is implied by the numbers, though it isn't itemized as a single line. The balance is being replenished about as fast as it's cleared, at <b>36% p.a.</b> on anything that revolves. (No credit-limit field is recorded in the app, so utilization-by-limit can't be verified here.)</div>
+      </div>
+
+      <div class="chart-card">
+        <h3>Card spending this cycle — by peso value (₱29,084)</h3>
+        <div class="bar-row" tabindex="0">
+          <span class="bar-label">Groceries</span>
+          <span class="bar-track"><span class="bar-fill" style="width:100%"></span></span>
+          <span class="bar-val">₱13,036</span>
+          <span class="tip">Puregold, Robinsons Easymart — 44.8%</span>
+        </div>
+        <div class="bar-row" tabindex="0">
+          <span class="bar-label">Online shopping</span>
+          <span class="bar-track"><span class="bar-fill" style="width:62.2%"></span></span>
+          <span class="bar-val">₱8,111</span>
+          <span class="tip">Lazada x4, Fisher Mall — 27.9%</span>
+        </div>
+        <div class="bar-row" tabindex="0">
+          <span class="bar-label">Dining out</span>
+          <span class="bar-track"><span class="bar-fill" style="width:20.7%"></span></span>
+          <span class="bar-val">₱2,692</span>
+          <span class="tip">Izakaya Revolution, Coffee Project, Burger King — 9.3%</span>
+        </div>
+        <div class="bar-row" tabindex="0">
+          <span class="bar-label">Subscriptions</span>
+          <span class="bar-track"><span class="bar-fill" style="width:10.8%"></span></span>
+          <span class="bar-val">₱1,411</span>
+          <span class="tip">Anthropic Claude — 4.9%</span>
+        </div>
+        <div class="bar-row" tabindex="0">
+          <span class="bar-label">Food delivery</span>
+          <span class="bar-track"><span class="bar-fill" style="width:10.7%"></span></span>
+          <span class="bar-val">₱1,397</span>
+          <span class="tip">Food Panda x2 — 4.8%</span>
+        </div>
+        <div class="bar-row" tabindex="0">
+          <span class="bar-label">Transport</span>
+          <span class="bar-track"><span class="bar-fill" style="width:9.1%"></span></span>
+          <span class="bar-val">₱1,180</span>
+          <span class="tip">Grab x4 — 4.1%</span>
+        </div>
+        <div class="chart-total">Groceries lead at 44.8% by value, but "wants" (shopping + dining out + delivery) still total ~42% of the cycle's charges.</div>
+      </div>
+
+      <div class="stat-card">
+        <h3>Investment concentration</h3>
+        <div class="big-stat">100%</div>
+        <p><b style="font-family:'IBM Plex Mono',monospace;color:var(--ink)">₱40,118</b> — the entire invested portfolio — sits in one issue: <b style="font-family:'IBM Plex Mono',monospace;color:var(--ink)">SMC2X</b>, a fixed-rate preferred-type instrument paying 8.6483% p.a., redeemable by the issuer in 2033. Bought within 5 days of its 2026-07-31 listing, at a price (₱80.236) identical to avgCost — no discount to intrinsic value.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="section-head"><span class="section-num">01</span><h2>Financial Performance</h2></div>
+    <p class="section-sub">Net worth reconciled to the peso independently; the score reflects the behavior behind that number, not the balance-sheet size alone.</p>
+
+    <div class="chart-card" style="margin-bottom:20px">
+      <h3>Net worth reconciliation</h3>
+      <table class="recon-table">
+        <tr><td>Liquid cash (6 wallets)</td><td>₱435,541.84</td></tr>
+        <tr><td>Less: BDO Visa Gold balance</td><td>−₱28,809.88</td></tr>
+        <tr><td>Plus: SMC2X holding (500 × ₱80.236)</td><td>+₱40,118.00</td></tr>
+        <tr><td>Plus: DragonFi brokerage cash</td><td>+₱1,882.00</td></tr>
+        <tr class="total"><td>Net worth</td><td>₱448,731.96</td></tr>
+        <tr class="sub"><td>— of which earmarked by 2 completed goals, still in BDO</td><td>₱380,000.00</td></tr>
+        <tr class="sub"><td>— true free liquid cash</td><td>₱55,541.84</td></tr>
+      </table>
+    </div>
+
+    <div class="two-col">
+      <div class="list-card">
+        <h4>Strengths</h4>
+        <ol>
+          <li>Every wallet reconciles exactly, even the ones built almost entirely from statement-snapshot plugs — e.g. Maya Wallet's ₱647.86 is fully explained line-by-line: ₱130.04+₱8,000+₱10+₱5+₱20+₱10+₱10−₱3,938.18−₱299−₱3,300 = ₱647.86.</li>
+          <li>Debt is small relative to the balance sheet — ₱28,809.88 of liabilities is just 6.4% of ₱448,731.96 net worth (28,809.88/448,731.96).</li>
+          <li>Real investing has started, not just saving — ₱40,118 into SMC2X at an 8.6483% dividend rate, materially better than the ~0.06% p.a. that cash earns sitting in the same bank.</li>
+        </ol>
+      </div>
+      <div class="list-card">
+        <h4>Risks</h4>
+        <ol>
+          <li>The card balance grew, not shrank, this cycle — ₱19,725.59 → ₱28,809.88 despite ₱29,084.29 in new charges — while paying it off from idle BDO cash costs ~₱16/yr in forgone interest and saves ~₱10,372/yr in card interest (864.30×12).</li>
+          <li>91.2% of gross investable assets (₱435,541.84 cash + ₱40,118 holdings + ₱1,882 invest cash = ₱477,541.84) sit uninvested as bank/e-wallet cash — only 8.8% is actually at work.</li>
+          <li>Recorded recurring income (₱24,721.34/semi-monthly, base pay only) understates the one actual payslip on file (₱26,173.41 net) by ₱1,452.07 — every formula in this report and the app itself runs against the understated figure.</li>
+        </ol>
+      </div>
+    </div>
+    <p class="caveat-note"><b>Data caveats:</b> ~93.8% of liquid cash rests on statement-derived snapshot plugs rather than a full in-app transaction trail (GoTyme and Maya Savings are 100% plug; BDO is 95.3% plug, ₱368,051.34 of ₱386,228.44) — the underlying source statements exist but this export alone can't audit those balances line-by-line. The brokerage account's cash balance (₱1,882) doesn't reconcile against its own deposit-minus-buy math (₱41,000 − ₱40,118 = ₱882) — an unexplained ₱1,000 gap, and the one buy is dated 2026-08-05, five days <i>before</i> the ₱41,000 deposit that funded it (2026-08-30), suggesting retroactive logging. A separate ₱5.59 gap exists between the payslip's net pay (₱26,173.41) and the amount actually credited in the bank statement (₱26,179). And net-worth history has only this single snapshot — there's no trend to call "improving" or "declining" yet.</p>
+
+    <div class="overall-line"><span class="chip warning">Score: 68/100 · Grade D+</span><span>Balance-sheet fundamentals are sound — clean reconciliation, low debt-to-net-worth, two goals genuinely completed — but the score is held down by behavior: a growing 36% p.a. card balance sitting untouched next to ₱386,228.44 in the same bank, 91.2% of investable assets left uninvested, and an under-recorded income stream feeding every downstream calculation.</span></div>
+  </section>
+
+  <section class="block">
+    <div class="section-head"><span class="section-num">02</span><h2>Money Risk Management</h2></div>
+    <p class="section-sub">Computed by reading and replicating the app's own current risk-signal code (<code>renderFinancialHealth()</code>, finforecast-lite.html) against this export — not a separate standard.</p>
+
+    <div class="risk-row">
+      <div class="risk-top"><span class="risk-name">Unsegregated goal funds</span><span class="chip critical">Red</span></div>
+      <div class="risk-body">₱380,000 across 2 completed goals (Emergency Fund + 3F Construction) is <b>87.25%</b> of liquid cash (380,000/435,541.84) — above the app's 30% red threshold — still sitting in the ordinary BDO wallet, fully spendable as everyday cash.</div>
+      <div class="risk-mit"><b>Fix:</b> move completed-goal amounts into a segregated account, or stop counting them as "done" while they remain commingled.</div>
+    </div>
+
+    <div class="risk-row">
+      <div class="risk-top"><span class="risk-name">Bank concentration</span><span class="chip critical">Red</span></div>
+      <div class="risk-body"><b>88.68%</b> of liquid cash (386,228.44/435,541.84) sits at one bank (BDO) — above the app's 85% red threshold. Well under the ₱1,000,000 PDIC cap, so this is an access risk, not a deposit-insurance one.</div>
+      <div class="risk-mit"><b>Fix:</b> keep no more than ~₱250k–300k at any one bank; spread the rest across GoTyme, Maya, or a second bank.</div>
+    </div>
+
+    <div class="risk-row">
+      <div class="risk-top"><span class="risk-name">High-interest debt</span><span class="chip critical">Red</span></div>
+      <div class="risk-body">BDO Visa Gold: 36% p.a. on a ₱28,809.88 balance — above the app's 20% red line — while ₱40,118 sits invested elsewhere at 8.6483%. The guaranteed cost of carrying this outruns any realistic investment return.</div>
+      <div class="risk-mit"><b>Fix:</b> pay this down before adding to SMC2X or any new position.</div>
+    </div>
+
+    <div class="risk-row">
+      <div class="risk-top"><span class="risk-name">Investment concentration</span><span class="chip warning">Amber</span></div>
+      <div class="risk-body">100% of ₱40,118 invested market value sits in one holding (SMC2X) — a single-issuer, single-instrument bet through its 2033 redemption.</div>
+      <div class="risk-mit"><b>Fix:</b> diversify future investable cash beyond one issuer.</div>
+    </div>
+
+    <div class="risk-row">
+      <div class="risk-top"><span class="risk-name">Income concentration</span><span class="chip warning">Amber</span></div>
+      <div class="risk-body">One active income stream (salary, primary/stable type) — no cushion if it's disrupted. Correctly not flagged as variable/irregular under the app's logic, so no volatility buffer applies.</div>
+      <div class="risk-mit"><b>Fix:</b> build a second income stream before drawing down savings or adding new positions.</div>
+    </div>
+
+    <div class="risk-row">
+      <div class="risk-top"><span class="risk-name">Insurance vs. dependents — unconfigured</span><span class="chip neutral">Data Gap</span></div>
+      <div class="risk-body">The app's <code>settings</code> object is entirely empty — <code>dependents</code> is unset, so the insurance-coverage check can't run at all. This isn't a clean bill of health, it's a blind spot.</div>
+      <div class="risk-mit"><b>Fix:</b> set the dependents count in Settings so this check can actually evaluate coverage.</div>
+    </div>
+
+    <div class="risk-row">
+      <div class="risk-top"><span class="risk-name">Liquidity &amp; Savings scores are data artifacts</span><span class="chip neutral">Data Gap</span></div>
+      <div class="risk-body">With <code>expenses[]</code> empty, tracked monthly outflow collapses to just the ₱864.30 card minimum — producing 64.3 months of "coverage" (capped at 100/100) and a 98.25% "savings rate." Real card spend alone this cycle was ₱29,084.29; neither figure reflects it, and the "excess idle cash" flag (₱50,356.04) is itself sized off this artifact buffer.</div>
+      <div class="risk-mit"><b>Fix:</b> log real recurring bills (rent/utilities/subscriptions) so these scores mean something.</div>
+    </div>
+
+    <div class="overall-line"><span class="chip warning">Overall: Elevated</span><span>Three Red signals fired simultaneously, but DTI is a trivial 1.75% and nothing points to an immediate cash-flow failure — these are structural concentration/discipline risks, not a liquidity emergency. A naive average of the app's own dimension tiles would read ~76/100, entirely propped up by the empty-expenses artifact above; the app's Settings currently records a manually-set 66/100 "C+" Ledger Read score from the prior review cycle — worth updating to this cycle's 68/100 once reviewed.</span></div>
+  </section>
+
+  <section class="block">
+    <div class="section-head"><span class="section-num">03</span><h2>Buffett-Style Alignment</h2></div>
+    <p class="section-sub">The SMC2X position and the cash/debt sitting around it, checked against Warren Buffett's own documented investing principles.</p>
+
+    <div class="principle-grid">
+      <div class="principle-row">
+        <span class="principle-name">Circle of competence</span>
+        <span class="chip good">Aligned</span>
+        <span class="principle-reason">SMC2X's profile — an 8.6483% fixed dividend rate and a 2033 redemption date exactly 7 years from its 2026-07-31 listing — reads as a fixed-rate preferred-type instrument, not a speculative growth bet. Its payoff is legible on coupon and credit risk alone.</span>
+      </div>
+      <div class="principle-row">
+        <span class="principle-name">Margin of safety</span>
+        <span class="chip critical">Misaligned</span>
+        <span class="principle-reason">avgCost (₱80.236) equals currentPrice (₱80.236) exactly — bought at par 5 days after listing, with no `offerPrice` or valuation note anywhere in the record. Whatever safety exists is contractual (coupon + redemption), not earned through price discovery.</span>
+      </div>
+      <div class="principle-row">
+        <span class="principle-name">Concentration by conviction vs. accident</span>
+        <span class="chip critical">Misaligned</span>
+        <span class="principle-reason">SMC2X is 95.52% of total account value (40,118/(40,118+1,882)) via a single trade with no second position and no comparison note against alternatives on record — nothing distinguishes "the only bet I'd make" from "the only bet I've ever made."</span>
+      </div>
+      <div class="principle-row">
+        <span class="principle-name">Leverage aversion</span>
+        <span class="chip critical">Misaligned</span>
+        <span class="principle-reason">₱28,809.88 revolves at 36% p.a. while wallet cash alone (₱435,541.84) is 15.12x that balance (435,541.84/28,809.88). Buying an 8.6483%-yielding security while that debt sits untouched is a 27.35-point (36% − 8.6483%) negative-carry choice.</span>
+      </div>
+      <div class="principle-row">
+        <span class="principle-name">Capital allocation discipline</span>
+        <span class="chip critical">Misaligned</span>
+        <span class="principle-reason">Across ₱477,541.84 in total investable assets, cash is 91.60% (437,423.84/477,541.84) and invested holdings are 8.40% — both financial goals already show `status: completed` with no plan moving that idle cash toward debt paydown or a sized investment program.</span>
+      </div>
+    </div>
+
+    <ul class="reco-list">
+      <li><span class="reco-num">1</span><span><b>Pay off the BDO VISA GOLD balance in full now</b> — ₱28,809.88 from the BDO wallet (₱386,228.44 available, using just 7.46% of it) before the 2026-09-14 due date. A guaranteed 36% return beating the 8.6483% SMC2X yield by 27.35 points, with zero market risk.</span></li>
+      <li><span class="reco-num">2</span><span><b>Write a one-page thesis for SMC2X retroactively, and require one before the next purchase</b> — comparing its 8.6483% yield-to-2033-call against at least two alternatives (other PSE preferred issues, 5–7yr RTBs, time deposits), using the ₱41,000 already sitting in DragonFi.</span></li>
+      <li><span class="reco-num">3</span><span><b>Segregate the ₱437,423.84 in cash by purpose</b> now that both goals show `status: completed` — ring-fence a real 3–6 month buffer based on actual spend, and label the remainder "undeployed" instead of letting it sit undifferentiated across five near-zero-yield wallets.</span></li>
+      <li><span class="reco-num">4</span><span><b>Only after #1 and #2, size the next fixed-income allocation as a % of total investable assets</b> (₱477,541.84), not an arbitrary peso amount — so the next purchase is a portfolio decision, not a repeat of this cycle's single unplanned trade.</span></li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <div class="section-head"><span class="section-num">04</span><h2>Financial Psychology Review</h2></div>
+    <p class="section-sub">A full reasoning chain, not a checklist: mechanism → evidence tier → alternative explanations → quantified impact → trigger/behavior/consequence → trajectory → targeted intervention → what the data cannot establish. Tested against 10 cognitive-bias mechanisms using only transaction-level evidence from this export; a NO SIGNAL or INSUFFICIENT DATA result is reported as its own finding, never treated as a clean bill of health.</p>
+
+    <p class="profile-note">This export is a single billing cycle and a single net-worth snapshot — every <b>Trajectory</b> layer below is <b>Insufficient History</b> by definition; a second cycle would be needed to see whether either flagged pattern repeats, escalates, or was a one-off. The one candidate present-bias pathway with an actual test case — savings withdrawn for discretionary spend — returned an explicit <b>NO SIGNAL</b>: the single ₱8,000 BDO→Cash/Maya movement this cycle (2026-08-29) funded a MERALCO bill (₱3,938.18) and a re-save into Maya Savings (₱3,300), not discretionary spend.</p>
+
+    <table class="profile-table">
+      <tr><th>Mechanism</th><th>Signal</th><th>Evidence pointer</th></tr>
+      <tr><td>Loss aversion / present bias — savings withdrawn for spend</td><td><span class="sig-chip nosignal">No Signal</span></td><td>The one ₱8,000 BDO→Cash/Maya movement (08-29) funded a bill + re-save, not discretionary spend.</td></tr>
+      <tr><td>Loss aversion / present bias — debt repayment pattern</td><td><span class="sig-chip insufficient">Insufficient Data</span></td><td>No prior card-payment history exists; due date (09-14) is still ahead of the export date.</td></tr>
+      <tr><td>Disposition effect — investment holdings</td><td><span class="sig-chip insufficient">Insufficient Data</span></td><td>One holding (SMC2X), avgCost = currentPrice, no sell transactions to test against.</td></tr>
+      <tr><td>Disposition effect — recurring commitments</td><td><span class="sig-chip insufficient">Insufficient Data</span></td><td>Only one subscription (Anthropic Claude, ₱1,410.94) — no cancel/renew history.</td></tr>
+      <tr><td>Extrapolative expectations</td><td><span class="sig-chip insufficient">Insufficient Data</span></td><td>Single payslip and single invest deposit — no prior-cycle baseline to test a trend against.</td></tr>
+      <tr><td>Spending momentum / repeat-purchase loops</td><td><span class="sig-chip possible">Possible · 50</span></td><td>Lazada x4 clustered into two close pairs; a 3-way same-day dining/delivery cluster (₱3,079.18).</td></tr>
+      <tr><td>Mental accounting — credit-vs-cash routing</td><td><span class="sig-chip possible">Possible · 38</span></td><td>100% of this cycle's discretionary+grocery spend (₱29,084.29) on a 36% card vs. ₱435,541.84 liquid.</td></tr>
+      <tr><td>Mental accounting — windfall/trickle income</td><td><span class="sig-chip insufficient">Insufficient Data</span></td><td>Trickle "Received from Maya" credits total only ₱65 — too small to test.</td></tr>
+      <tr><td>Prospect-theory position sizing (extended)</td><td><span class="sig-chip insufficient">Insufficient Data</span></td><td>Only one buy ever recorded — no second trade to compare sizing after a win/loss.</td></tr>
+      <tr><td>Belief-action coupling (extended)</td><td><span class="sig-chip insufficient">Insufficient Data</span></td><td>The one trade is manually entered — no automated/API execution to test coupling against.</td></tr>
+    </table>
+
+    <div class="finding-card">
+      <div class="finding-top">
+        <span class="finding-name">Spending momentum / repeat-purchase clustering</span>
+        <div class="finding-conf"><span class="conf-track"><span class="conf-fill" style="width:50%"></span></span><span class="conf-val">POSSIBLE · 50/100</span></div>
+      </div>
+
+      <div class="layer"><div class="layer-label">Observed behavior</div><p>Lazada PH (Taguig), on BDO Visa Gold: ₱3,162.60 (07-23), ₱268.14 (07-27), ₱2,329.24 (08-15), ₱1,171.40 (08-18) — 4 charges, category "shopping." Fisher Mall, ₱1,180 (07-29), 2 days after the second Lazada charge. Same calendar day 07-25: Izakaya Revolution (₱1,832.18), Coffee Project (₱440), Food Panda (₱807) — 3 charges. Food Panda repeats 2 days later (07-27, ₱589.91).</p></div>
+
+      <div class="layer"><div class="layer-label">Pattern detection</div><p>Clustered, merchant-specific (Lazada) and category-specific (shopping; separately, dining/food) — confined to this one billing cycle, so cross-cycle recurrence can't yet be tested.</p></div>
+
+      <div class="layer"><div class="layer-label">Possible mechanism</div><p>An initial purchase in a category/platform is followed by a second, closely-timed purchase in the same category/platform — consistent with continued engagement (re-opening the app, a mall visit) rather than each purchase being an independently-planned, isolated decision.</p></div>
+
+      <div class="layer"><div class="layer-label">Alternative explanations</div><ul>
+        <li><b>Voucher/promo stacking</b> — splitting Lazada purchases across 2–4 day windows to catch separate time-limited vouchers is a common, deliberate PH e-commerce tactic; the varied ticket sizes (₱268.14 vs ₱3,162.60) fit distinct planned items as well as they fit impulse re-buying.</li>
+        <li><b>Different meal occasions</b> — the 07-25 cluster could be a dinner, a separate coffee stop, and a delivery order for someone else in the household, not one uncontrolled episode.</li>
+        <li><b>Planned restocking</b> — Fisher Mall + Lazada landing 2 days apart could be a single planned errand split by venue availability.</li>
+      </ul></div>
+
+      <div class="layer"><div class="layer-label">Financial impact</div><p>Lazada total: 3,162.60+268.14+2,329.24+1,171.40 = <b>₱6,931.38</b>, which is 6,931.38/8,111.38 = <b>85.4%</b> of the entire shopping category. Same-day dining cluster: 1,832.18+440+807 = <b>₱3,079.18</b> in one day. Combined clustered spend (₱6,931.38 + ₱3,079.18 = ₱10,010.56) is 10,010.56/29,084.29 = <b>34.4%</b> of the cycle's total new card charges.</p></div>
+
+      <div class="layer"><div class="layer-label">Trigger → Behavior → Consequence</div>
+        <div class="tbc"><b>Trigger:</b> an initial category/merchant purchase<span class="tbc-arrow">→</span><b>Behavior:</b> a follow-on same-category charge 2–4 days later<span class="tbc-arrow">→</span><b>Consequence:</b> 85.4% of shopping-category spend concentrates in one merchant; 34.4% of cycle charges cluster into two short windows</div>
+      </div>
+
+      <div class="layer"><div class="layer-label">Trajectory</div><p><b>Insufficient History</b> — only one billing cycle (ESOA_August2026) exists in this export; a second consecutive cycle would show whether this clustering repeats, escalates, or was a one-off week.</p></div>
+
+      <div class="layer layer-mit"><p><b>Recommended intervention — Risk-signal detection:</b> flag (not block) any second charge from the same merchant, or same discretionary category, landing within 5 days of a prior charge on this card — a review prompt at the next same-merchant charge, matched to the objective clustering observed rather than an assumed emotional state.</p></div>
+
+      <div class="cannot"><b>What the data cannot establish:</b> whether these purchases were impulsive, promotional, pre-planned as one list, or shared/household purchases; who consumed the Food Panda orders; whether this clustering is a recurring monthly habit or a single unusual week; any emotional or mental state behind the timing.</div>
+    </div>
+
+    <div class="finding-card">
+      <div class="finding-top">
+        <span class="finding-name">Mental accounting — credit-vs-cash routing</span>
+        <div class="finding-conf"><span class="conf-track"><span class="conf-fill" style="width:38%"></span></span><span class="conf-val">POSSIBLE · 38/100</span></div>
+      </div>
+
+      <div class="layer"><div class="layer-label">Observed behavior</div><p>All 20 transactions on BDO Visa Gold this cycle are discretionary/grocery in nature, totaling <b>₱29,084.29</b> in new charges on a card carrying a stated 36% p.a. rate — while liquid balances across 5 wallets total <b>₱435,541.84</b>.</p></div>
+
+      <div class="layer"><div class="layer-label">Pattern detection</div><p>Credit-cycle-related, category-spanning — a routing choice observed across the entire cycle's transaction set (100% of it), not an isolated instance.</p></div>
+
+      <div class="layer"><div class="layer-label">Possible mechanism</div><p>The credit line is treated as a separate "spending account" from the "savings account," so day-to-day discretionary and grocery purchases go on the card even though cash on hand is many multiples of the balance — the two are held in separate mental buckets rather than one pool.</p></div>
+
+      <div class="layer"><div class="layer-label">Alternative explanations</div><ul>
+        <li><b>Rewards optimization</b> — routing spend through a Gold Visa to earn points/perks while intending full payment is standard, financially sound card use, and the best-fitting alternative here — this is why confidence stays capped at POSSIBLE.</li>
+        <li><b>Timing artifact</b> — the statement due date (09-14) is still ahead of the export date (08-31); there is no evidence yet of a missed or partial payment, so the "avoiding a loss" half of the mechanism is unconfirmed.</li>
+        <li><b>Earmarked reserves</b> — ₱380,000 of the BDO balance is nominally claimed by two "completed" goals; some of what looks like idle cash may be conceptually earmarked even though the wallet balance itself wasn't reduced.</li>
+      </ul></div>
+
+      <div class="layer"><div class="layer-label">Financial impact</div><p>₱29,084.29 at a stated 36% annualized rate implies ~₱872.53/month <i>if ever revolved</i> (29,084.29 × 0.36 / 12) — shown as arithmetic, not an asserted cost, since no revolving-balance evidence exists yet. The balance (₱28,809.88) is 6.6% of total liquid balances (28,809.88/435,541.84) — trivially coverable in cash terms. Discretionary-only exposure (excluding groceries): ₱16,048.41, or 55.2% of the cycle's charges.</p></div>
+
+      <div class="layer"><div class="layer-label">Trigger → Behavior → Consequence</div>
+        <div class="tbc"><b>Trigger:</b> a discretionary/grocery purchase opportunity<span class="tbc-arrow">→</span><b>Behavior:</b> charged to the Visa Gold card rather than paid from any of 5 cash-holding wallets<span class="tbc-arrow">→</span><b>Consequence:</b> ₱29,084.29 accumulates on a 36% card, due 09-14, while none of it draws down accessible cash</div>
+      </div>
+
+      <div class="layer"><div class="layer-label">Trajectory</div><p><b>Insufficient History</b> — a second ESOA cycle, or the September statement past the due date, would show whether the balance is paid in full, the single fact that would most move this finding's confidence.</p></div>
+
+      <div class="layer layer-mit"><p><b>Recommended intervention — Commitment device:</b> when the statement posts (or a fixed number of days before the 09-14 due date), auto-earmark/transfer an amount equal to the statement balance from BDO savings into a dedicated payoff sub-balance — pre-committing "pay in full" before the due-date decision point, rather than relying on it being chosen well in the moment.</p></div>
+
+      <div class="cannot"><b>What the data cannot establish:</b> whether the card is historically paid in full or has ever revolved; intent (rewards optimization vs. avoidance of touching savings); whether the ₱380,000 in goal contributions functionally restricts how "available" the BDO balance really is; any emotional state behind the routing choice.</div>
+    </div>
+
+    <div class="assessment-box">
+      <h4>AI Behavioral Assessment — Overall Risk: Low-Moderate</h4>
+      <p>No mechanism reaches PROBABLE or STRONG PATTERN. The two POSSIBLE findings are both capped by strong, data-consistent non-psychological alternatives, and the one candidate present-bias pathway with an actual test case returned an explicit NO SIGNAL rather than being silently omitted. Seven of the ten mechanisms tested are INSUFFICIENT DATA — a limitation of this single-snapshot export (one billing cycle, one payslip, one net-worth point, one trade), not a finding about the subject. Nothing here shows acute distress on any single-cycle metric.</p>
+      <div class="assessment-grid">
+        <div class="assessment-item"><b>Strongest signal</b><span>Spending-momentum clustering (50/100) — the only finding with two independent within-cycle instances.</span></div>
+        <div class="assessment-item"><b>Emerging signal</b><span>None — no mechanism has 2+ comparable cycles in this export, so no trajectory can be assigned yet.</span></div>
+        <div class="assessment-item"><b>Not established</b><span>Debt-repayment present bias, disposition effect (holdings + subscriptions), extrapolative expectations, windfall mental accounting, prospect-theory sizing, belief-action coupling — all Insufficient Data.</span></div>
+        <div class="assessment-item"><b>Recommended priority</b><span>Act on the purchase-clustering risk-signal first (higher confidence, already-occurred transactions) — the mental-accounting finding's premise (a revolving balance) is itself unconfirmed until 09-14 passes.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Compiled from the 31 Aug 2026 "Export All Data" pull off FinForecast Lite (wallets, transaction history, debts, investments, goals), independently re-analyzed on 01 Sep 2026 by four separate review passes against the app's current logic and real transaction-level data — not a hand-edited copy of the prior report. The behavioral pass runs the redesigned reasoning-chain framework: mechanism, evidence tier with confidence score, mandatory alternative explanations, quantified impact, trigger→behavior→consequence, and trajectory. Not financial advice.</p>
+    <div class="agent-tags">
+      <span class="agent-tag">Agent 01 — Financial Performance Rating</span>
+      <span class="agent-tag">Agent 02 — Money Risk Management</span>
+      <span class="agent-tag">Agent 03 — Buffett-Style Investment Analysis</span>
+      <span class="agent-tag">Agent 04 — Behavioral / Psychological Spending Analysis</span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  let ledgerDownloads = null;
+  (async () => {
+    try { ledgerDownloads = (await window.claude?.use?.('downloads')) ?? null; } catch(e) { ledgerDownloads = null; }
+    const btn = document.getElementById('download-btn');
+    if (btn) btn.hidden = !ledgerDownloads;
+  })();
+  async function downloadLedgerReport(){
+    const btn = document.getElementById('download-btn');
+    if (!ledgerDownloads || !btn || btn.disabled) return;
+    const original = btn.innerHTML;
+    btn.disabled = true; btn.innerHTML = 'Saving&hellip;';
+    try{
+      const html = '<!doctype html>\n' + document.documentElement.outerHTML;
+      await ledgerDownloads.save({ filename: 'the-ledger-read.html', data: html });
+      btn.innerHTML = '&#10003; Saved';
+    } catch(e){
+      btn.innerHTML = (e && e.code === 'declined') ? original : '&#9888; Try again';
+    } finally {
+      setTimeout(() => { btn.innerHTML = original; btn.disabled = false; }, 1800);
+    }
+  }
+</script>
+
+</body></html>

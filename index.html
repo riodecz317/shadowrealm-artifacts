@@ -52,6 +52,16 @@
   }
   .title a:hover { color: var(--accent); }
   .date { color: var(--text-dim); font-size: 0.78rem; margin-top: 2px; }
+  .live-link {
+    color: var(--text-dim);
+    font-size: 0.78rem;
+    text-decoration: none;
+    flex-shrink: 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 10px;
+  }
+  .live-link:hover { color: var(--accent); border-color: var(--accent); }
   footer {
     margin-top: 48px;
     color: var(--text-dim);
@@ -75,27 +85,27 @@
 <div class="wrap">
   <header>
     <h1>ShadowRealm Artifact Index</h1>
-    <div class="sub">A running list of Claude Artifacts, kept in this repo so they're one click away instead of buried in chat history.</div>
+    <div class="sub">A running list of Claude Artifacts, with full copies stored in this repo so they're one click away instead of buried in chat history.</div>
     <div class="meta">Last regenerated: <strong id="gen-date">2026-09-01</strong> &middot; <span id="count">12</span> artifacts</div>
   </header>
 
   <ul class="list" id="artifact-list">
-    <li class="card"><span class="icon">🔀</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/f39ea48c-f30a-4c9b-843c-61f3d7e3e886" target="_blank" rel="noopener">The Agent Relay</a></div><div class="date">Updated 2026-09-01</div></div></li>
-    <li class="card"><span class="icon">🧾</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/ef42df40-1e45-4359-9799-7af428948d03" target="_blank" rel="noopener">The Ledger Read</a></div><div class="date">Updated 2026-09-01</div></div></li>
-    <li class="card"><span class="icon">🧪</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/6afa24a4-863d-473a-9569-24934d05ddcc" target="_blank" rel="noopener">The Grading Ledger</a></div><div class="date">Updated 2026-09-01</div></div></li>
-    <li class="card"><span class="icon">💰</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/ebcf971c-d256-46d0-9e79-a35a3432caf8" target="_blank" rel="noopener">FinForecast Pro</a></div><div class="date">Updated 2026-08-30</div></div></li>
-    <li class="card"><span class="icon">💠</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/0b97b343-665f-4083-be56-ffbf8a04dc96" target="_blank" rel="noopener">Glimmerfield Finance</a></div><div class="date">Updated 2026-08-30</div></div></li>
-    <li class="card"><span class="icon">🛰️</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/c0bcbbf0-7856-45d9-8770-9170ce87eb6b" target="_blank" rel="noopener">ShadowRealm Agents</a></div><div class="date">Updated 2026-08-30</div></div></li>
-    <li class="card"><span class="icon">🔀</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/532e41b3-2ddd-48a1-833f-e7e0d0e6e68c" target="_blank" rel="noopener">Cross-Skill Mapping Overview</a></div><div class="date">Updated 2026-08-26</div></div></li>
-    <li class="card"><span class="icon">🔀</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/f584e081-d61a-476a-b6a9-b7b71b565bb7" target="_blank" rel="noopener">Cross-Skill Ledger</a></div><div class="date">Updated 2026-08-26</div></div></li>
-    <li class="card"><span class="icon">🩺</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/dc0c55ed-f104-4547-89fa-ed8730fd9733" target="_blank" rel="noopener">Contoso Health Headcount</a></div><div class="date">Updated 2026-08-25</div></div></li>
-    <li class="card"><span class="icon">🩺</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/0f04db35-a79a-45d4-848e-d5cf4e65cb59" target="_blank" rel="noopener">Cigna Clinical Headcount</a></div><div class="date">Updated 2026-08-25</div></div></li>
-    <li class="card"><span class="icon">🗺️</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/98ebef56-cd4b-47b1-8b1f-212945990405" target="_blank" rel="noopener">Situation Brief</a></div><div class="date">Updated 2026-08-25</div></div></li>
-    <li class="card"><span class="icon">🆘</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/399c00d4-aa4b-4342-ba92-5937942b8974" target="_blank" rel="noopener">Who Needs Help</a></div><div class="date">Updated 2026-08-25</div></div></li>
+    <li class="card"><span class="icon">🔀</span><div class="info"><div class="title"><a href="artifacts/the-agent-relay.html" target="_blank">The Agent Relay</a></div><div class="date">Updated 2026-09-01</div></div><a class="live-link" href="https://claude.ai/code/artifact/f39ea48c-f30a-4c9b-843c-61f3d7e3e886" target="_blank" rel="noopener">live ↗</a></li>
+    <li class="card"><span class="icon">🧾</span><div class="info"><div class="title"><a href="artifacts/the-ledger-read.html" target="_blank">The Ledger Read</a></div><div class="date">Updated 2026-09-01</div></div><a class="live-link" href="https://claude.ai/code/artifact/ef42df40-1e45-4359-9799-7af428948d03" target="_blank" rel="noopener">live ↗</a></li>
+    <li class="card"><span class="icon">🧪</span><div class="info"><div class="title"><a href="artifacts/the-grading-ledger.html" target="_blank">The Grading Ledger</a></div><div class="date">Updated 2026-09-01</div></div><a class="live-link" href="https://claude.ai/code/artifact/6afa24a4-863d-473a-9569-24934d05ddcc" target="_blank" rel="noopener">live ↗</a></li>
+    <li class="card"><span class="icon">💰</span><div class="info"><div class="title"><a href="artifacts/finforecast-pro.html" target="_blank">FinForecast Pro</a></div><div class="date">Updated 2026-08-30</div></div><a class="live-link" href="https://claude.ai/code/artifact/ebcf971c-d256-46d0-9e79-a35a3432caf8" target="_blank" rel="noopener">live ↗</a></li>
+    <li class="card"><span class="icon">💠</span><div class="info"><div class="title"><a href="artifacts/glimmerfield-finance.html" target="_blank">Glimmerfield Finance</a></div><div class="date">Updated 2026-08-30</div></div><a class="live-link" href="https://claude.ai/code/artifact/0b97b343-665f-4083-be56-ffbf8a04dc96" target="_blank" rel="noopener">live ↗</a></li>
+    <li class="card"><span class="icon">🛰️</span><div class="info"><div class="title"><a href="artifacts/shadowrealm-agents.html" target="_blank">ShadowRealm Agents</a></div><div class="date">Updated 2026-08-30</div></div><a class="live-link" href="https://claude.ai/code/artifact/c0bcbbf0-7856-45d9-8770-9170ce87eb6b" target="_blank" rel="noopener">live ↗</a></li>
+    <li class="card"><span class="icon">🔀</span><div class="info"><div class="title"><a href="artifacts/cross-skill-mapping-overview.html" target="_blank">Cross-Skill Mapping Overview</a></div><div class="date">Updated 2026-08-26</div></div><a class="live-link" href="https://claude.ai/code/artifact/532e41b3-2ddd-48a1-833f-e7e0d0e6e68c" target="_blank" rel="noopener">live ↗</a></li>
+    <li class="card"><span class="icon">🔀</span><div class="info"><div class="title"><a href="artifacts/cross-skill-ledger.html" target="_blank">Cross-Skill Ledger</a></div><div class="date">Updated 2026-08-26</div></div><a class="live-link" href="https://claude.ai/code/artifact/f584e081-d61a-476a-b6a9-b7b71b565bb7" target="_blank" rel="noopener">live ↗</a></li>
+    <li class="card"><span class="icon">🩺</span><div class="info"><div class="title"><a href="artifacts/contoso-health-headcount.html" target="_blank">Contoso Health Headcount</a></div><div class="date">Updated 2026-08-25</div></div><a class="live-link" href="https://claude.ai/code/artifact/dc0c55ed-f104-4547-89fa-ed8730fd9733" target="_blank" rel="noopener">live ↗</a></li>
+    <li class="card"><span class="icon">🩺</span><div class="info"><div class="title"><a href="artifacts/cigna-clinical-headcount.html" target="_blank">Cigna Clinical Headcount</a></div><div class="date">Updated 2026-08-25</div></div><a class="live-link" href="https://claude.ai/code/artifact/0f04db35-a79a-45d4-848e-d5cf4e65cb59" target="_blank" rel="noopener">live ↗</a></li>
+    <li class="card"><span class="icon">🗺️</span><div class="info"><div class="title"><a href="artifacts/situation-brief.html" target="_blank">Situation Brief</a></div><div class="date">Updated 2026-08-25</div></div><a class="live-link" href="https://claude.ai/code/artifact/98ebef56-cd4b-47b1-8b1f-212945990405" target="_blank" rel="noopener">live ↗</a></li>
+    <li class="card"><span class="icon">🆘</span><div class="info"><div class="title"><a href="artifacts/who-needs-help.html" target="_blank">Who Needs Help</a></div><div class="date">Updated 2026-08-25</div></div><a class="live-link" href="https://claude.ai/code/artifact/399c00d4-aa4b-4342-ba92-5937942b8974" target="_blank" rel="noopener">live ↗</a></li>
   </ul>
 
   <footer>
-    Generated from Claude's artifact list on 2026-09-01. To refresh, ask Claude in this project to "update the artifact index" — it will re-pull the list, regenerate this page, and push the update.
+    Generated from Claude's artifact list on 2026-09-01. Titles link to the full local copy stored in <code>artifacts/</code>; "live" links open the current version on claude.ai. To refresh, ask Claude in this project to "update the artifact index" — it will re-pull the list, re-fetch each artifact's content, and push the update.
   </footer>
 </div>
 </body>

@@ -1,0 +1,708 @@
+<!doctype html><html><head><!-- frame-runtime --><script>window.__FRAME_PREAMBLE={"v":1,"capabilities":{"artifact":"artifact.DF6_9MzE.js","assets":"assets.8Gk803W0.js","comments":"comments.vw5vQdGA.js","db":"db.h-3sndFg.js","downloads":"downloads.C3GSvEDP.js","embed":"embed.CxGAyc-v.js","mcp":"mcp.Bvma3qD7.js","network":"network.B5UA9Su4.js","notifications":"notifications.ssU4jy7G.js","permissions":"permissions.BNySkLV5.js","room":"room.BMMoe2BY.js","sample":"sample.BW2Uysoh.js","self":"artifact.DF6_9MzE.js","user":"user.BpKav-Rf.js"},"transforms":"_transforms.DSB5x63f.js","comments":"_comments.C6E0cR5g.js","translate":"_translate.5HCW4BJh.js"}</script><script>(function(){"use strict";var te=["light","dark","system"],re=/^[A-Za-z0-9_-]{1,64}$/,$=/^[a-zA-Z_:][a-zA-Z0-9_:.-]{0,127}$/,ne=new Set(["class","hidden","value","checked","style","title","alt","placeholder","lang","dir","role","tabindex","disabled","readonly","contenteditable","open","colspan","rowspan"]);function oe(e){const t=e.toLowerCase();return t.startsWith("data-")||t.startsWith("aria-")||ne.has(t)}var Be="http://www.w3.org/1999/xhtml",se="http://www.w3.org/2000/svg",ae=new Set(["script","style","iframe","noscript","noframes","noembed","xmp","plaintext","template","title","textarea","object","embed"]),ie=new Set(["script","style"]);function ce(e){const t=e.localName.toLowerCase();return e.namespaceURI==="http://www.w3.org/1999/xhtml"?!ae.has(t):e.namespaceURI===se?!ie.has(t):!1}function M(e,t){return e===t||(e===160||e===32)&&(t===160||t===32)}function le(e,t){const r=e.length,n=t.length;let s=0;for(;s<r&&s<n&&M(e.charCodeAt(s),t.charCodeAt(s));)s++;let o=0;for(;o<r-s&&o<n-s&&M(e.charCodeAt(r-1-o),t.charCodeAt(n-1-o));)o++;return{p:s,s:o}}function ue(e,t){const r=e.firstChild;if(e.childNodes.length!==1||r===null||r.nodeType!==Node.TEXT_NODE){e.textContent=t;return}const n=r.data,s=n.length,o=t.length,{p:i,s:c}=le(n,t);i===s&&c===0&&s===o||r.replaceData(i,s-i-c,t.slice(i,o-c));const h=r.data,p=e.ownerDocument.getSelection?.()??null,w=p!==null&&p.rangeCount>0&&(p.anchorNode===r||p.focusNode===r)?{anchor:p.anchorNode,anchorOffset:p.anchorOffset,focus:p.focusNode,focusOffset:p.focusOffset}:null;let m=-1,g=-1;for(let f=0;f<h.length&&f<t.length;f++){const v=h.charCodeAt(f),b=t.charCodeAt(f);v!==b&&M(v,b)&&(m<0&&(m=f),g=f)}const a=m>=0;if(a&&r.replaceData(m,g-m+1,t.slice(m,g+1)),a&&w!==null&&w.anchor!==null&&w.focus!==null)try{p.setBaseAndExtent(w.anchor,w.anchorOffset,w.focus,w.focusOffset)}catch{}}var fe=new Set(["html","head","body","frameset"]);function de(e){return e.namespaceURI==="http://www.w3.org/1999/xhtml"&&fe.has(e.localName)}function pe(e){if(e===null||typeof e!="object")return!1;const t=e;if(typeof t.target!="string"||!re.test(t.target)||t.text!==void 0&&typeof t.text!="string")return!1;if(t.attrsSet!==void 0){if(t.attrsSet===null||typeof t.attrsSet!="object")return!1;for(const[r,n]of Object.entries(t.attrsSet))if(!$.test(r)||typeof n!="string")return!1}if(t.attrsRemoved!==void 0){if(!Array.isArray(t.attrsRemoved))return!1;for(const r of t.attrsRemoved)if(typeof r!="string"||!$.test(r))return!1}return!0}function me(e,t){if(e===null||typeof e!="object")return!1;const{seq:r,elements:n}=e;if(typeof r!="number"||!Number.isSafeInteger(r)||!Array.isArray(n)||n.length===0||n.length>64)return!1;for(let s=0;s<n.length;s++)if(!t(n[s]))return!1;return!0}function he(e){return e===null||typeof e!="object"?!1:me(e.__frame_patch,pe)}function _e(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function ve(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function ye(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const r=t.theme;return typeof r=="string"&&te.includes(r)}var A=/^[\w.-]+\.js$/;function we(e,t,r){return r?"inert":typeof t=="string"&&A.test(t)?e?[t]:"inert":e?"inert":"framed"}function ge(){return{post(e,t){parent.postMessage(e,t)},on(e){const t=r=>{r.source===parent&&e(r.data,r.origin,r.isTrusted)};return addEventListener("message",t),()=>removeEventListener("message",t)}}}function be(){return{post:()=>{},on:()=>()=>{}}}var j="__frame_scroll",Ee=150,Ae=310,Se=160,Te=3e4;function ke(){let e=0,t=!1,r=!1,n=!1,s=0,o=null;const i=l=>{try{sessionStorage.setItem(j,JSON.stringify({y:l}))}catch{}},c=()=>{if(clearTimeout(e),o===null)return;const l=o;o=null,i(l)},h=()=>{if(t){t=!1;return}r=!0,o=scrollY,clearTimeout(e),e=setTimeout(c,Ee)};try{addEventListener("scroll",h,{passive:!0}),addEventListener("pagehide",c)}catch{}const p=()=>{let l;try{l=sessionStorage.getItem(j)}catch{return null}if(l===null)return null;let _;try{_=JSON.parse(l)}catch{_=null}const d=_?.y;if(!(typeof d=="number"&&Number.isFinite(d)&&d>=0)){try{sessionStorage.removeItem(j)}catch{}return null}return d};let w=!1;const m=l=>{try{const _=scrollY;scrollTo({top:l,left:0,behavior:"instant"}),s=l,n=!0,clearTimeout(e),o=null,i(l);const d=scrollY;d!==_&&(t=!0),d!==l&&!w&&(w=!0,addEventListener("load",()=>{try{if(scrollY===d){const T=p();m(T!==null?T:s)}}catch{}},{once:!0}))}catch{}},g=()=>{try{return!!location.hash}catch{return!0}};let a=!1;const f=()=>{try{if(a||innerWidth>Ae||innerHeight>Se)return;a=!0;const l=Date.now(),_=()=>{try{removeEventListener("resize",_)}catch{}if(Date.now()-l>Te||r||g())return;const d=p();m(d!==null?d:s)};addEventListener("resize",_)}catch{}};let v=!1,b=!1;return{restore(){if(v||(v=!0,g()))return;const l=p();l!==null&&(m(l),f())},promoted(){if(b||(b=!0,g()))return;const l=p();l!==null?(m(l),f()):n&&m(s)}}}function Re(e,t,r,n){let s=null;try{s=window.trustedTypes?.createPolicy("frame-runtime",{createScriptURL:h=>h})??null}catch{}const o=window.Worker,i=o?.prototype,c=Object.freeze({Worker:o,workerOn:i?.addEventListener,workerPost:i?.postMessage,workerTerminate:i?.terminate,fetch:window.fetch.bind(window),preventDefault:Event.prototype.preventDefault,policy:s,origins:t});r(e).then(h=>h?.bootTopLevel?h.bootTopLevel(c,n):n.settle()).catch(()=>n.settle())}var De="modulepreload",Ie=function(e){return"/"+e},Ue={},Le=function(t,r,n){let s=Promise.resolve();function o(i){const c=new Event("vite:preloadError",{cancelable:!0});if(c.payload=i,window.dispatchEvent(c),!c.defaultPrevented)throw i}return s.then(i=>{for(const c of i||[])c.status==="rejected"&&o(c.reason);return t().catch(o)})},Oe=window===top,q=Object.getOwnPropertyDescriptor(window,"claude"),k=we(Oe,window.__FRAME_PREAMBLE?.topLevel,q?.writable===!1),N=typeof k=="object"&&k[0],y=N?be():ge();(function(){const e=Object.defineProperty,t=globalThis,r=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let n=0;for(let s=0;s<r.length;s++){const o=r[s];try{e(t,o,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[o]}catch{}try{e(t,o,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[o]=="function"&&n++}if(n&&k==="framed")try{y.post({__frame_rtc_lockdown_failed:n},"*")}catch{}})();var Pe=1e4,Y=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function X(e){for(const t of Y)if(t.endsWith(":*"))try{const r=new URL(e);if(`${r.protocol}//${r.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}var R=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),B=window.__FRAME_PREAMBLE?.transforms,D=window.__FRAME_PREAMBLE?.comments,I=window.__FRAME_PREAMBLE?.translate;function S(e){return Le(()=>import("/_runtime/"+e),void 0)}function G(e,t){return{contract:e.contract,changes:new Set(e.changes??[]),flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:new Map,shellOrigin:t,mount:x,hooks:O,pipe:()=>({wrap:(r,n)=>(...s)=>{try{return n(...s)}catch(o){return Promise.reject(o)}}})}}var L=null,E=null;function V(e,t,r){try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var U=!1,O={editBefore:null,edit:null};function Ce(e,t,r=!1){const n=[];let s;if(r)try{O.editBefore?.(e)}catch{}for(const o of e.elements){const i=document.querySelector(`[data-id="${o.target}"]`);if(!i){s=o.target;break}if([...Object.keys(o.attrsSet??{}),...o.attrsRemoved??[]].some(c=>!oe(c))){s=o.target;break}if(o.text!==void 0&&(!ce(i)||de(i))){s=o.target;break}for(const[c,h]of Object.entries(o.attrsSet??{}))if(!J(i,c)){try{i.setAttribute(c,h)}catch{}Z(i,c,h)}for(const c of o.attrsRemoved??[])J(i,c)||(i.removeAttribute(c),Z(i,c,null));typeof o.text=="string"&&ue(i,o.text),n.push(o.target)}if(r)try{O.edit?.(e.seq,n,s)}catch{}if(s!==void 0){y.post({__frame_patch_miss:{seq:e.seq}},t);return}try{document.dispatchEvent(new CustomEvent("claude:edit",{detail:{seq:e.seq,targets:n}}))}catch{}}function Z(e,t,r){if(!(e instanceof HTMLInputElement))return;const n=t.toLowerCase();n==="checked"?e.checked=r!==null:n==="value"&&e.type!=="file"&&(e.value=r??"")}function J(e,t){const r=t.toLowerCase(),n=e;return r==="data-id"||(r==="value"||r==="checked")&&(n.__artifactSecret===!0||/^(password|hidden|file)$/.test(n.type??"")||/(^|\s)(cc-|one-time-code|current-password|new-password)/i.test(`${e.getAttribute("autocomplete")??""} ${n.autocomplete??""}`))}function Q(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,U=!0):U&&(delete t.dataset.theme,t.style.colorScheme="",U=!1)}var P=new Map;function Me(){let e;const t={u:new Promise(r=>{e=r}),r:r=>{t.done=!0,e(r)},done:!1,nulled:!1};return t}function F(){for(const e of P.values())e.done||(e.nulled=!0,e.r(null))}var je=Object.freeze(Object.assign(Object.create(null),{call:Function.prototype.call,apply:Function.prototype.apply,bind:Function.prototype.bind})),x=(e,t)=>{const r=P.get(e);if(!r||r.done){r?.nulled&&E&&y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:e}},E);return}const n=typeof t=="function"?Object.setPrototypeOf(t,je):Object.assign(Object.create(null),t);typeof n.then=="function"&&delete n.then,r.r(Object.freeze(n))};function ee(){const e=q?.value??{};V(window,"claude",e);for(const t of Object.keys(R)){if(e[t]!==void 0){V(e,t,e[t]);continue}P.set(t,Me())}if(e.use===void 0){const t=r=>{if(typeof r!="string"||!Object.hasOwn(R,r))return Promise.resolve(null);const n=P.get(r);return n?n.u:Promise.resolve(e[r]??null)};try{Object.defineProperty(e,"use",{value:t,writable:!0,configurable:!0,enumerable:!1})}catch{}}}if(k==="framed"){const e=B&&A.test(B)?S(B).catch(()=>{}):Promise.resolve(void 0),t=a=>{if(a.type==="auxclick"&&a.button!==1)return;const f=a.target,v=f&&f.closest?f.closest("a[href],area[href]"):null;if(!v)return;const b=v.getAttribute("href");if(!b)return;let l;try{l=new URL(b,document.baseURI)}catch{return}if((l.protocol==="http:"||l.protocol==="https:")&&l.origin!==location.origin){a.preventDefault();const _=(v.getAttribute("target")??"").toLowerCase(),d=a.type==="auxclick"||a.metaKey||a.ctrlKey||a.shiftKey||a.altKey||!["","_self","_top","_parent"].includes(_);y.post({__frame_nav:!0,url:l.href,newTab:d},"*")}};addEventListener("click",t,!0),addEventListener("auxclick",t,!0);const r={},n=a=>{a.isTrusted&&(r.pointer=!0)},s=a=>{a.isTrusted&&(r.click=!0)};addEventListener("pointermove",n,{capture:!0,passive:!0}),addEventListener("click",s,{capture:!0,passive:!0}),e.then(a=>{a?.wireNav&&(a.wireNav(),removeEventListener("click",t,!0),removeEventListener("auxclick",t,!0),removeEventListener("pointermove",n,!0),removeEventListener("click",s,!0),a.wireEngagement?.(r))});let o=null;try{o=ke()}catch{}ee();let i=null,c=null,h=0;const p=y.on((a,f)=>{X(f)&&_e(a)&&(i=a.__frame_init,E=f,p(),clearTimeout(h),c?.())});y.post({__frame_connect:!0},"*");const w=new Promise(a=>{c=a,h=setTimeout(()=>{p(),a()},Pe)}),m=document.readyState==="loading"?new Promise(a=>document.addEventListener("DOMContentLoaded",()=>a(),{once:!0})):Promise.resolve();m.then(()=>{try{o?.restore()}catch{}});const g={cb:null};y.on((a,f)=>{if(X(f)&&ve(a)){try{o?.promoted()}catch{}g.cb?.()}}),w.then(async()=>{if(!i||!E){F();return}Q(i.theme);const a=E;let f=!1,v=!1;y.on((u,z,C)=>{if(z!==a)return;ye(u)&&Q(u.__frame_theme.theme),he(u)&&Ce(u.__frame_patch,a,C);const H=u?.__fc_mode;H&&typeof H=="object"&&!f&&D&&A.test(D)&&(f=!0,S(D).then(K=>K.install?.(a,H.on===!0)).catch(()=>{}));const W=u?.__ft_cmd;W&&typeof W=="object"&&!v&&I&&A.test(I)&&(v=!0,S(I).then(K=>K.install?.(a,W)).catch(()=>{}))});const b=Object.keys(i.capabilities??{}).filter(u=>Object.hasOwn(R,u)).map(u=>[u,R[u]]).filter(u=>typeof u[1]=="string"&&A.test(u[1])),l=await Promise.allSettled(b.map(([,u])=>S(u))),_=await e,d=E;if(_?.buildBoot||y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},d),_?.buildBoot)try{L=_.buildBoot(i,_.TRANSFORMS??{},{shellOrigin:d,mount:x,hooks:O},u=>y.post({__frame_cap_telemetry:u},d))}catch{y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},d),L=G(i,d)}else L=G(i,d);const T=u=>y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:u}},d),Ne=L;l.forEach((u,z)=>{const C=b[z][0];if(u.status!=="fulfilled"){T(C);return}try{u.value?.install?.(Ne)}catch{T(C)}}),F(),await m,y.post({__frame_ready:!0},E),e.then(u=>u?.installSizeReporter?.(d,g))})}else N&&(ee(),Re(N,Y,S,{settle:F,mount:x}))})();</script><!-- /frame-runtime --><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found]){display:none!important}</style></head><body>
+<title>ShadowRealm Agents</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+  :root {
+    --bg: #0F1117;
+    --surface: #171B24;
+    --surface-2: #1E2330;
+    --border: #2B3142;
+    --text: #E7E9F0;
+    --text-dim: #9AA2B8;
+    --accent: #6E8AFF;
+    --accent-strong: #8FA5FF;
+    --accent-soft: #232A47;
+    --ok: #3ED890;
+    --ok-soft: #16281F;
+    --warn: #F0B94A;
+    --warn-soft: #2B2314;
+    --crit: #FF6B70;
+    --crit-soft: #2B1618;
+    --shadow: 0 12px 32px -16px rgba(0,0,0,0.6);
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #F3F4F9;
+      --surface: #FFFFFF;
+      --surface-2: #ECEEF6;
+      --border: #D8DCE8;
+      --text: #171A22;
+      --text-dim: #5B6178;
+      --accent: #3B5BE0;
+      --accent-strong: #2C46C4;
+      --accent-soft: #E4E9FF;
+      --ok: #1F9D5C;
+      --ok-soft: #E6F6EC;
+      --warn: #A5700C;
+      --warn-soft: #FBF1DE;
+      --crit: #D93C41;
+      --crit-soft: #FBE7E7;
+      --shadow: 0 12px 28px -18px rgba(30,35,60,0.25);
+    }
+  }
+
+  :root[data-theme="light"] {
+    --bg: #F3F4F9;
+    --surface: #FFFFFF;
+    --surface-2: #ECEEF6;
+    --border: #D8DCE8;
+    --text: #171A22;
+    --text-dim: #5B6178;
+    --accent: #3B5BE0;
+    --accent-strong: #2C46C4;
+    --accent-soft: #E4E9FF;
+    --ok: #1F9D5C;
+    --ok-soft: #E6F6EC;
+    --warn: #A5700C;
+    --warn-soft: #FBF1DE;
+    --crit: #D93C41;
+    --crit-soft: #FBE7E7;
+    --shadow: 0 12px 28px -18px rgba(30,35,60,0.25);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .mono { font-family: 'IBM Plex Mono', ui-monospace, monospace; }
+
+  h1, h2, h3 { text-wrap: balance; font-weight: 700; margin: 0; letter-spacing: -0.01em; }
+  p { margin: 0; }
+
+  a { color: var(--accent); }
+  a:focus-visible, button:focus-visible, .card:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  ::selection { background: var(--accent-soft); color: var(--text); }
+
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 28px; }
+
+  /* ---------- Nav ---------- */
+  header.topbar {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 28px; max-width: 1040px; margin: 0 auto; gap: 20px;
+  }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 600; font-size: 15px; white-space: nowrap; }
+  .brand-mark {
+    width: 20px; height: 20px; border-radius: 4px;
+    background: linear-gradient(160deg, var(--accent), var(--accent-strong));
+    flex: none;
+  }
+  nav.topnav { display: flex; gap: 22px; flex-wrap: wrap; }
+  nav.topnav a {
+    color: var(--text-dim); text-decoration: none; font-size: 13.5px; font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+  nav.topnav a:hover { color: var(--text); }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: 76px 0 64px; }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent-strong); font-weight: 600; margin-bottom: 18px;
+  }
+  .eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 3px var(--ok-soft); }
+  .hero h1 { font-size: clamp(2.4rem, 5vw, 3.4rem); }
+  .hero p.lede {
+    margin-top: 18px; max-width: 62ch; font-size: 18px; color: var(--text-dim); line-height: 1.65;
+  }
+
+  /* pipeline flow diagram */
+  .flow {
+    margin-top: 48px;
+    display: flex; align-items: stretch; gap: 0;
+    overflow-x: auto; padding-bottom: 6px;
+  }
+  .flow-stage {
+    flex: none; width: 128px;
+    display: flex; flex-direction: column; gap: 8px;
+    padding: 14px 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    position: relative;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .flow-stage:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .flow-stage.optional { border-style: dashed; opacity: 0.85; }
+  .flow-num { font-size: 11px; color: var(--text-dim); }
+  .flow-label { font-size: 13px; font-weight: 600; line-height: 1.3; }
+  .flow-sub { font-size: 11.5px; color: var(--text-dim); line-height: 1.35; }
+  .flow-arrow {
+    flex: none; width: 22px; display: flex; align-items: center; justify-content: center;
+    color: var(--border); font-size: 15px;
+  }
+
+  /* ---------- Sections ---------- */
+  section { padding: 64px 0; border-top: 1px solid var(--border); }
+  section.no-border { border-top: none; }
+  .section-head { margin-bottom: 36px; max-width: 68ch; }
+  .kicker {
+    font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: var(--text-dim);
+    letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 10px;
+  }
+  .section-head h2 { font-size: clamp(1.6rem, 3vw, 2rem); }
+  .section-head p { margin-top: 12px; color: var(--text-dim); font-size: 15.5px; max-width: 62ch; }
+
+  /* verdict pill */
+  .pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 11px; font-weight: 600;
+    padding: 3px 9px; border-radius: 4px; letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .pill-ok   { background: var(--ok-soft); color: var(--ok); }
+  .pill-warn { background: var(--warn-soft); color: var(--warn); }
+  .pill-crit { background: var(--crit-soft); color: var(--crit); }
+  .pill-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+
+  /* ---------- Timeline (workflow section) ---------- */
+  .timeline { display: flex; flex-direction: column; }
+  .tl-row {
+    display: grid; grid-template-columns: 44px 1fr; gap: 20px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .tl-row:last-child { border-bottom: none; }
+  .tl-num {
+    font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: var(--text-dim);
+    padding-top: 2px;
+  }
+  .tl-body h3 { font-size: 16px; font-weight: 600; margin-bottom: 4px; }
+  .tl-body h3 .agent { color: var(--accent-strong); font-weight: 600; }
+  .tl-body p { color: var(--text-dim); font-size: 14.5px; max-width: 66ch; }
+  .tl-verdicts { margin-top: 10px; display: flex; gap: 6px; flex-wrap: wrap; }
+
+  .callout {
+    margin-top: 40px; padding: 22px 24px; border-radius: 6px;
+    background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent);
+  }
+  .callout p { font-size: 14.5px; color: var(--text-dim); }
+  .callout strong { color: var(--text); }
+
+  /* ---------- Fleet grid ---------- */
+  .group { margin-bottom: 42px; }
+  .group:last-child { margin-bottom: 0; }
+  .group-title {
+    display: flex; align-items: center; gap: 10px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-dim);
+    margin-bottom: 16px;
+  }
+  .group-title .count { color: var(--text); background: var(--surface-2); padding: 1px 7px; border-radius: 999px; font-size: 11px; }
+  .card-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px;
+  }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 6px;
+    padding: 16px 16px 14px; display: flex; flex-direction: column; gap: 8px;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .card:hover { border-color: var(--accent); background: var(--surface-2); }
+  .card-name { font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600; color: var(--text); }
+  .card-desc { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
+  .card-tools { font-size: 10.5px; color: var(--text-dim); letter-spacing: 0.02em; margin-top: auto; padding-top: 6px; }
+
+  /* ---------- Finance panel ---------- */
+  .finance-panel {
+    background: linear-gradient(180deg, var(--accent-soft), transparent 40%);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 36px;
+  }
+  .finance-panel .card { background: var(--bg); }
+  .finance-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin: 24px 0 30px; }
+  .fc-role { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; color: var(--accent-strong); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 6px; }
+
+  .convention-list { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
+  .convention-item { display: grid; grid-template-columns: 20px 1fr; gap: 12px; align-items: start; }
+  .convention-item .mark { color: var(--accent); font-family: 'IBM Plex Mono', monospace; font-size: 13px; padding-top: 2px; }
+  .convention-item p { font-size: 14.5px; color: var(--text-dim); }
+  .convention-item strong { color: var(--text); }
+
+  .adr-note {
+    margin-top: 28px; padding: 18px 20px; border-radius: 6px;
+    background: var(--surface); border: 1px dashed var(--border);
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .adr-note .tag {
+    font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; font-weight: 600;
+    color: var(--warn); background: var(--warn-soft); padding: 2px 8px; border-radius: 4px;
+    flex: none; margin-top: 2px;
+  }
+  .adr-note p { font-size: 13.5px; color: var(--text-dim); }
+  .adr-note code { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; color: var(--text); }
+
+  /* ---------- First run ---------- */
+  .run-meta { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 18px; font-size: 13px; color: var(--text-dim); }
+  .run-meta strong { color: var(--text); font-weight: 600; }
+  .finding-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin-top: 28px; }
+  .finding-card {
+    border-radius: 6px; padding: 18px; background: var(--surface);
+    border: 1px solid var(--border); border-left: 3px solid var(--border);
+  }
+  .finding-card.sev-crit { border-left-color: var(--crit); }
+  .finding-card.sev-warn { border-left-color: var(--warn); }
+  .finding-card h3 { font-size: 14px; margin: 10px 0 6px; }
+  .finding-card p { font-size: 13px; color: var(--text-dim); }
+  .finding-card p strong { color: var(--text); font-variant-numeric: tabular-nums; }
+
+  .branch-strip { margin-top: 28px; display: flex; flex-direction: column; gap: 1px; border-radius: 6px; overflow: hidden; border: 1px solid var(--border); }
+  .branch-row { display: grid; grid-template-columns: 1fr auto auto; gap: 16px; align-items: center; padding: 12px 16px; background: var(--surface); }
+  .branch-row + .branch-row { border-top: 1px solid var(--border); }
+  .branch-name { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; }
+  .branch-desc { font-size: 12px; color: var(--text-dim); grid-column: 1; margin-top: 2px; }
+  .branch-status { font-family: 'IBM Plex Mono', monospace; font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--warn); background: var(--warn-soft); padding: 3px 8px; border-radius: 4px; white-space: nowrap; }
+
+  /* ---------- Guardrails ---------- */
+  .guard-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .guard-card { padding: 20px; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); }
+  .guard-card h3 { font-size: 14.5px; margin-bottom: 8px; }
+  .guard-card p { font-size: 13.5px; color: var(--text-dim); }
+
+  .legend-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 14px; }
+
+  /* ---------- Footer ---------- */
+  footer { border-top: 1px solid var(--border); padding: 36px 0 60px; }
+  .footer-inner { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; align-items: baseline; }
+  footer p { font-size: 13px; color: var(--text-dim); }
+  footer .mono { font-size: 12px; }
+
+  @media (max-width: 640px) {
+    .topbar-inner { padding: 12px 20px; }
+    nav.topnav { display: none; }
+    .wrap { padding: 0 20px; }
+    .finance-panel { padding: 24px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+</style>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span class="brand-mark" aria-hidden="true"></span>ShadowRealm Agents</div>
+    <nav class="topnav">
+      <a href="#pipeline">Pipeline</a>
+      <a href="#fleet">Fleet</a>
+      <a href="#finance">Finance Lane</a>
+      <a href="#first-run">First Run</a>
+      <a href="#guardrails">Guardrails</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero no-border">
+    <div class="wrap">
+      <div class="eyebrow">22 agents · claude code pipeline</div>
+      <h1>A raw request, reviewed at every gate before it ever reaches <span class="mono" style="font-weight:600;">main</span>.</h1>
+      <p class="lede">ShadowRealm Agents is a fleet of specialist Claude Code subagents that turns one prompt into a structured brief, a built change on its own branch, and a pull request — passing through privacy, compliance, quality, and governance review along the way. No agent pushes to <span class="mono">main</span>. No agent skips a gate.</p>
+
+      <div class="flow" role="img" aria-label="Pipeline flow: brief, optional architecture review, build, privacy check, compliance check, quality check, optional design scrutiny, governance audit, then a pull request for human review.">
+        <div class="flow-stage">
+          <span class="flow-num mono">01</span>
+          <span class="flow-label">Brief</span>
+          <span class="flow-sub mono">prompt-creator</span>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-stage optional">
+          <span class="flow-num mono">01.5</span>
+          <span class="flow-label">Architecture</span>
+          <span class="flow-sub mono">architect · if needed</span>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-stage">
+          <span class="flow-num mono">02</span>
+          <span class="flow-label">Build</span>
+          <span class="flow-sub mono">lane builder</span>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-stage">
+          <span class="flow-num mono">03</span>
+          <span class="flow-label">Privacy</span>
+          <span class="flow-sub mono">data-privacy</span>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-stage">
+          <span class="flow-num mono">04</span>
+          <span class="flow-label">Compliance</span>
+          <span class="flow-sub mono">compliance</span>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-stage">
+          <span class="flow-num mono">05</span>
+          <span class="flow-label">Quality</span>
+          <span class="flow-sub mono">quality</span>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-stage optional">
+          <span class="flow-num mono">06</span>
+          <span class="flow-label">Scrutiny</span>
+          <span class="flow-sub mono">design lane only</span>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-stage">
+          <span class="flow-num mono">07</span>
+          <span class="flow-label">Governance</span>
+          <span class="flow-sub mono">ai-governance</span>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-stage">
+          <span class="flow-num mono">08–09</span>
+          <span class="flow-label">PR → Merge</span>
+          <span class="flow-sub mono">human proofreads</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pipeline">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">How it runs</div>
+        <h2>How a request becomes a merged PR</h2>
+        <p>Every lane — design, finance, docs, analysis — follows the same sequence after the brief is written. Each gate returns one of a small set of verdicts; a BLOCK stops everything and escalates straight to a human rather than waiting to be found in a report.</p>
+      </div>
+
+      <div class="timeline">
+        <div class="tl-row">
+          <div class="tl-num">01</div>
+          <div class="tl-body">
+            <h3><span class="agent mono">prompt-creator-agent</span> writes the brief</h3>
+            <p>Converts the raw request into a structured brief at <code class="mono">.claude/briefs/</code> and picks a lane — design, graphics, mobile, exec-insights, process, data-pipeline, analysis, architecture, docs, finance, accounts-payable, or treasury.</p>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-num">01.5</div>
+          <div class="tl-body">
+            <h3><span class="agent mono">architect-agent</span> decides structure — only if needed</h3>
+            <p>Runs only when the brief introduces a new component, integration, or tech-stack decision. Writes an ADR that becomes required reading for the builder. Skipped for most briefs.</p>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-num">02</div>
+          <div class="tl-body">
+            <h3>The lane's builder implements the change</h3>
+            <p>Commits to a feature branch and stops — never pushes, never opens the PR. Which agent runs here depends entirely on the lane the brief picked.</p>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-num">03</div>
+          <div class="tl-body">
+            <h3><span class="agent mono">data-privacy-agent</span> checks exposure</h3>
+            <p>Scans the diff and any referenced data files for personal or sensitive data, secrets, and hosting exposure — the first gate, before anything else is spent reviewing the work.</p>
+            <div class="tl-verdicts">
+              <span class="pill pill-ok"><span class="pill-dot"></span>SAFE</span>
+              <span class="pill pill-warn"><span class="pill-dot"></span>CAUTION</span>
+              <span class="pill pill-crit"><span class="pill-dot"></span>BLOCK</span>
+            </div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-num">04</div>
+          <div class="tl-body">
+            <h3><span class="agent mono">compliance-agent</span> checks obligations</h3>
+            <p>Legal, regulatory, contractual, and licensing review, consuming step 03's findings rather than re-deriving them. Never issues a legal conclusion — flags for human/DPO review.</p>
+            <div class="tl-verdicts">
+              <span class="pill pill-ok"><span class="pill-dot"></span>COMPLIANT</span>
+              <span class="pill pill-warn"><span class="pill-dot"></span>NEEDS REVIEW</span>
+              <span class="pill pill-crit"><span class="pill-dot"></span>BLOCK</span>
+            </div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-num">05</div>
+          <div class="tl-body">
+            <h3><span class="agent mono">quality-agent</span> checks the work itself</h3>
+            <p>Lane-agnostic content and code quality gate — the only reviewer narrative-only output (exec, PM reports) gets.</p>
+            <div class="tl-verdicts">
+              <span class="pill pill-ok"><span class="pill-dot"></span>PASS</span>
+              <span class="pill pill-warn"><span class="pill-dot"></span>REVISE</span>
+              <span class="pill pill-crit"><span class="pill-dot"></span>BLOCK</span>
+            </div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-num">06</div>
+          <div class="tl-body">
+            <h3><span class="agent mono">dashboard-scrutiny-agent</span> — design lane only</h3>
+            <p>UI/UX/accessibility critique against the original brief. REVISE sends the change back to step 02, up to two rounds, before it's treated as stuck.</p>
+            <div class="tl-verdicts">
+              <span class="pill pill-ok"><span class="pill-dot"></span>PASS</span>
+              <span class="pill pill-warn"><span class="pill-dot"></span>REVISE</span>
+              <span class="pill pill-crit"><span class="pill-dot"></span>BLOCK</span>
+            </div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-num">07</div>
+          <div class="tl-body">
+            <h3><span class="agent mono">ai-governance-agent</span> audits the process</h3>
+            <p>Checks AI-content disclosure, whether irreversible actions had a human checkpoint, and provenance for the round. ESCALATE stops everything; FLAGGED is noted but doesn't block.</p>
+            <div class="tl-verdicts">
+              <span class="pill pill-ok"><span class="pill-dot"></span>ATTESTED</span>
+              <span class="pill pill-warn"><span class="pill-dot"></span>FLAGGED</span>
+              <span class="pill pill-crit"><span class="pill-dot"></span>ESCALATE</span>
+            </div>
+          </div>
+        </div>
+        <div class="tl-row">
+          <div class="tl-num">08–09</div>
+          <div class="tl-body">
+            <h3>Pull request, then a human merges</h3>
+            <p>A PR opens only once every gate above has passed. The user proofreads on GitHub and merges — the pipeline never merges its own work.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p><strong>Why nothing pushes to main directly:</strong> earlier versions of these agents ran <span class="mono">git add . && git commit && git push origin main</span> autonomously — no branch, no build check, no review gate, and a real risk of two agents clobbering the same file. Every agent now stops at "committed to a feature branch," and a PR opens only once every gate above returns a passing verdict.</p>
+      </div>
+
+      <div class="callout" style="border-left-color: var(--warn);">
+        <p><strong>Two agents run outside this sequence entirely:</strong> <span class="agent mono">admin-control-agent</span> audits whether the sequence above was actually followed for every open branch, and <span class="agent mono">risk-assessment-agent</span> rolls findings from the gates into a standing, likelihood × impact Risk Register — both on their own cadence, not per-change.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="fleet">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">The roster</div>
+        <h2>Twenty-two agents, four roles</h2>
+        <p>Every agent has exactly one job and a defined handoff to the next. Grouped here by where each one sits in the sequence above.</p>
+      </div>
+
+      <div class="group">
+        <div class="group-title">Intake &amp; Architecture <span class="count">2</span></div>
+        <div class="card-grid">
+          <div class="card"><div class="card-name">prompt-creator-agent</div><div class="card-desc">Converts a raw request into a structured, unambiguous brief and picks the lane. Every downstream agent reads the brief as ground truth.</div><div class="card-tools mono">Read · Glob · Grep · Write</div></div>
+          <div class="card"><div class="card-name">architect-agent</div><div class="card-desc">Reviews structural decisions before a builder starts on anything system-wide — new components, integrations, or tech-stack choices. Writes ADRs, not code.</div><div class="card-tools mono">Read · Glob · Grep · Bash · Write</div></div>
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="group-title">Builders <span class="count">11</span></div>
+        <div class="card-grid">
+          <div class="card"><div class="card-name">frontend-design-agent</div><div class="card-desc">Visual/UI design, brand, motion, content design, and front-end implementation as working code on a web/desktop surface.</div><div class="card-tools mono">Read · Edit · Write · Glob · Grep · Bash</div></div>
+          <div class="card"><div class="card-name">graphic-designer-agent</div><div class="card-desc">Standalone visual deliverables — infographics, marketing graphics, mockups. Never writes application code.</div><div class="card-tools mono">Read · Write · Glob · Grep</div></div>
+          <div class="card"><div class="card-name">mobile-app-agent</div><div class="card-desc">Native iOS/Android design and development — invoked only after explicit confirmation a native app is actually needed.</div><div class="card-tools mono">Read · Edit · Write · Glob · Grep · Bash</div></div>
+          <div class="card"><div class="card-name">exec-agent</div><div class="card-desc">Executive Insights briefings and dashboard modules — cross-functional KPI storytelling for the C-suite from already-computed numbers.</div><div class="card-tools mono">Read · Write · Edit · Glob · Grep · Bash</div></div>
+          <div class="card"><div class="card-name">project-manager-agent</div><div class="card-desc">Sprint status, backlog, and risk reports — Agile/Scrum and Lean Six Sigma discipline applied to the project's own delivery.</div><div class="card-tools mono">Read · Write · Edit · Glob · Grep · Bash</div></div>
+          <div class="card"><div class="card-name">data-engineer-agent</div><div class="card-desc">Owns data pipeline correctness, schema design, and data infrastructure — ETL scripts, data bridges, freshness mechanisms.</div><div class="card-tools mono">Read · Edit · Write · Glob · Grep · Bash</div></div>
+          <div class="card"><div class="card-name">data-scientist-agent</div><div class="card-desc">Statistical analysis, forecasting, clustering, hypothesis testing — refuses to fake rigor on data too small or synthetic to support it.</div><div class="card-tools mono">Read · Glob · Grep · Bash · Write</div></div>
+          <div class="card"><div class="card-name">documentation-agent</div><div class="card-desc">Keeps the pipeline docs, README, ADRs, and agent specs consistent with the system's actual state. Edits files, still ships via branch + PR.</div><div class="card-tools mono">Read · Write · Edit · Glob · Grep · Bash</div></div>
+          <div class="card"><div class="card-name">finance-agent</div><div class="card-desc">FP&amp;A — budget-vs-actual-vs-forecast, rolling forecast, variance commentary. See the finance lane below.</div><div class="card-tools mono">Read · Write · Edit · Glob · Grep · Bash</div></div>
+          <div class="card"><div class="card-name">ap-agent</div><div class="card-desc">Accounts Payable — invoice/PO/receipt matching, proposed GL coding, stalled-approval chasing. Never posts or pays. See below.</div><div class="card-tools mono">Read · Write · Edit · Glob · Grep · Bash</div></div>
+          <div class="card"><div class="card-name">treasury-agent</div><div class="card-desc">Cash positioning, margin/anomaly flags, financial-control tracking. See the finance lane below.</div><div class="card-tools mono">Read · Write · Glob · Grep · Bash</div></div>
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="group-title">Gates <span class="count">5</span></div>
+        <div class="card-grid">
+          <div class="card"><div class="card-name">data-privacy-agent</div><div class="card-desc">PII and exposure-surface checker. Runs first among the post-build gates, before anything else is spent reviewing the work.</div><div class="card-tools mono">Read · Glob · Grep · Bash</div></div>
+          <div class="card"><div class="card-name">compliance-agent</div><div class="card-desc">Legal, regulatory, contractual, and licensing check, consuming privacy's findings. Flags for human/legal review, never rules itself.</div><div class="card-tools mono">Read · Glob · Grep · Bash</div></div>
+          <div class="card"><div class="card-name">quality-agent</div><div class="card-desc">Lane-agnostic content and code quality gate — covers what the design-only scrutiny gate below doesn't.</div><div class="card-tools mono">Read · Glob · Grep · Bash</div></div>
+          <div class="card"><div class="card-name">dashboard-scrutiny-agent</div><div class="card-desc">Critically evaluates dashboard/UI output against the original brief. Design lane only — critique, never edits code.</div><div class="card-tools mono">Read · Glob · Grep · Bash</div></div>
+          <div class="card"><div class="card-name">ai-governance-agent</div><div class="card-desc">Responsible-AI oversight of the fleet itself — disclosure, human checkpoints on irreversible actions, provenance. Final gate before a PR.</div><div class="card-tools mono">Read · Glob · Grep · Bash</div></div>
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="group-title">Orthogonal Auditors <span class="count">2</span></div>
+        <div class="card-grid">
+          <div class="card"><div class="card-name">admin-control-agent</div><div class="card-desc">Portfolio auditor — tracks whether the required sequence was followed and whether any branch is waiting on a PR. Cannot invoke other agents.</div><div class="card-tools mono">Read · Write · Glob · Grep · Bash</div></div>
+          <div class="card"><div class="card-name">risk-assessment-agent</div><div class="card-desc">Standing, quantified Risk Register across business operations, project delivery, contracts, and AI deployment. Periodic, not per-change.</div><div class="card-tools mono">Read · Write · Glob · Grep · Bash</div></div>
+        </div>
+      </div>
+
+      <div class="group">
+        <div class="group-title">Outside the Pipeline <span class="count">1</span></div>
+        <div class="card-grid">
+          <div class="card"><div class="card-name">personal-finance-agent</div><div class="card-desc">Personal budgeting and risk assistant. Never touches git — this repo is shared and reviewed, and personal data has no business entering that surface.</div><div class="card-tools mono">Read · Write · Glob · Grep</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="finance">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Newest lane</div>
+        <h2>The finance lane</h2>
+        <p>Added to cover FP&amp;A, payables, and treasury monitoring for the organization — plus a structurally separate agent for the individual user's own finances. Built with a planned future bank/ERP connection in mind, without building that connection yet.</p>
+      </div>
+
+      <div class="finance-panel">
+        <div class="finance-grid">
+          <div class="card">
+            <div class="fc-role">FP&amp;A</div>
+            <div class="card-name">finance-agent</div>
+            <div class="card-desc">Reads actuals against budget and prior forecast, rolls the forecast forward, and drafts variance commentary a budget owner can act on. Hands complex, multi-driver forecasting to <span class="mono">data-scientist-agent</span> rather than modeling it itself.</div>
+          </div>
+          <div class="card">
+            <div class="fc-role">Accounts Payable</div>
+            <div class="card-name">ap-agent</div>
+            <div class="card-desc">Two/three-way matches invoices to POs and receipts, proposes GL coding, drafts chase reminders for stalled approvals. Never marks an invoice approved, coded-final, or paid — segregation of duties, by design.</div>
+          </div>
+          <div class="card">
+            <div class="fc-role">Treasury</div>
+            <div class="card-name">treasury-agent</div>
+            <div class="card-desc">Tracks cash position against forecast, flags margin deterioration and spend anomalies, maintains a financial-control/covenant status log. States an as-of date on every figure — never implies a feed is live when it isn't.</div>
+          </div>
+          <div class="card">
+            <div class="fc-role">Personal</div>
+            <div class="card-name">personal-finance-agent</div>
+            <div class="card-desc">Budgeting, personal risk review, bill and subscription tracking — for the individual, not the org. Writes only to a gitignored folder; never opens a branch, never a PR.</div>
+          </div>
+        </div>
+
+        <div class="convention-list">
+          <div class="convention-item">
+            <span class="mark">→</span>
+            <p><strong>One shared contract, not three.</strong> The no-live-access disclaimer, the extract schema, and the landing-zone path are defined once in <code class="mono">finance-lane-conventions.md</code> — all three enterprise agents point to it instead of independently restating it.</p>
+          </div>
+          <div class="convention-item">
+            <span class="mark">→</span>
+            <p><strong>Raw data never enters the reviewed surface.</strong> Source extracts live in <code class="mono">workspace/finance/inbox/</code>, gitignored. Only the derived report — the forecast, the match table, the treasury readout — gets committed and reviewed.</p>
+          </div>
+          <div class="convention-item">
+            <span class="mark">→</span>
+            <p><strong>Personal and enterprise stay structurally separate.</strong> Not a shared setting, a shared connector, or a shared folder — two disjoint paths, one of which never touches git at all.</p>
+          </div>
+        </div>
+
+        <div class="adr-note">
+          <span class="tag mono">ADR · 2026-08-30</span>
+          <p>No agent here has live bank or ERP API access today — each operates on manually-supplied extracts, deliberately, until a sandbox account exists to test a real connection safely. When that connection is built, it's scoped as a <code>data-engineer-agent</code> brief — one connector feeding all three finance agents — not a new dedicated agent, and not capability grafted onto the three directly. Full reasoning in <code>ADR-2026-08-30-finance-agent-fleet-review.md</code>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="first-run">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">Proof of concept · 2026-08-30</div>
+        <h2>First run: Glimmerfield Trading Co. <span style="color:var(--text-dim); font-weight:500;">(synthetic)</span></h2>
+        <p>A dashboard needs something to render, and per the ADR, no agent may run against fabricated placeholder data — so a hand-built, internally-consistent synthetic extract was authored for a fictional company, and <span class="mono">finance-agent</span>, <span class="mono">ap-agent</span>, and <span class="mono">treasury-agent</span> each ran for the first time against it. Every figure below is clearly <code class="mono">dataClassification: "synthetic"</code> — the point was to prove the pipeline finds real problems, not to model a real company.</p>
+        <div class="run-meta">
+          <span><strong>Period:</strong> 2026-07</span>
+          <span><strong>As-of:</strong> 2026-08-28</span>
+          <span><strong>Invoices processed:</strong> 13</span>
+          <span><strong>GL line items:</strong> 25</span>
+        </div>
+      </div>
+
+      <div class="finding-grid">
+        <div class="finding-card sev-crit">
+          <span class="pill pill-crit"><span class="pill-dot"></span>BREACH</span>
+          <h3>Dual-approval control, ≥$25,000</h3>
+          <p>Two invoices past that threshold — <strong>$27,400</strong> and <strong>$31,000</strong> — were both single-approved instead of dual. Independently, they're also the two most overdue approvals (9 and 7 business days), suggesting the broken control may be why they're stuck.</p>
+        </div>
+        <div class="finding-card sev-crit">
+          <span class="pill pill-warn"><span class="pill-dot"></span>HIGH</span>
+          <h3>Minimum cash floor, projected breach</h3>
+          <p>Operating Account projected to fall to <strong>$111,300</strong> against a <strong>$150,000</strong> policy floor — twice within 8 weeks, both payroll-run weeks.</p>
+        </div>
+        <div class="finding-card sev-warn">
+          <span class="pill pill-warn"><span class="pill-dot"></span>HIGH</span>
+          <h3>Margin compression</h3>
+          <p>Gross margin fell <strong>5.7 points</strong> month-over-month (22.0% → 16.3%) — 2.85x the default 2pp deterioration threshold.</p>
+        </div>
+        <div class="finding-card sev-warn">
+          <span class="pill pill-warn"><span class="pill-dot"></span>HIGH</span>
+          <h3>Unvetted vendor, no PO</h3>
+          <p>Marketing spend <strong>2.16x</strong> budget — $29,800 of it from a brand-new vendor with zero prior GL history and no purchase order on file.</p>
+        </div>
+      </div>
+
+      <div class="branch-strip">
+        <div class="branch-row">
+          <div><div class="branch-name">finance/first-run-synthetic</div><div class="branch-desc">2026-07 variance report + forecast roll-forward</div></div>
+          <span class="branch-status">awaiting gates</span>
+        </div>
+        <div class="branch-row">
+          <div><div class="branch-name">ap/first-run-synthetic</div><div class="branch-desc">7 matched · 2 partial match · 4 no match</div></div>
+          <span class="branch-status">awaiting gates</span>
+        </div>
+        <div class="branch-row">
+          <div><div class="branch-name">treasury/first-run-synthetic</div><div class="branch-desc">cash, margin, anomaly &amp; compliance-tracking report</div></div>
+          <span class="branch-status">awaiting gates</span>
+        </div>
+        <div class="branch-row">
+          <div><div class="branch-name">architecture/finance-dashboard-data-contract</div><div class="branch-desc">ADR + JSON output contract for all three agents</div></div>
+          <span class="branch-status">awaiting gates</span>
+        </div>
+      </div>
+
+      <div class="callout" style="border-left-color: var(--warn);">
+        <p><strong>Infrastructure lesson from this run:</strong> all three agents shared one git working directory and raced on branch switches — a stray duplicate commit landed on the wrong branch mid-run. Recovered without losing any data (each agent's real output survived independently), but the fix going forward is isolated worktrees per concurrent agent, not a shared checkout.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="guardrails">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="kicker">What holds it together</div>
+        <h2>Guardrails</h2>
+        <p>The rules that keep twenty-two independently-invoked agents from stepping on each other.</p>
+      </div>
+
+      <div class="guard-grid">
+        <div class="guard-card">
+          <h3>One verdict vocabulary, reused everywhere</h3>
+          <p>Every gate returns a passing / cautionary / blocking verdict from a small, consistent set — never a vague "looks fine" or a silent pass.</p>
+          <div class="legend-row">
+            <span class="pill pill-ok"><span class="pill-dot"></span>PASS-CLASS</span>
+            <span class="pill pill-warn"><span class="pill-dot"></span>REVIEW-CLASS</span>
+            <span class="pill pill-crit"><span class="pill-dot"></span>BLOCK-CLASS</span>
+          </div>
+        </div>
+        <div class="guard-card">
+          <h3>A BLOCK escalates immediately</h3>
+          <p>Never left sitting in a report for someone to find later — <span class="mono">data-privacy-agent</span>, <span class="mono">compliance-agent</span>, and <span class="mono">ai-governance-agent</span> all surface a hard stop directly to the user the moment it's found.</p>
+        </div>
+        <div class="guard-card">
+          <h3>Segregation of duties</h3>
+          <p><span class="mono">ap-agent</span> proposes matches and coding; it never posts, approves, or pays. Matching and paying should never be the same actor, human or agent.</p>
+        </div>
+        <div class="guard-card">
+          <h3>Human checkpoints on irreversible actions</h3>
+          <p><span class="mono">ai-governance-agent</span> checks that anything hard to undo — including ingesting a real, non-synthetic data source for the first time — had a traceable human sign-off.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap footer-inner">
+    <p>ShadowRealm Agents — a Claude Code subagent pipeline · <span class="mono">riodecz317/shadowrealm-agents</span></p>
+    <p class="mono">branch: docs/finance-lane-roster</p>
+  </div>
+</footer>
+
+</body></html>

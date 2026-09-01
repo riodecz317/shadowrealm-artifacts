@@ -1,0 +1,288 @@
+<!doctype html><html><head><!-- frame-runtime --><script>window.__FRAME_PREAMBLE={"v":1,"capabilities":{"artifact":"artifact.DF6_9MzE.js","assets":"assets.8Gk803W0.js","comments":"comments.vw5vQdGA.js","db":"db.h-3sndFg.js","downloads":"downloads.C3GSvEDP.js","embed":"embed.CxGAyc-v.js","mcp":"mcp.Bvma3qD7.js","network":"network.B5UA9Su4.js","notifications":"notifications.ssU4jy7G.js","permissions":"permissions.BNySkLV5.js","room":"room.BMMoe2BY.js","sample":"sample.BW2Uysoh.js","self":"artifact.DF6_9MzE.js","user":"user.BpKav-Rf.js"},"transforms":"_transforms.DSB5x63f.js","comments":"_comments.C6E0cR5g.js","translate":"_translate.5HCW4BJh.js"}</script><script>(function(){"use strict";var te=["light","dark","system"],re=/^[A-Za-z0-9_-]{1,64}$/,$=/^[a-zA-Z_:][a-zA-Z0-9_:.-]{0,127}$/,ne=new Set(["class","hidden","value","checked","style","title","alt","placeholder","lang","dir","role","tabindex","disabled","readonly","contenteditable","open","colspan","rowspan"]);function oe(e){const t=e.toLowerCase();return t.startsWith("data-")||t.startsWith("aria-")||ne.has(t)}var Be="http://www.w3.org/1999/xhtml",se="http://www.w3.org/2000/svg",ae=new Set(["script","style","iframe","noscript","noframes","noembed","xmp","plaintext","template","title","textarea","object","embed"]),ie=new Set(["script","style"]);function ce(e){const t=e.localName.toLowerCase();return e.namespaceURI==="http://www.w3.org/1999/xhtml"?!ae.has(t):e.namespaceURI===se?!ie.has(t):!1}function M(e,t){return e===t||(e===160||e===32)&&(t===160||t===32)}function le(e,t){const r=e.length,n=t.length;let s=0;for(;s<r&&s<n&&M(e.charCodeAt(s),t.charCodeAt(s));)s++;let o=0;for(;o<r-s&&o<n-s&&M(e.charCodeAt(r-1-o),t.charCodeAt(n-1-o));)o++;return{p:s,s:o}}function ue(e,t){const r=e.firstChild;if(e.childNodes.length!==1||r===null||r.nodeType!==Node.TEXT_NODE){e.textContent=t;return}const n=r.data,s=n.length,o=t.length,{p:i,s:c}=le(n,t);i===s&&c===0&&s===o||r.replaceData(i,s-i-c,t.slice(i,o-c));const h=r.data,p=e.ownerDocument.getSelection?.()??null,w=p!==null&&p.rangeCount>0&&(p.anchorNode===r||p.focusNode===r)?{anchor:p.anchorNode,anchorOffset:p.anchorOffset,focus:p.focusNode,focusOffset:p.focusOffset}:null;let m=-1,g=-1;for(let f=0;f<h.length&&f<t.length;f++){const v=h.charCodeAt(f),b=t.charCodeAt(f);v!==b&&M(v,b)&&(m<0&&(m=f),g=f)}const a=m>=0;if(a&&r.replaceData(m,g-m+1,t.slice(m,g+1)),a&&w!==null&&w.anchor!==null&&w.focus!==null)try{p.setBaseAndExtent(w.anchor,w.anchorOffset,w.focus,w.focusOffset)}catch{}}var fe=new Set(["html","head","body","frameset"]);function de(e){return e.namespaceURI==="http://www.w3.org/1999/xhtml"&&fe.has(e.localName)}function pe(e){if(e===null||typeof e!="object")return!1;const t=e;if(typeof t.target!="string"||!re.test(t.target)||t.text!==void 0&&typeof t.text!="string")return!1;if(t.attrsSet!==void 0){if(t.attrsSet===null||typeof t.attrsSet!="object")return!1;for(const[r,n]of Object.entries(t.attrsSet))if(!$.test(r)||typeof n!="string")return!1}if(t.attrsRemoved!==void 0){if(!Array.isArray(t.attrsRemoved))return!1;for(const r of t.attrsRemoved)if(typeof r!="string"||!$.test(r))return!1}return!0}function me(e,t){if(e===null||typeof e!="object")return!1;const{seq:r,elements:n}=e;if(typeof r!="number"||!Number.isSafeInteger(r)||!Array.isArray(n)||n.length===0||n.length>64)return!1;for(let s=0;s<n.length;s++)if(!t(n[s]))return!1;return!0}function he(e){return e===null||typeof e!="object"?!1:me(e.__frame_patch,pe)}function _e(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function ve(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function ye(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const r=t.theme;return typeof r=="string"&&te.includes(r)}var A=/^[\w.-]+\.js$/;function we(e,t,r){return r?"inert":typeof t=="string"&&A.test(t)?e?[t]:"inert":e?"inert":"framed"}function ge(){return{post(e,t){parent.postMessage(e,t)},on(e){const t=r=>{r.source===parent&&e(r.data,r.origin,r.isTrusted)};return addEventListener("message",t),()=>removeEventListener("message",t)}}}function be(){return{post:()=>{},on:()=>()=>{}}}var j="__frame_scroll",Ee=150,Ae=310,Se=160,Te=3e4;function ke(){let e=0,t=!1,r=!1,n=!1,s=0,o=null;const i=l=>{try{sessionStorage.setItem(j,JSON.stringify({y:l}))}catch{}},c=()=>{if(clearTimeout(e),o===null)return;const l=o;o=null,i(l)},h=()=>{if(t){t=!1;return}r=!0,o=scrollY,clearTimeout(e),e=setTimeout(c,Ee)};try{addEventListener("scroll",h,{passive:!0}),addEventListener("pagehide",c)}catch{}const p=()=>{let l;try{l=sessionStorage.getItem(j)}catch{return null}if(l===null)return null;let _;try{_=JSON.parse(l)}catch{_=null}const d=_?.y;if(!(typeof d=="number"&&Number.isFinite(d)&&d>=0)){try{sessionStorage.removeItem(j)}catch{}return null}return d};let w=!1;const m=l=>{try{const _=scrollY;scrollTo({top:l,left:0,behavior:"instant"}),s=l,n=!0,clearTimeout(e),o=null,i(l);const d=scrollY;d!==_&&(t=!0),d!==l&&!w&&(w=!0,addEventListener("load",()=>{try{if(scrollY===d){const T=p();m(T!==null?T:s)}}catch{}},{once:!0}))}catch{}},g=()=>{try{return!!location.hash}catch{return!0}};let a=!1;const f=()=>{try{if(a||innerWidth>Ae||innerHeight>Se)return;a=!0;const l=Date.now(),_=()=>{try{removeEventListener("resize",_)}catch{}if(Date.now()-l>Te||r||g())return;const d=p();m(d!==null?d:s)};addEventListener("resize",_)}catch{}};let v=!1,b=!1;return{restore(){if(v||(v=!0,g()))return;const l=p();l!==null&&(m(l),f())},promoted(){if(b||(b=!0,g()))return;const l=p();l!==null?(m(l),f()):n&&m(s)}}}function Re(e,t,r,n){let s=null;try{s=window.trustedTypes?.createPolicy("frame-runtime",{createScriptURL:h=>h})??null}catch{}const o=window.Worker,i=o?.prototype,c=Object.freeze({Worker:o,workerOn:i?.addEventListener,workerPost:i?.postMessage,workerTerminate:i?.terminate,fetch:window.fetch.bind(window),preventDefault:Event.prototype.preventDefault,policy:s,origins:t});r(e).then(h=>h?.bootTopLevel?h.bootTopLevel(c,n):n.settle()).catch(()=>n.settle())}var De="modulepreload",Ie=function(e){return"/"+e},Ue={},Le=function(t,r,n){let s=Promise.resolve();function o(i){const c=new Event("vite:preloadError",{cancelable:!0});if(c.payload=i,window.dispatchEvent(c),!c.defaultPrevented)throw i}return s.then(i=>{for(const c of i||[])c.status==="rejected"&&o(c.reason);return t().catch(o)})},Oe=window===top,q=Object.getOwnPropertyDescriptor(window,"claude"),k=we(Oe,window.__FRAME_PREAMBLE?.topLevel,q?.writable===!1),N=typeof k=="object"&&k[0],y=N?be():ge();(function(){const e=Object.defineProperty,t=globalThis,r=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let n=0;for(let s=0;s<r.length;s++){const o=r[s];try{e(t,o,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[o]}catch{}try{e(t,o,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[o]=="function"&&n++}if(n&&k==="framed")try{y.post({__frame_rtc_lockdown_failed:n},"*")}catch{}})();var Pe=1e4,Y=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function X(e){for(const t of Y)if(t.endsWith(":*"))try{const r=new URL(e);if(`${r.protocol}//${r.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}var R=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),B=window.__FRAME_PREAMBLE?.transforms,D=window.__FRAME_PREAMBLE?.comments,I=window.__FRAME_PREAMBLE?.translate;function S(e){return Le(()=>import("/_runtime/"+e),void 0)}function G(e,t){return{contract:e.contract,changes:new Set(e.changes??[]),flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:new Map,shellOrigin:t,mount:x,hooks:O,pipe:()=>({wrap:(r,n)=>(...s)=>{try{return n(...s)}catch(o){return Promise.reject(o)}}})}}var L=null,E=null;function V(e,t,r){try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var U=!1,O={editBefore:null,edit:null};function Ce(e,t,r=!1){const n=[];let s;if(r)try{O.editBefore?.(e)}catch{}for(const o of e.elements){const i=document.querySelector(`[data-id="${o.target}"]`);if(!i){s=o.target;break}if([...Object.keys(o.attrsSet??{}),...o.attrsRemoved??[]].some(c=>!oe(c))){s=o.target;break}if(o.text!==void 0&&(!ce(i)||de(i))){s=o.target;break}for(const[c,h]of Object.entries(o.attrsSet??{}))if(!J(i,c)){try{i.setAttribute(c,h)}catch{}Z(i,c,h)}for(const c of o.attrsRemoved??[])J(i,c)||(i.removeAttribute(c),Z(i,c,null));typeof o.text=="string"&&ue(i,o.text),n.push(o.target)}if(r)try{O.edit?.(e.seq,n,s)}catch{}if(s!==void 0){y.post({__frame_patch_miss:{seq:e.seq}},t);return}try{document.dispatchEvent(new CustomEvent("claude:edit",{detail:{seq:e.seq,targets:n}}))}catch{}}function Z(e,t,r){if(!(e instanceof HTMLInputElement))return;const n=t.toLowerCase();n==="checked"?e.checked=r!==null:n==="value"&&e.type!=="file"&&(e.value=r??"")}function J(e,t){const r=t.toLowerCase(),n=e;return r==="data-id"||(r==="value"||r==="checked")&&(n.__artifactSecret===!0||/^(password|hidden|file)$/.test(n.type??"")||/(^|\s)(cc-|one-time-code|current-password|new-password)/i.test(`${e.getAttribute("autocomplete")??""} ${n.autocomplete??""}`))}function Q(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,U=!0):U&&(delete t.dataset.theme,t.style.colorScheme="",U=!1)}var P=new Map;function Me(){let e;const t={u:new Promise(r=>{e=r}),r:r=>{t.done=!0,e(r)},done:!1,nulled:!1};return t}function F(){for(const e of P.values())e.done||(e.nulled=!0,e.r(null))}var je=Object.freeze(Object.assign(Object.create(null),{call:Function.prototype.call,apply:Function.prototype.apply,bind:Function.prototype.bind})),x=(e,t)=>{const r=P.get(e);if(!r||r.done){r?.nulled&&E&&y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:e}},E);return}const n=typeof t=="function"?Object.setPrototypeOf(t,je):Object.assign(Object.create(null),t);typeof n.then=="function"&&delete n.then,r.r(Object.freeze(n))};function ee(){const e=q?.value??{};V(window,"claude",e);for(const t of Object.keys(R)){if(e[t]!==void 0){V(e,t,e[t]);continue}P.set(t,Me())}if(e.use===void 0){const t=r=>{if(typeof r!="string"||!Object.hasOwn(R,r))return Promise.resolve(null);const n=P.get(r);return n?n.u:Promise.resolve(e[r]??null)};try{Object.defineProperty(e,"use",{value:t,writable:!0,configurable:!0,enumerable:!1})}catch{}}}if(k==="framed"){const e=B&&A.test(B)?S(B).catch(()=>{}):Promise.resolve(void 0),t=a=>{if(a.type==="auxclick"&&a.button!==1)return;const f=a.target,v=f&&f.closest?f.closest("a[href],area[href]"):null;if(!v)return;const b=v.getAttribute("href");if(!b)return;let l;try{l=new URL(b,document.baseURI)}catch{return}if((l.protocol==="http:"||l.protocol==="https:")&&l.origin!==location.origin){a.preventDefault();const _=(v.getAttribute("target")??"").toLowerCase(),d=a.type==="auxclick"||a.metaKey||a.ctrlKey||a.shiftKey||a.altKey||!["","_self","_top","_parent"].includes(_);y.post({__frame_nav:!0,url:l.href,newTab:d},"*")}};addEventListener("click",t,!0),addEventListener("auxclick",t,!0);const r={},n=a=>{a.isTrusted&&(r.pointer=!0)},s=a=>{a.isTrusted&&(r.click=!0)};addEventListener("pointermove",n,{capture:!0,passive:!0}),addEventListener("click",s,{capture:!0,passive:!0}),e.then(a=>{a?.wireNav&&(a.wireNav(),removeEventListener("click",t,!0),removeEventListener("auxclick",t,!0),removeEventListener("pointermove",n,!0),removeEventListener("click",s,!0),a.wireEngagement?.(r))});let o=null;try{o=ke()}catch{}ee();let i=null,c=null,h=0;const p=y.on((a,f)=>{X(f)&&_e(a)&&(i=a.__frame_init,E=f,p(),clearTimeout(h),c?.())});y.post({__frame_connect:!0},"*");const w=new Promise(a=>{c=a,h=setTimeout(()=>{p(),a()},Pe)}),m=document.readyState==="loading"?new Promise(a=>document.addEventListener("DOMContentLoaded",()=>a(),{once:!0})):Promise.resolve();m.then(()=>{try{o?.restore()}catch{}});const g={cb:null};y.on((a,f)=>{if(X(f)&&ve(a)){try{o?.promoted()}catch{}g.cb?.()}}),w.then(async()=>{if(!i||!E){F();return}Q(i.theme);const a=E;let f=!1,v=!1;y.on((u,z,C)=>{if(z!==a)return;ye(u)&&Q(u.__frame_theme.theme),he(u)&&Ce(u.__frame_patch,a,C);const H=u?.__fc_mode;H&&typeof H=="object"&&!f&&D&&A.test(D)&&(f=!0,S(D).then(K=>K.install?.(a,H.on===!0)).catch(()=>{}));const W=u?.__ft_cmd;W&&typeof W=="object"&&!v&&I&&A.test(I)&&(v=!0,S(I).then(K=>K.install?.(a,W)).catch(()=>{}))});const b=Object.keys(i.capabilities??{}).filter(u=>Object.hasOwn(R,u)).map(u=>[u,R[u]]).filter(u=>typeof u[1]=="string"&&A.test(u[1])),l=await Promise.allSettled(b.map(([,u])=>S(u))),_=await e,d=E;if(_?.buildBoot||y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},d),_?.buildBoot)try{L=_.buildBoot(i,_.TRANSFORMS??{},{shellOrigin:d,mount:x,hooks:O},u=>y.post({__frame_cap_telemetry:u},d))}catch{y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},d),L=G(i,d)}else L=G(i,d);const T=u=>y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:u}},d),Ne=L;l.forEach((u,z)=>{const C=b[z][0];if(u.status!=="fulfilled"){T(C);return}try{u.value?.install?.(Ne)}catch{T(C)}}),F(),await m,y.post({__frame_ready:!0},E),e.then(u=>u?.installSizeReporter?.(d,g))})}else N&&(ee(),Re(N,Y,S,{settle:F,mount:x}))})();</script><!-- /frame-runtime --><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>Situation Brief</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+  :root { --ground: #E7EAF0; --ink: #1B2036; --ink-faint: #8891A3; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --ground: #05060A; --ink-faint: #7C879C; } }
+  :root[data-theme="dark"] { --ground: #05060A; --ink-faint: #7C879C; }
+
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; overflow: hidden; }
+  body { background: var(--ground); color: var(--ink); font-family: "Inter", sans-serif; display: flex; flex-direction: column; }
+
+  .toolbar { flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 10px 18px; gap: 12px; background: #fff; border-bottom: 1px solid #E2E5EC; }
+  .toolbar .app-name { font-family: "Archivo", sans-serif; font-weight: 800; font-size: 14px; color: var(--ink); }
+  .toolbar .actions { display: flex; gap: 8px; align-items: center; }
+  .btn { font-family: "Inter", sans-serif; font-size: 12.5px; font-weight: 700; border-radius: 7px; padding: 8px 13px; border: 1px solid #E2E5EC; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; background: #F4F5F8; color: var(--ink); }
+  .btn.primary { background: #F97316; color: #fff; border-color: transparent; }
+  .btn:active { transform: translateY(1px); }
+  .btn[disabled] { opacity: 0.5; cursor: default; }
+  .status-msg { font-size: 11.5px; color: var(--ink-faint); }
+
+  .stage { flex: 1 1 auto; min-height: 0; display: flex; align-items: center; justify-content: center; padding: 14px; background: var(--ground); }
+  #posterWrap { height: 100%; max-width: 100%; display: flex; }
+  #posterWrap svg { height: 100%; width: auto; max-width: 100%; border-radius: 14px; box-shadow: 0 16px 50px rgba(0,0,0,0.18); display: block; }
+
+  @media print {
+    body { height: auto; overflow: visible; }
+    .toolbar { display: none; }
+    .stage { padding: 0; height: 100vh; background: #fff; }
+    #posterWrap { height: 100vh; }
+    #posterWrap svg { border-radius: 0; box-shadow: none; height: 100vh; width: auto; margin: 0 auto; }
+    @page { margin: 0; }
+  }
+</style>
+
+<div class="toolbar">
+  <span class="app-name">Situation Brief &mdash; BCP Leadership Update</span>
+  <div class="actions">
+    <span class="status-msg" id="statusMsg"></span>
+    <button class="btn" id="pdfBtn" type="button">&#128196; Download PDF</button>
+    <button class="btn primary" id="downloadBtn" type="button">&#8681; Download PNG</button>
+  </div>
+</div>
+
+<div class="stage">
+  <div id="posterWrap"></div>
+</div>
+
+<script>
+  // ---------- Palette: light paper, dark ink, muted blue-gray, orange used only for criticality/action ----------
+  const PAL = {
+    bg: '#FFFFFF', ink: '#1B2036', muted: '#5B6478', faint: '#8891A3',
+    accent: '#F97316', accentDeep: '#9A3412',
+    rule: '#E7E9EF', track: '#F1F2F5'
+  };
+  const W = 1600;
+  const COL_X = 160, COL_W = 1280; // ~10% margins, ~80% content width — a wide editorial grid, not a narrow strip in a big empty frame
+  function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function wrapText(text, maxChars) {
+    const words = text.split(' '); const lines = []; let cur = '';
+    words.forEach(w => { if ((cur+' '+w).trim().length > maxChars) { lines.push(cur.trim()); cur = w; } else { cur = (cur+' '+w).trim(); } });
+    if (cur) lines.push(cur);
+    return lines;
+  }
+  // Rough text-width estimate so a number's label always clears it, instead of
+  // hand-guessed fixed offsets (which is exactly what caused the "15.UZON"
+  // crowding — a two-digit 72px Archivo number is much wider than the 90px
+  // gap I'd guessed). Deliberately generous, not exact font metrics.
+  function estWidth(str, fontSize, family, weight) {
+    const factor = family === 'Archivo' ? (weight >= 800 ? 0.64 : 0.58) : (weight >= 700 ? 0.56 : 0.50);
+    return str.length * fontSize * factor;
+  }
+  function numLabel(parts, numX, y, numStr, numSize, numWeight, label, labelSize, labelWeight, gap, numColor, labelColor) {
+    parts.push(`<text x="${numX}" y="${y}" font-family="Archivo" font-weight="${numWeight}" font-size="${numSize}" fill="${numColor}">${esc(numStr)}</text>`);
+    const labelX = numX + estWidth(numStr, numSize, 'Archivo', numWeight) + gap;
+    parts.push(`<text x="${labelX}" y="${y}" font-family="Inter" font-weight="${labelWeight}" font-size="${labelSize}" letter-spacing="1" fill="${labelColor}">${esc(label)}</text>`);
+    return labelX;
+  }
+
+  function buildSVG() {
+    const parts = [];
+    let y = 0;
+    const cx = COL_X, cw = COL_W;
+    const sectionLabel = (text) => { parts.push(`<text x="${cx}" y="${y}" font-family="Inter" font-weight="800" font-size="15" letter-spacing="2" fill="${PAL.faint}">${esc(text)}</text>`); y += 34; };
+    const rule = (gapAfter) => { parts.push(`<line x1="${cx}" y1="${y}" x2="${cx+cw}" y2="${y}" stroke="${PAL.rule}" stroke-width="1"/>`); y += gapAfter; };
+
+    // ---- Masthead ----
+    y = 56;
+    parts.push(`<circle cx="${cx+5}" cy="${y-6}" r="4.5" fill="${PAL.accent}"/>`);
+    parts.push(`<text x="${cx+16}" y="${y}" font-family="Inter" font-weight="700" font-size="14" letter-spacing="2.2" fill="${PAL.faint}">BUSINESS CONTINUITY &#8226; LEADERSHIP UPDATE</text>`);
+    parts.push(`<text x="${cx+cw}" y="${y-6}" text-anchor="end" font-family="Inter" font-weight="700" font-size="13" letter-spacing="1" fill="${PAL.faint}">INTERNAL &#8226; LEADERSHIP ONLY</text>`);
+
+    y += 46;
+    parts.push(`<text x="${cx}" y="${y}" font-family="Archivo" font-weight="900" font-size="46" fill="${PAL.ink}">Situation Brief</text>`);
+
+    y += 32;
+    const headline = 'Critical exposure is concentrated in Metro Manila, increasing the need for shared contingency capacity.';
+    const hLines = wrapText(headline, 92);
+    hLines.forEach((line, i) => parts.push(`<text x="${cx}" y="${y + i*24}" font-family="Inter" font-weight="500" font-size="17" fill="${PAL.muted}">${esc(line)}</text>`));
+    y += (hLines.length - 1) * 24 + 30;
+    rule(36);
+
+    // ============================================================
+    // ZONE A — CURRENT EXPOSURE: hero KPI at left, supporting stats
+    // spread horizontally to its right on the SAME row, so the wide
+    // column is actually used instead of everything stacking down a
+    // narrow strip.
+    // ============================================================
+    sectionLabel('CURRENT EXPOSURE');
+    const zoneATop = y;
+    parts.push(`<text x="${cx}" y="${y+92}" font-family="Archivo" font-weight="900" font-size="104" fill="${PAL.accent}">12</text>`);
+    parts.push(`<text x="${cx}" y="${y+120}" font-family="Inter" font-weight="700" font-size="17" fill="${PAL.accentDeep}">Critical &#8212; Awaiting Dispatch</text>`);
+    const statsX = cx + 420;
+    numLabel(parts, statsX, y + 40, '21', 30, 800, 'Open Cases', 16, 600, 16, PAL.ink, PAL.faint);
+    numLabel(parts, statsX, y + 92, '8', 30, 800, 'Provinces Affected', 16, 600, 16, PAL.ink, PAL.faint);
+    y = zoneATop + 120 + 30;
+    rule(36);
+
+    // ============================================================
+    // ZONE B — WHERE IS THE EXPOSURE: four parallel columns across
+    // the full content width, Metro Manila emphasized by color/size
+    // (not nested) since it's the concentration the report calls out.
+    // ============================================================
+    sectionLabel('WHERE IS THE EXPOSURE?');
+    const regions = [
+      ['15', 'Luzon', false], ['8', 'Metro Manila', true],
+      ['3', 'Visayas', false], ['3', 'Mindanao', false]
+    ];
+    const colW = cw / regions.length;
+    const regionNumY = y + 58;
+    regions.forEach(([v, label, emphasize], i) => {
+      const colX = cx + i * colW;
+      parts.push(`<text x="${colX}" y="${regionNumY}" font-family="Archivo" font-weight="900" font-size="${emphasize ? 60 : 46}" fill="${emphasize ? PAL.accent : PAL.ink}">${v}</text>`);
+      parts.push(`<text x="${colX}" y="${regionNumY + 26}" font-family="Inter" font-weight="${emphasize ? 700 : 600}" font-size="16" fill="${emphasize ? PAL.accentDeep : PAL.muted}">${esc(label)}</text>`);
+    });
+    y = regionNumY + 26 + 34;
+    rule(36);
+
+    // ============================================================
+    // ZONE C — WHAT IS DRIVING IT: ranked bars, larger type, one
+    // consistent bar length scale, no borders.
+    // ============================================================
+    sectionLabel('WHAT IS DRIVING IT?');
+    const hazards = [['Power Outage', 7], ['Typhoon', 6], ['Earthquake', 4], ['Internet Outage', 4]];
+    const maxH = Math.max(...hazards.map(h => h[1]));
+    hazards.forEach(([label, val]) => {
+      numLabel(parts, cx, y, String(val).padStart(2,'0'), 22, 800, label, 19, 600, 24, PAL.ink, PAL.ink);
+      const barY = y - 7, barX = cx + 320, barMaxW = cw - 320;
+      parts.push(`<rect x="${barX}" y="${barY}" width="${barMaxW}" height="8" rx="4" fill="${PAL.track}"/>`);
+      parts.push(`<rect x="${barX}" y="${barY}" width="${barMaxW*(val/maxH)}" height="8" rx="4" fill="${PAL.accent}"/>`);
+      y += 42;
+    });
+    y += 14;
+    rule(36);
+
+    // ============================================================
+    // ZONE D — EXECUTIVE IMPLICATION, then RECOMMENDED ACTION as a
+    // visually distinct concluding panel (tinted fill + accent rule),
+    // so the page's reading path ends on the decision, not more prose.
+    // ============================================================
+    sectionLabel('Executive Implication'.toUpperCase());
+    const implication = 'Metro Manila represents 8 of 21 open cases, while Luzon accounts for 15. The concentration suggests a shared contingency response could address multiple exposures at once.';
+    const iLines = wrapText(implication, 100);
+    iLines.forEach((line, i) => parts.push(`<text x="${cx}" y="${y + i*26}" font-family="Inter" font-weight="500" font-size="18" fill="${PAL.ink}">${esc(line)}</text>`));
+    y += (iLines.length - 1) * 26 + 44;
+
+    // Recommendation panel — record exactly where this section's content
+    // starts in `parts` so the background can be spliced in before it,
+    // regardless of how many lines the action title happens to wrap to.
+    const panelTop = y, panelPad = 28;
+    const panelContentStart = parts.length;
+    let py = panelTop + panelPad;
+    parts.push(`<text x="${cx+panelPad}" y="${py}" font-family="Inter" font-weight="800" font-size="13" letter-spacing="1.8" fill="${PAL.accentDeep}">RECOMMENDED ACTION</text>`);
+    py += 40;
+    const actionLines = wrapText('Stand up a Metro Manila contingency pool', 42);
+    actionLines.forEach((line, i) => parts.push(`<text x="${cx+panelPad}" y="${py + i*32}" font-family="Archivo" font-weight="900" font-size="26" fill="${PAL.ink}">${esc(line.toUpperCase())}</text>`));
+    py += (actionLines.length - 1) * 32 + 34;
+    parts.push(`<text x="${cx+panelPad}" y="${py}" font-family="Inter" font-weight="700" font-size="16" fill="${PAL.ink}">Shared generators + backup ISP capacity</text>`);
+    py += 24;
+    parts.push(`<text x="${cx+panelPad}" y="${py}" font-family="Inter" font-weight="500" font-size="13.5" font-style="italic" fill="${PAL.muted}">Prioritize shared response capacity where unresolved exposure is most concentrated.</text>`);
+    py += panelPad;
+    const panelH = py - panelTop;
+    parts.splice(panelContentStart, 0,
+      `<rect x="${cx}" y="${panelTop}" width="${cw}" height="${panelH}" rx="10" fill="#FFF4EC"/>`,
+      `<rect x="${cx}" y="${panelTop}" width="6" height="${panelH}" rx="3" fill="${PAL.accent}"/>`
+    );
+    y = panelTop + panelH + 40;
+
+    // ---- Footer: minimal, no implementation/process metadata ----
+    rule(22);
+    parts.push(`<text x="${cx}" y="${y}" font-family="Inter" font-weight="600" font-size="13" fill="${PAL.faint}">Internal &#8226; Leadership Only</text>`);
+    parts.push(`<text x="${cx+cw}" y="${y}" text-anchor="end" font-family="Inter" font-weight="500" font-size="13" fill="${PAL.faint}">Data as of 2026-08-25</text>`);
+    y += 30; // bottom margin
+
+    const H = Math.ceil(y);
+    const fontStyle = `<style>@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap');</style>`;
+    const bg = `<rect x="0" y="0" width="${W}" height="${H}" fill="${PAL.bg}"/>`;
+    return { svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${fontStyle}${bg}${parts.join('')}</svg>`, W, H };
+  }
+
+  const built = buildSVG();
+  const svgMarkup = built.svg, W_OUT = built.W, H_OUT = built.H;
+  document.getElementById('posterWrap').innerHTML = svgMarkup;
+
+  async function rasterizeToCanvas(scale) {
+    await document.fonts.ready;
+    const blob = new Blob([svgMarkup], { type: 'image/svg+xml;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const img = new Image();
+    const loaded = new Promise((resolve, reject) => { img.onload = resolve; img.onerror = () => reject(new Error('SVG failed to rasterize')); });
+    img.src = url;
+    await loaded;
+    const canvas = document.createElement('canvas');
+    canvas.width = W_OUT * scale; canvas.height = H_OUT * scale;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.scale(scale, scale);
+    ctx.drawImage(img, 0, 0, W_OUT, H_OUT);
+    URL.revokeObjectURL(url);
+    return canvas;
+  }
+
+  async function canvasToPdfBlob(canvas) {
+    const jpegBlob = await new Promise((resolve, reject) => canvas.toBlob(b => b ? resolve(b) : reject(new Error('toBlob failed')), 'image/jpeg', 0.92));
+    const jpegBytes = new Uint8Array(await jpegBlob.arrayBuffer());
+    const w = canvas.width, h = canvas.height;
+    const enc = new TextEncoder();
+    const chunks = []; let pos = 0; const off = {};
+    function push(x) { const b = typeof x === 'string' ? enc.encode(x) : x; chunks.push(b); pos += b.length; }
+    push('%PDF-1.4\n');
+    off[1] = pos; push('1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n');
+    off[2] = pos; push('2 0 obj\n<< /Type /Pages /Kids [3 0 R] /Count 1 >>\nendobj\n');
+    off[3] = pos; push(`3 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${w} ${h}] /Resources << /XObject << /Im0 4 0 R >> >> /Contents 5 0 R >>\nendobj\n`);
+    off[4] = pos; push(`4 0 obj\n<< /Type /XObject /Subtype /Image /Width ${w} /Height ${h} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpegBytes.length} >>\nstream\n`);
+    push(jpegBytes); push('\nendstream\nendobj\n');
+    const content = `q ${w} 0 0 ${h} 0 0 cm /Im0 Do Q`;
+    off[5] = pos; push(`5 0 obj\n<< /Length ${content.length} >>\nstream\n${content}\nendstream\nendobj\n`);
+    const xrefStart = pos;
+    let xref = 'xref\n0 6\n0000000000 65535 f \n';
+    for (let i = 1; i <= 5; i++) xref += String(off[i]).padStart(10,'0') + ' 00000 n \n';
+    push(xref);
+    push(`trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n${xrefStart}\n%%EOF`);
+    return new Blob(chunks, { type: 'application/pdf' });
+  }
+
+  const statusMsg = document.getElementById('statusMsg');
+  function setStatus(text, ms) { statusMsg.textContent = text; if (ms) setTimeout(() => { if (statusMsg.textContent === text) statusMsg.textContent = ''; }, ms); }
+
+  async function offer(filename, blob) {
+    let downloads;
+    try { downloads = await claude.use('downloads'); } catch (e) { downloads = null; }
+    if (!downloads) {
+      const url = URL.createObjectURL(blob);
+      window.open(url, '_blank');
+      setStatus('Opened in a new tab — save it from there.', 6000);
+      return;
+    }
+    await downloads.save({ filename, data: blob });
+    setStatus('Saved.', 4000);
+  }
+
+  document.getElementById('downloadBtn').addEventListener('click', async (e) => {
+    const btn = e.currentTarget; btn.disabled = true; setStatus('Rendering…');
+    try {
+      const canvas = await rasterizeToCanvas(2);
+      const blob = await new Promise((resolve, reject) => canvas.toBlob(b => b ? resolve(b) : reject(new Error('toBlob failed')), 'image/png'));
+      await offer('situation-brief-bcp.png', blob);
+    } catch (err) {
+      setStatus((err && err.code === 'declined') ? 'Cancelled.' : 'Could not generate the PNG.', 5000);
+    } finally { btn.disabled = false; }
+  });
+
+  document.getElementById('pdfBtn').addEventListener('click', async (e) => {
+    const btn = e.currentTarget; btn.disabled = true; setStatus('Rendering…');
+    try {
+      const canvas = await rasterizeToCanvas(2);
+      const blob = await canvasToPdfBlob(canvas);
+      await offer('situation-brief-bcp.pdf', blob);
+    } catch (err) {
+      const code = err && err.code;
+      if (code === 'declined') setStatus('Cancelled.', 5000);
+      else if (code === 'extension_not_enabled') setStatus('PDF isn\'t available in this view — try Download PNG instead.', 7000);
+      else setStatus('Could not generate the PDF.', 5000);
+    } finally { btn.disabled = false; }
+  });
+</script>
+
+</body></html>

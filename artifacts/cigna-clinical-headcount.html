@@ -1,0 +1,354 @@
+<!doctype html><html><head><!-- frame-runtime --><script>window.__FRAME_PREAMBLE={"v":1,"capabilities":{"artifact":"artifact.DF6_9MzE.js","assets":"assets.8Gk803W0.js","comments":"comments.vw5vQdGA.js","db":"db.h-3sndFg.js","downloads":"downloads.C3GSvEDP.js","embed":"embed.CxGAyc-v.js","mcp":"mcp.Bvma3qD7.js","network":"network.B5UA9Su4.js","notifications":"notifications.ssU4jy7G.js","permissions":"permissions.BNySkLV5.js","room":"room.BMMoe2BY.js","sample":"sample.BW2Uysoh.js","self":"artifact.DF6_9MzE.js","user":"user.BpKav-Rf.js"},"transforms":"_transforms.DSB5x63f.js","comments":"_comments.C6E0cR5g.js","translate":"_translate.5HCW4BJh.js"}</script><script>(function(){"use strict";var te=["light","dark","system"],re=/^[A-Za-z0-9_-]{1,64}$/,$=/^[a-zA-Z_:][a-zA-Z0-9_:.-]{0,127}$/,ne=new Set(["class","hidden","value","checked","style","title","alt","placeholder","lang","dir","role","tabindex","disabled","readonly","contenteditable","open","colspan","rowspan"]);function oe(e){const t=e.toLowerCase();return t.startsWith("data-")||t.startsWith("aria-")||ne.has(t)}var Be="http://www.w3.org/1999/xhtml",se="http://www.w3.org/2000/svg",ae=new Set(["script","style","iframe","noscript","noframes","noembed","xmp","plaintext","template","title","textarea","object","embed"]),ie=new Set(["script","style"]);function ce(e){const t=e.localName.toLowerCase();return e.namespaceURI==="http://www.w3.org/1999/xhtml"?!ae.has(t):e.namespaceURI===se?!ie.has(t):!1}function M(e,t){return e===t||(e===160||e===32)&&(t===160||t===32)}function le(e,t){const r=e.length,n=t.length;let s=0;for(;s<r&&s<n&&M(e.charCodeAt(s),t.charCodeAt(s));)s++;let o=0;for(;o<r-s&&o<n-s&&M(e.charCodeAt(r-1-o),t.charCodeAt(n-1-o));)o++;return{p:s,s:o}}function ue(e,t){const r=e.firstChild;if(e.childNodes.length!==1||r===null||r.nodeType!==Node.TEXT_NODE){e.textContent=t;return}const n=r.data,s=n.length,o=t.length,{p:i,s:c}=le(n,t);i===s&&c===0&&s===o||r.replaceData(i,s-i-c,t.slice(i,o-c));const h=r.data,p=e.ownerDocument.getSelection?.()??null,w=p!==null&&p.rangeCount>0&&(p.anchorNode===r||p.focusNode===r)?{anchor:p.anchorNode,anchorOffset:p.anchorOffset,focus:p.focusNode,focusOffset:p.focusOffset}:null;let m=-1,g=-1;for(let f=0;f<h.length&&f<t.length;f++){const v=h.charCodeAt(f),b=t.charCodeAt(f);v!==b&&M(v,b)&&(m<0&&(m=f),g=f)}const a=m>=0;if(a&&r.replaceData(m,g-m+1,t.slice(m,g+1)),a&&w!==null&&w.anchor!==null&&w.focus!==null)try{p.setBaseAndExtent(w.anchor,w.anchorOffset,w.focus,w.focusOffset)}catch{}}var fe=new Set(["html","head","body","frameset"]);function de(e){return e.namespaceURI==="http://www.w3.org/1999/xhtml"&&fe.has(e.localName)}function pe(e){if(e===null||typeof e!="object")return!1;const t=e;if(typeof t.target!="string"||!re.test(t.target)||t.text!==void 0&&typeof t.text!="string")return!1;if(t.attrsSet!==void 0){if(t.attrsSet===null||typeof t.attrsSet!="object")return!1;for(const[r,n]of Object.entries(t.attrsSet))if(!$.test(r)||typeof n!="string")return!1}if(t.attrsRemoved!==void 0){if(!Array.isArray(t.attrsRemoved))return!1;for(const r of t.attrsRemoved)if(typeof r!="string"||!$.test(r))return!1}return!0}function me(e,t){if(e===null||typeof e!="object")return!1;const{seq:r,elements:n}=e;if(typeof r!="number"||!Number.isSafeInteger(r)||!Array.isArray(n)||n.length===0||n.length>64)return!1;for(let s=0;s<n.length;s++)if(!t(n[s]))return!1;return!0}function he(e){return e===null||typeof e!="object"?!1:me(e.__frame_patch,pe)}function _e(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_init;return t!==null&&typeof t=="object"}function ve(e){return e!==null&&typeof e=="object"&&e.__frame_size_poke===!0}function ye(e){if(e===null||typeof e!="object")return!1;const t=e.__frame_theme;if(t===null||typeof t!="object")return!1;const r=t.theme;return typeof r=="string"&&te.includes(r)}var A=/^[\w.-]+\.js$/;function we(e,t,r){return r?"inert":typeof t=="string"&&A.test(t)?e?[t]:"inert":e?"inert":"framed"}function ge(){return{post(e,t){parent.postMessage(e,t)},on(e){const t=r=>{r.source===parent&&e(r.data,r.origin,r.isTrusted)};return addEventListener("message",t),()=>removeEventListener("message",t)}}}function be(){return{post:()=>{},on:()=>()=>{}}}var j="__frame_scroll",Ee=150,Ae=310,Se=160,Te=3e4;function ke(){let e=0,t=!1,r=!1,n=!1,s=0,o=null;const i=l=>{try{sessionStorage.setItem(j,JSON.stringify({y:l}))}catch{}},c=()=>{if(clearTimeout(e),o===null)return;const l=o;o=null,i(l)},h=()=>{if(t){t=!1;return}r=!0,o=scrollY,clearTimeout(e),e=setTimeout(c,Ee)};try{addEventListener("scroll",h,{passive:!0}),addEventListener("pagehide",c)}catch{}const p=()=>{let l;try{l=sessionStorage.getItem(j)}catch{return null}if(l===null)return null;let _;try{_=JSON.parse(l)}catch{_=null}const d=_?.y;if(!(typeof d=="number"&&Number.isFinite(d)&&d>=0)){try{sessionStorage.removeItem(j)}catch{}return null}return d};let w=!1;const m=l=>{try{const _=scrollY;scrollTo({top:l,left:0,behavior:"instant"}),s=l,n=!0,clearTimeout(e),o=null,i(l);const d=scrollY;d!==_&&(t=!0),d!==l&&!w&&(w=!0,addEventListener("load",()=>{try{if(scrollY===d){const T=p();m(T!==null?T:s)}}catch{}},{once:!0}))}catch{}},g=()=>{try{return!!location.hash}catch{return!0}};let a=!1;const f=()=>{try{if(a||innerWidth>Ae||innerHeight>Se)return;a=!0;const l=Date.now(),_=()=>{try{removeEventListener("resize",_)}catch{}if(Date.now()-l>Te||r||g())return;const d=p();m(d!==null?d:s)};addEventListener("resize",_)}catch{}};let v=!1,b=!1;return{restore(){if(v||(v=!0,g()))return;const l=p();l!==null&&(m(l),f())},promoted(){if(b||(b=!0,g()))return;const l=p();l!==null?(m(l),f()):n&&m(s)}}}function Re(e,t,r,n){let s=null;try{s=window.trustedTypes?.createPolicy("frame-runtime",{createScriptURL:h=>h})??null}catch{}const o=window.Worker,i=o?.prototype,c=Object.freeze({Worker:o,workerOn:i?.addEventListener,workerPost:i?.postMessage,workerTerminate:i?.terminate,fetch:window.fetch.bind(window),preventDefault:Event.prototype.preventDefault,policy:s,origins:t});r(e).then(h=>h?.bootTopLevel?h.bootTopLevel(c,n):n.settle()).catch(()=>n.settle())}var De="modulepreload",Ie=function(e){return"/"+e},Ue={},Le=function(t,r,n){let s=Promise.resolve();function o(i){const c=new Event("vite:preloadError",{cancelable:!0});if(c.payload=i,window.dispatchEvent(c),!c.defaultPrevented)throw i}return s.then(i=>{for(const c of i||[])c.status==="rejected"&&o(c.reason);return t().catch(o)})},Oe=window===top,q=Object.getOwnPropertyDescriptor(window,"claude"),k=we(Oe,window.__FRAME_PREAMBLE?.topLevel,q?.writable===!1),N=typeof k=="object"&&k[0],y=N?be():ge();(function(){const e=Object.defineProperty,t=globalThis,r=["RTCPeerConnection","webkitRTCPeerConnection","RTCDataChannel","RTCIceCandidate","RTCSessionDescription","RTCRtpSender","RTCRtpReceiver"];let n=0;for(let s=0;s<r.length;s++){const o=r[s];try{e(t,o,{value:void 0,writable:!1,configurable:!1})}catch{try{delete t[o]}catch{}try{e(t,o,{value:void 0,writable:!1,configurable:!0})}catch{}}typeof t[o]=="function"&&n++}if(n&&k==="framed")try{y.post({__frame_rtc_lockdown_failed:n},"*")}catch{}})();var Pe=1e4,Y=Object.freeze([...window.__FRAME_PREAMBLE?.origins??["https://claude.ai","https://preview.claude.ai"]]);function X(e){for(const t of Y)if(t.endsWith(":*"))try{const r=new URL(e);if(`${r.protocol}//${r.hostname}:*`===t)return!0}catch{}else if(e===t)return!0;return!1}var R=Object.freeze({...window.__FRAME_PREAMBLE?.capabilities}),B=window.__FRAME_PREAMBLE?.transforms,D=window.__FRAME_PREAMBLE?.comments,I=window.__FRAME_PREAMBLE?.translate;function S(e){return Le(()=>import("/_runtime/"+e),void 0)}function G(e,t){return{contract:e.contract,changes:new Set(e.changes??[]),flags:new Set(e.flags??[]),capabilities:e.capabilities??{},capBudgets:e.capBudgets??{},transforms:new Map,shellOrigin:t,mount:x,hooks:O,pipe:()=>({wrap:(r,n)=>(...s)=>{try{return n(...s)}catch(o){return Promise.reject(o)}}})}}var L=null,E=null;function V(e,t,r){try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!1,enumerable:!0})}catch{try{Object.defineProperty(e,t,{value:r,writable:!1,configurable:!0,enumerable:!0})}catch{}}}var U=!1,O={editBefore:null,edit:null};function Ce(e,t,r=!1){const n=[];let s;if(r)try{O.editBefore?.(e)}catch{}for(const o of e.elements){const i=document.querySelector(`[data-id="${o.target}"]`);if(!i){s=o.target;break}if([...Object.keys(o.attrsSet??{}),...o.attrsRemoved??[]].some(c=>!oe(c))){s=o.target;break}if(o.text!==void 0&&(!ce(i)||de(i))){s=o.target;break}for(const[c,h]of Object.entries(o.attrsSet??{}))if(!J(i,c)){try{i.setAttribute(c,h)}catch{}Z(i,c,h)}for(const c of o.attrsRemoved??[])J(i,c)||(i.removeAttribute(c),Z(i,c,null));typeof o.text=="string"&&ue(i,o.text),n.push(o.target)}if(r)try{O.edit?.(e.seq,n,s)}catch{}if(s!==void 0){y.post({__frame_patch_miss:{seq:e.seq}},t);return}try{document.dispatchEvent(new CustomEvent("claude:edit",{detail:{seq:e.seq,targets:n}}))}catch{}}function Z(e,t,r){if(!(e instanceof HTMLInputElement))return;const n=t.toLowerCase();n==="checked"?e.checked=r!==null:n==="value"&&e.type!=="file"&&(e.value=r??"")}function J(e,t){const r=t.toLowerCase(),n=e;return r==="data-id"||(r==="value"||r==="checked")&&(n.__artifactSecret===!0||/^(password|hidden|file)$/.test(n.type??"")||/(^|\s)(cc-|one-time-code|current-password|new-password)/i.test(`${e.getAttribute("autocomplete")??""} ${n.autocomplete??""}`))}function Q(e){const t=document.documentElement;e==="light"||e==="dark"?(t.dataset.theme=e,t.style.colorScheme=e,U=!0):U&&(delete t.dataset.theme,t.style.colorScheme="",U=!1)}var P=new Map;function Me(){let e;const t={u:new Promise(r=>{e=r}),r:r=>{t.done=!0,e(r)},done:!1,nulled:!1};return t}function F(){for(const e of P.values())e.done||(e.nulled=!0,e.r(null))}var je=Object.freeze(Object.assign(Object.create(null),{call:Function.prototype.call,apply:Function.prototype.apply,bind:Function.prototype.bind})),x=(e,t)=>{const r=P.get(e);if(!r||r.done){r?.nulled&&E&&y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:e}},E);return}const n=typeof t=="function"?Object.setPrototypeOf(t,je):Object.assign(Object.create(null),t);typeof n.then=="function"&&delete n.then,r.r(Object.freeze(n))};function ee(){const e=q?.value??{};V(window,"claude",e);for(const t of Object.keys(R)){if(e[t]!==void 0){V(e,t,e[t]);continue}P.set(t,Me())}if(e.use===void 0){const t=r=>{if(typeof r!="string"||!Object.hasOwn(R,r))return Promise.resolve(null);const n=P.get(r);return n?n.u:Promise.resolve(e[r]??null)};try{Object.defineProperty(e,"use",{value:t,writable:!0,configurable:!0,enumerable:!1})}catch{}}}if(k==="framed"){const e=B&&A.test(B)?S(B).catch(()=>{}):Promise.resolve(void 0),t=a=>{if(a.type==="auxclick"&&a.button!==1)return;const f=a.target,v=f&&f.closest?f.closest("a[href],area[href]"):null;if(!v)return;const b=v.getAttribute("href");if(!b)return;let l;try{l=new URL(b,document.baseURI)}catch{return}if((l.protocol==="http:"||l.protocol==="https:")&&l.origin!==location.origin){a.preventDefault();const _=(v.getAttribute("target")??"").toLowerCase(),d=a.type==="auxclick"||a.metaKey||a.ctrlKey||a.shiftKey||a.altKey||!["","_self","_top","_parent"].includes(_);y.post({__frame_nav:!0,url:l.href,newTab:d},"*")}};addEventListener("click",t,!0),addEventListener("auxclick",t,!0);const r={},n=a=>{a.isTrusted&&(r.pointer=!0)},s=a=>{a.isTrusted&&(r.click=!0)};addEventListener("pointermove",n,{capture:!0,passive:!0}),addEventListener("click",s,{capture:!0,passive:!0}),e.then(a=>{a?.wireNav&&(a.wireNav(),removeEventListener("click",t,!0),removeEventListener("auxclick",t,!0),removeEventListener("pointermove",n,!0),removeEventListener("click",s,!0),a.wireEngagement?.(r))});let o=null;try{o=ke()}catch{}ee();let i=null,c=null,h=0;const p=y.on((a,f)=>{X(f)&&_e(a)&&(i=a.__frame_init,E=f,p(),clearTimeout(h),c?.())});y.post({__frame_connect:!0},"*");const w=new Promise(a=>{c=a,h=setTimeout(()=>{p(),a()},Pe)}),m=document.readyState==="loading"?new Promise(a=>document.addEventListener("DOMContentLoaded",()=>a(),{once:!0})):Promise.resolve();m.then(()=>{try{o?.restore()}catch{}});const g={cb:null};y.on((a,f)=>{if(X(f)&&ve(a)){try{o?.promoted()}catch{}g.cb?.()}}),w.then(async()=>{if(!i||!E){F();return}Q(i.theme);const a=E;let f=!1,v=!1;y.on((u,z,C)=>{if(z!==a)return;ye(u)&&Q(u.__frame_theme.theme),he(u)&&Ce(u.__frame_patch,a,C);const H=u?.__fc_mode;H&&typeof H=="object"&&!f&&D&&A.test(D)&&(f=!0,S(D).then(K=>K.install?.(a,H.on===!0)).catch(()=>{}));const W=u?.__ft_cmd;W&&typeof W=="object"&&!v&&I&&A.test(I)&&(v=!0,S(I).then(K=>K.install?.(a,W)).catch(()=>{}))});const b=Object.keys(i.capabilities??{}).filter(u=>Object.hasOwn(R,u)).map(u=>[u,R[u]]).filter(u=>typeof u[1]=="string"&&A.test(u[1])),l=await Promise.allSettled(b.map(([,u])=>S(u))),_=await e,d=E;if(_?.buildBoot||y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},d),_?.buildBoot)try{L=_.buildBoot(i,_.TRANSFORMS??{},{shellOrigin:d,mount:x,hooks:O},u=>y.post({__frame_cap_telemetry:u},d))}catch{y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:"_transforms"}},d),L=G(i,d)}else L=G(i,d);const T=u=>y.post({__frame_cap_telemetry:{kind:"cap-load-error",cap:u}},d),Ne=L;l.forEach((u,z)=>{const C=b[z][0];if(u.status!=="fulfilled"){T(C);return}try{u.value?.install?.(Ne)}catch{T(C)}}),F(),await m,y.post({__frame_ready:!0},E),e.then(u=>u?.installSizeReporter?.(d,g))})}else N&&(ee(),Re(N,Y,S,{settle:F,mount:x}))})();</script><!-- /frame-runtime --><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}</style></head><body>
+<title>Cigna Clinical Headcount</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+  /* Light theme only, unconditionally — dark mode was explicitly rejected for this kind of
+     leadership brief, so (unlike some earlier scratchpad pieces) there is no dark-mode
+     media query / data-theme override here at all. */
+  :root { --ground: #E7EAF0; --ink: #1B2036; --ink-faint: #8891A3; }
+
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; overflow: hidden; }
+  body { background: var(--ground); color: var(--ink); font-family: "Inter", sans-serif; display: flex; flex-direction: column; }
+
+  .toolbar { flex: 0 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 10px 18px; gap: 12px; background: #fff; border-bottom: 1px solid #E2E5EC; }
+  .toolbar .app-name { font-family: "Archivo", sans-serif; font-weight: 800; font-size: 14px; color: var(--ink); }
+  .toolbar .actions { display: flex; gap: 8px; align-items: center; }
+  .btn { font-family: "Inter", sans-serif; font-size: 12.5px; font-weight: 700; border-radius: 7px; padding: 8px 13px; border: 1px solid #E2E5EC; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; background: #F4F5F8; color: var(--ink); }
+  .btn.primary { background: #F97316; color: #fff; border-color: transparent; }
+  .btn:active { transform: translateY(1px); }
+  .btn[disabled] { opacity: 0.5; cursor: default; }
+  .status-msg { font-size: 11.5px; color: var(--ink-faint); }
+
+  .stage { flex: 1 1 auto; min-height: 0; display: flex; align-items: center; justify-content: center; padding: 14px; background: var(--ground); }
+  #posterWrap { height: 100%; max-width: 100%; display: flex; }
+  #posterWrap svg { height: 100%; width: auto; max-width: 100%; border-radius: 14px; box-shadow: 0 16px 50px rgba(0,0,0,0.18); display: block; background: #fff; }
+
+  @media print {
+    body { height: auto; overflow: visible; }
+    .toolbar { display: none; }
+    .stage { padding: 0; height: 100vh; background: #fff; }
+    #posterWrap { height: 100vh; }
+    #posterWrap svg { border-radius: 0; box-shadow: none; height: 100vh; width: auto; margin: 0 auto; }
+    @page { margin: 0; }
+  }
+</style>
+
+<div class="toolbar">
+  <span class="app-name">Cigna Clinical &mdash; Headcount Overview</span>
+  <div class="actions">
+    <span class="status-msg" id="statusMsg"></span>
+    <button class="btn" id="pdfBtn" type="button">&#128196; Download PDF</button>
+    <button class="btn primary" id="downloadBtn" type="button">&#8681; Download PNG</button>
+  </div>
+</div>
+
+<div class="stage">
+  <div id="posterWrap"></div>
+</div>
+
+<script>
+  // ============================================================================
+  // SOURCE DATA — transcribed exactly from clinical-hc-source-data.md.
+  // No numbers here are invented, estimated, or rounded for effect.
+  // ============================================================================
+
+  // Table 1: Profile (clinical role) x Work Status, Cigna Clinical account.
+  const ROLES = [
+    // [label, WAH Prod, WAH Support, WAH Trainee, Total]
+    ['NON-RN', 171, 38, 2, 211],
+    ['PHRN',   85, 31, 4, 120],
+    ['USRN',  128, 35, 49, 212],
+  ];
+  const COL_TOTALS = [384, 104, 55, 543]; // WAH Prod, WAH Support, WAH Trainee, Grand total
+  // Row-total check: 211+120+212 = 543. Column-total check: 384+104+55 = 543.
+
+  // Table 2: all 23 sub-processes, ranked by Total descending (computed from the
+  // source file, not re-ordered by hand-guess). Top 10 are shown individually;
+  // the remaining 13 are rolled into "Other" with their own combined total.
+  // Top-10 sum: 64+63+55+53+51+45+34+28+23+22 = 438.
+  // Other (13 items) sum: 543 - 438 = 105 (independently verified against the
+  // 13 unlisted rows: 21+20+20+17+6+4+4+3+3+2+2+2+1 = 105 — matches).
+  const SUBPROC_TOP10 = [
+    ['US Commercial - Cigna Medical Case Management IPCM', 64],
+    ['CIGNA THN ALA BEHAVIORAL HEALTH', 63],
+    ['Cigna Medical Case Mgt Engagement', 55],
+    ['Cigna Medical Case Mgt PA', 53],
+    ['CIGNA MEDICAL CASE MGT PNA', 51],
+    ['CIGNA THN BT BEHAVIORAL HEALTH', 45],
+    ['US Commercial - CIGNA THN ADHOC', 34],
+    ['CIGNA MEDICAL CASE MGT CHIL', 28],
+    ['CIGNA THN ADHOC', 23],
+    ['CIGNA MEDICAL CASE MGT TCM', 22],
+  ];
+  const OTHER_COUNT = 13;   // 23 total sub-processes - 10 shown = 13
+  const OTHER_TOTAL = 105;  // 543 - 438 = 105
+  const TOP10_SUM = SUBPROC_TOP10.reduce((s, r) => s + r[1], 0); // 438
+  // Hard runtime guard so a future data edit can never silently break the footing.
+  if (TOP10_SUM + OTHER_TOTAL !== 543 || TOP10_SUM !== 438 || OTHER_TOTAL !== 105) {
+    console.error('Sub-process arithmetic does not foot to 543 — check SUBPROC_TOP10/OTHER_TOTAL.');
+  }
+
+  // ---------- Palette: light paper, dark ink, muted blue-gray, one accent reserved for emphasis ----------
+  const PAL = {
+    bg: '#FFFFFF', ink: '#1B2036', muted: '#5B6478', faint: '#8891A3',
+    accent: '#F97316', accentDeep: '#9A3412', accentTint: '#FFF4EC',
+    otherBar: '#C7CCD6',
+    rule: '#E7E9EF', track: '#F1F2F5', headerTint: '#F7F8FA'
+  };
+  const W = 1600;
+  const COL_X = 160, COL_W = 1280; // ~10% margins, wide editorial grid — matches situation-brief.html convention
+
+  function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+  function wrapText(text, maxChars) {
+    const words = text.split(' '); const lines = []; let cur = '';
+    words.forEach(w => { if ((cur+' '+w).trim().length > maxChars) { lines.push(cur.trim()); cur = w; } else { cur = (cur+' '+w).trim(); } });
+    if (cur) lines.push(cur);
+    return lines;
+  }
+  // Text-width estimate so a label always clears whatever comes before it,
+  // instead of hand-guessed fixed offsets (the recurring overlap bug this
+  // project has hit before).
+  function estWidth(str, fontSize, family, weight) {
+    const factor = family === 'Archivo' ? (weight >= 800 ? 0.64 : 0.58) : (weight >= 700 ? 0.56 : 0.50);
+    return str.length * fontSize * factor;
+  }
+  function numLabel(parts, numX, y, numStr, numSize, numWeight, label, labelSize, labelWeight, gap, numColor, labelColor, fixedLabelX) {
+    parts.push(`<text x="${numX}" y="${y}" font-family="Archivo" font-weight="${numWeight}" font-size="${numSize}" fill="${numColor}">${esc(numStr)}</text>`);
+    // fixedLabelX lets a group of rows share one label column regardless of each
+    // row's own number width (e.g. "55" is narrower than "384"/"104" — without a
+    // shared column, its label would start further left, breaking alignment).
+    const labelX = fixedLabelX !== undefined ? fixedLabelX : numX + estWidth(numStr, numSize, 'Archivo', numWeight) + gap;
+    parts.push(`<text x="${labelX}" y="${y}" font-family="Inter" font-weight="${labelWeight}" font-size="${labelSize}" letter-spacing="1" fill="${labelColor}">${esc(label)}</text>`);
+    return labelX;
+  }
+
+  function buildSVG() {
+    const parts = [];
+    let y = 0;
+    const cx = COL_X, cw = COL_W;
+    const sectionLabel = (text) => { parts.push(`<text x="${cx}" y="${y}" font-family="Inter" font-weight="800" font-size="15" letter-spacing="2" fill="${PAL.faint}">${esc(text)}</text>`); y += 34; };
+    const rule = (gapAfter) => { parts.push(`<line x1="${cx}" y1="${y}" x2="${cx+cw}" y2="${y}" stroke="${PAL.rule}" stroke-width="1"/>`); y += gapAfter; };
+
+    // ---- Masthead ----
+    y = 56;
+    parts.push(`<circle cx="${cx+5}" cy="${y-6}" r="4.5" fill="${PAL.accent}"/>`);
+    parts.push(`<text x="${cx+16}" y="${y}" font-family="Inter" font-weight="700" font-size="14" letter-spacing="2.2" fill="${PAL.faint}">CLINICAL WORKFORCE &#8226; LEADERSHIP OVERVIEW</text>`);
+    parts.push(`<text x="${cx+cw}" y="${y}" text-anchor="end" font-family="Inter" font-weight="700" font-size="13" letter-spacing="1" fill="${PAL.faint}">INTERNAL &#8226; LEADERSHIP ONLY</text>`);
+
+    y += 54;
+    parts.push(`<text x="${cx}" y="${y}" font-family="Archivo" font-weight="900" font-size="46" fill="${PAL.ink}">Cigna Clinical &#8212; Headcount Overview</text>`);
+
+    y += 39;
+    const subtitle = '543 clinical staff at Cigna Clinical, by role, work status, and sub-process.';
+    const subLines = wrapText(subtitle, 92); // fits on one line at this length; wrapText still used so height reflects actual line count
+    subLines.forEach((line, i) => parts.push(`<text x="${cx}" y="${y + i*24}" font-family="Inter" font-weight="500" font-size="17" fill="${PAL.muted}">${esc(line)}</text>`));
+    y += (subLines.length - 1) * 24 + 30;
+    rule(36);
+
+    // ============================================================
+    // HERO — total headcount, single largest/most dominant element
+    // on the canvas, with the work-status split previewed alongside.
+    // ============================================================
+    sectionLabel('TOTAL CLINICAL HEADCOUNT');
+    const zoneATop = y;
+    const heroNumY = zoneATop + 150;
+    parts.push(`<text x="${cx}" y="${heroNumY}" font-family="Archivo" font-weight="900" font-size="170" fill="${PAL.accent}">543</text>`);
+    // Label sits 65px below the number's baseline. At 170px, the numeral's own
+    // descender reaches ~37px below baseline; a 30px offset (the old value) put
+    // the label's ascent inside that descender zone instead of clear of it.
+    parts.push(`<text x="${cx}" y="${heroNumY+65}" font-family="Inter" font-weight="800" font-size="18" letter-spacing="0.5" fill="${PAL.accentDeep}">CLINICAL STAFF &#8212; CIGNA CLINICAL ACCOUNT</text>`);
+    const statsX = cx + 500;
+    // Shared label column: based on the widest number among these three rows
+    // ("384"/"104", 3 digits) so "55"'s shorter width doesn't pull its label
+    // left of the other two — all three labels now start at the same x.
+    const statsLabelX = statsX + estWidth('384', 34, 'Archivo', 800) + 16;
+    numLabel(parts, statsX, zoneATop + 40, '384', 34, 800, 'WAH Prod', 16, 600, 16, PAL.ink, PAL.faint, statsLabelX);
+    numLabel(parts, statsX, zoneATop + 92, '104', 34, 800, 'WAH Support', 16, 600, 16, PAL.ink, PAL.faint, statsLabelX);
+    numLabel(parts, statsX, zoneATop + 144, '55', 34, 800, 'WAH Trainee', 16, 600, 16, PAL.ink, PAL.faint, statsLabelX);
+    y = zoneATop + 245;
+    rule(36);
+
+    // ============================================================
+    // ROLE x WORK STATUS grid — 5x5 (label row/col + 3 roles + total),
+    // fixed column widths, centered numbers: overlap-proof by construction.
+    // ============================================================
+    sectionLabel('ROLE × WORK STATUS');
+    const gridTop = y;
+    const labelColW = 220, dataColW = (cw - labelColW) / 4; // 265
+    const headerRowH = 60, dataRowH = 76;
+    const colX = [cx, cx + labelColW, cx + labelColW + dataColW, cx + labelColW + 2*dataColW, cx + labelColW + 3*dataColW];
+    const colCenter = (i) => colX[i] + dataColW / 2; // i = 1..4 (data columns)
+    const headers = ['WAH PROD', 'WAH SUPPORT', 'WAH TRAINEE', 'TOTAL'];
+
+    // Total-column highlight strip (behind all text) across header + 3 role rows.
+    parts.push(`<rect x="${colX[4]}" y="${gridTop}" width="${dataColW}" height="${headerRowH + 3*dataRowH}" fill="${PAL.track}"/>`);
+    // Header row background.
+    parts.push(`<rect x="${cx}" y="${gridTop}" width="${cw}" height="${headerRowH}" fill="${PAL.headerTint}"/>`);
+    parts.push(`<text x="${cx+20}" y="${gridTop + headerRowH/2 + 5}" font-family="Inter" font-weight="800" font-size="13" letter-spacing="1" fill="${PAL.faint}">PROFILE</text>`);
+    headers.forEach((h, i) => {
+      parts.push(`<text x="${colCenter(i+1)}" y="${gridTop + headerRowH/2 + 5}" text-anchor="middle" font-family="Inter" font-weight="800" font-size="13" letter-spacing="1" fill="${PAL.faint}">${esc(h)}</text>`);
+    });
+
+    // Role rows.
+    ROLES.forEach((row, i) => {
+      const rowY = gridTop + headerRowH + i*dataRowH;
+      const baseline = rowY + dataRowH/2 + 9;
+      parts.push(`<text x="${cx+20}" y="${baseline-1}" font-family="Inter" font-weight="700" font-size="18" fill="${PAL.ink}">${esc(row[0])}</text>`);
+      [row[1], row[2], row[3]].forEach((v, ci) => {
+        parts.push(`<text x="${colCenter(ci+1)}" y="${baseline}" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="28" fill="${PAL.ink}">${v}</text>`);
+      });
+      parts.push(`<text x="${colCenter(4)}" y="${baseline}" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="28" fill="${PAL.accentDeep}">${row[4]}</text>`);
+    });
+
+    // Total row — full-width tint + left accent bar, like the recommendation
+    // panel treatment in situation-brief.html, to mark it as the summary row.
+    const totalRowY = gridTop + headerRowH + 3*dataRowH;
+    parts.push(`<rect x="${cx}" y="${totalRowY}" width="${cw}" height="${dataRowH}" fill="${PAL.accentTint}"/>`);
+    parts.push(`<rect x="${cx}" y="${totalRowY}" width="6" height="${dataRowH}" fill="${PAL.accent}"/>`);
+    const totalBaseline = totalRowY + dataRowH/2 + 9;
+    parts.push(`<text x="${cx+20}" y="${totalBaseline-1}" font-family="Inter" font-weight="800" font-size="18" fill="${PAL.accentDeep}">Total</text>`);
+    COL_TOTALS.slice(0,3).forEach((v, ci) => {
+      parts.push(`<text x="${colCenter(ci+1)}" y="${totalBaseline}" text-anchor="middle" font-family="Archivo" font-weight="800" font-size="28" fill="${PAL.accentDeep}">${v}</text>`);
+    });
+    parts.push(`<text x="${colCenter(4)}" y="${totalBaseline+2}" text-anchor="middle" font-family="Archivo" font-weight="900" font-size="32" fill="${PAL.accent}">${COL_TOTALS[3]}</text>`);
+
+    // Row separators + a couple of vertical guide rules (decoration only — no extra height).
+    [gridTop+headerRowH, gridTop+headerRowH+dataRowH, gridTop+headerRowH+2*dataRowH, totalRowY].forEach(ly => {
+      parts.push(`<line x1="${cx}" y1="${ly}" x2="${cx+cw}" y2="${ly}" stroke="${PAL.rule}" stroke-width="1"/>`);
+    });
+    parts.push(`<line x1="${colX[1]}" y1="${gridTop}" x2="${colX[1]}" y2="${totalRowY+dataRowH}" stroke="${PAL.rule}" stroke-width="1"/>`);
+    parts.push(`<line x1="${colX[4]}" y1="${gridTop}" x2="${colX[4]}" y2="${totalRowY+dataRowH}" stroke="${PAL.rule}" stroke-width="1"/>`);
+    parts.push(`<rect x="${cx}" y="${gridTop}" width="${cw}" height="${headerRowH+4*dataRowH}" fill="none" stroke="${PAL.rule}" stroke-width="1"/>`);
+
+    const gridBottom = totalRowY + dataRowH;
+    y = gridBottom + 30;
+    rule(36);
+
+    // ============================================================
+    // SUB-PROCESS BREAKDOWN — top 10 of 23 by headcount, individually
+    // ranked, plus one "Other" bar carrying the remaining 13 combined.
+    // Bars are scaled against the largest bar shown (105, the Other
+    // bucket) so nothing overflows the canvas; Other is drawn in a
+    // visually distinct neutral tone + italic label so it reads as a
+    // rollup category, not as the single biggest sub-process.
+    // ============================================================
+    sectionLabel('SUB-PROCESS BREAKDOWN — TOP 10 OF 23 BY HEADCOUNT');
+    const barsTop = y;
+    const barRows = SUBPROC_TOP10.map(([label, val], i) => ({ label, val, other: false, isTop1: i === 0 }))
+      .concat([{ label: `Other — ${OTHER_COUNT} more sub-processes, combined HC of ${OTHER_TOTAL}`, val: OTHER_TOTAL, other: true, isTop1: false }]);
+    const maxBarVal = Math.max(...barRows.map(r => r.val)); // 105 (the Other bucket)
+    const barX = cx + 500, barMaxW = 650, rowGap = 36;
+    barRows.forEach((r, i) => {
+      const by = barsTop + 22 + i*rowGap;
+      const barY = by - 10, barH = 12;
+      const fillColor = r.other ? PAL.otherBar : (r.isTop1 ? PAL.accent : PAL.muted);
+      const labelColor = r.other ? PAL.faint : PAL.ink;
+      const style = r.other ? ' font-style="italic"' : '';
+      parts.push(`<text x="${cx}" y="${by}" font-family="Inter" font-weight="700"${style} font-size="15" fill="${labelColor}">${esc(r.label)}</text>`);
+      parts.push(`<rect x="${barX}" y="${barY}" width="${barMaxW}" height="${barH}" rx="6" fill="${PAL.track}"/>`);
+      parts.push(`<rect x="${barX}" y="${barY}" width="${barMaxW * (r.val/maxBarVal)}" height="${barH}" rx="6" fill="${fillColor}"/>`);
+      parts.push(`<text x="${barX+barMaxW+20}" y="${by}" font-family="Archivo" font-weight="800" font-size="17" fill="${r.other ? PAL.muted : PAL.ink}">${r.val}</text>`);
+    });
+    y = barsTop + 22 + (barRows.length-1)*rowGap + 32;
+    rule(24);
+
+    // ---- Footer: the shown+Other reconciliation, in plain sight ----
+    parts.push(`<text x="${cx}" y="${y}" font-family="Inter" font-weight="600" font-size="13" fill="${PAL.faint}">10 shown individually + 13 in &#8220;Other&#8221; = 23 sub-processes, totaling 543 HC.</text>`);
+    parts.push(`<text x="${cx+cw}" y="${y}" text-anchor="end" font-family="Inter" font-weight="500" font-size="13" fill="${PAL.faint}">Source: Clinical Heatmap.xlsx, SharePoint (ClinicalPillar2) &#8226; Prepared 2026-08-25</text>`);
+    y += 30; // bottom margin
+
+    const H = Math.ceil(y);
+    const fontStyle = `<style>@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&amp;family=Inter:wght@400;500;600;700;800&amp;display=swap');</style>`;
+    const bg = `<rect x="0" y="0" width="${W}" height="${H}" fill="${PAL.bg}"/>`;
+    return { svg: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">${fontStyle}${bg}${parts.join('')}</svg>`, W, H };
+  }
+
+  const built = buildSVG();
+  const svgMarkup = built.svg, W_OUT = built.W, H_OUT = built.H;
+  document.getElementById('posterWrap').innerHTML = svgMarkup;
+
+  async function rasterizeToCanvas(scale) {
+    await document.fonts.ready;
+    const blob = new Blob([svgMarkup], { type: 'image/svg+xml;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const img = new Image();
+    const loaded = new Promise((resolve, reject) => { img.onload = resolve; img.onerror = () => reject(new Error('SVG failed to rasterize')); });
+    img.src = url;
+    await loaded;
+    const canvas = document.createElement('canvas');
+    canvas.width = W_OUT * scale; canvas.height = H_OUT * scale;
+    const ctx = canvas.getContext('2d');
+    ctx.fillStyle = '#FFFFFF'; ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.scale(scale, scale);
+    ctx.drawImage(img, 0, 0, W_OUT, H_OUT);
+    URL.revokeObjectURL(url);
+    return canvas;
+  }
+
+  async function canvasToPdfBlob(canvas) {
+    const jpegBlob = await new Promise((resolve, reject) => canvas.toBlob(b => b ? resolve(b) : reject(new Error('toBlob failed')), 'image/jpeg', 0.92));
+    const jpegBytes = new Uint8Array(await jpegBlob.arrayBuffer());
+    const w = canvas.width, h = canvas.height;
+    const enc = new TextEncoder();
+    const chunks = []; let pos = 0; const off = {};
+    function push(x) { const b = typeof x === 'string' ? enc.encode(x) : x; chunks.push(b); pos += b.length; }
+    push('%PDF-1.4\n');
+    off[1] = pos; push('1 0 obj\n<< /Type /Catalog /Pages 2 0 R >>\nendobj\n');
+    off[2] = pos; push('2 0 obj\n<< /Type /Pages /Kids [3 0 R] /Count 1 >>\nendobj\n');
+    off[3] = pos; push(`3 0 obj\n<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${w} ${h}] /Resources << /XObject << /Im0 4 0 R >> >> /Contents 5 0 R >>\nendobj\n`);
+    off[4] = pos; push(`4 0 obj\n<< /Type /XObject /Subtype /Image /Width ${w} /Height ${h} /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpegBytes.length} >>\nstream\n`);
+    push(jpegBytes); push('\nendstream\nendobj\n');
+    const content = `q ${w} 0 0 ${h} 0 0 cm /Im0 Do Q`;
+    off[5] = pos; push(`5 0 obj\n<< /Length ${content.length} >>\nstream\n${content}\nendstream\nendobj\n`);
+    const xrefStart = pos;
+    let xref = 'xref\n0 6\n0000000000 65535 f \n';
+    for (let i = 1; i <= 5; i++) xref += String(off[i]).padStart(10,'0') + ' 00000 n \n';
+    push(xref);
+    push(`trailer\n<< /Size 6 /Root 1 0 R >>\nstartxref\n${xrefStart}\n%%EOF`);
+    return new Blob(chunks, { type: 'application/pdf' });
+  }
+
+  const statusMsg = document.getElementById('statusMsg');
+  function setStatus(text, ms) { statusMsg.textContent = text; if (ms) setTimeout(() => { if (statusMsg.textContent === text) statusMsg.textContent = ''; }, ms); }
+
+  async function offer(filename, blob) {
+    let downloads;
+    try { downloads = await claude.use('downloads'); } catch (e) { downloads = null; }
+    if (!downloads) {
+      const url = URL.createObjectURL(blob);
+      window.open(url, '_blank');
+      setStatus('Opened in a new tab — save it from there.', 6000);
+      return;
+    }
+    await downloads.save({ filename, data: blob });
+    setStatus('Saved.', 4000);
+  }
+
+  document.getElementById('downloadBtn').addEventListener('click', async (e) => {
+    const btn = e.currentTarget; btn.disabled = true; setStatus('Rendering…');
+    try {
+      const canvas = await rasterizeToCanvas(2);
+      const blob = await new Promise((resolve, reject) => canvas.toBlob(b => b ? resolve(b) : reject(new Error('toBlob failed')), 'image/png'));
+      await offer('cigna-clinical-headcount-overview.png', blob);
+    } catch (err) {
+      setStatus((err && err.code === 'declined') ? 'Cancelled.' : 'Could not generate the PNG.', 5000);
+    } finally { btn.disabled = false; }
+  });
+
+  document.getElementById('pdfBtn').addEventListener('click', async (e) => {
+    const btn = e.currentTarget; btn.disabled = true; setStatus('Rendering…');
+    try {
+      const canvas = await rasterizeToCanvas(2);
+      const blob = await canvasToPdfBlob(canvas);
+      await offer('cigna-clinical-headcount-overview.pdf', blob);
+    } catch (err) {
+      const code = err && err.code;
+      if (code === 'declined') setStatus('Cancelled.', 5000);
+      else if (code === 'extension_not_enabled') setStatus('PDF isn\'t available in this view — try Download PNG instead.', 7000);
+      else setStatus('Could not generate the PDF.', 5000);
+    } finally { btn.disabled = false; }
+  });
+</script>
+
+</body></html>
