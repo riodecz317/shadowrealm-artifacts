@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShadowRealm Artifact Index</title>
+<style>
+  :root {
+    --bg: #0b0d12;
+    --bg-elevated: #14171f;
+    --border: #262b36;
+    --text: #e7e9ee;
+    --text-dim: #9aa3b2;
+    --accent: #7c9cff;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+    padding: 48px 24px 80px;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; }
+  header { margin-bottom: 40px; }
+  h1 { font-size: 1.6rem; margin: 0 0 6px; letter-spacing: -0.01em; }
+  .sub { color: var(--text-dim); font-size: 0.92rem; }
+  .meta {
+    color: var(--text-dim);
+    font-size: 0.8rem;
+    margin-top: 12px;
+  }
+  ul.list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  li.card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  li.card:hover { border-color: var(--accent); transform: translateY(-1px); }
+  .icon { font-size: 1.6rem; line-height: 1; width: 32px; text-align: center; flex-shrink: 0; }
+  .info { flex: 1; min-width: 0; }
+  .title a {
+    color: var(--text);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .title a:hover { color: var(--accent); }
+  .date { color: var(--text-dim); font-size: 0.78rem; margin-top: 2px; }
+  footer {
+    margin-top: 48px;
+    color: var(--text-dim);
+    font-size: 0.78rem;
+    border-top: 1px solid var(--border);
+    padding-top: 16px;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #f6f7f9;
+      --bg-elevated: #ffffff;
+      --border: #e3e6ec;
+      --text: #14171f;
+      --text-dim: #6b7280;
+      --accent: #3b5bdb;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>ShadowRealm Artifact Index</h1>
+    <div class="sub">A running list of Claude Artifacts, kept in this repo so they're one click away instead of buried in chat history.</div>
+    <div class="meta">Last regenerated: <strong id="gen-date">2026-09-01</strong> &middot; <span id="count">12</span> artifacts</div>
+  </header>
+
+  <ul class="list" id="artifact-list">
+    <li class="card"><span class="icon">🔀</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/f39ea48c-f30a-4c9b-843c-61f3d7e3e886" target="_blank" rel="noopener">The Agent Relay</a></div><div class="date">Updated 2026-09-01</div></div></li>
+    <li class="card"><span class="icon">🧾</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/ef42df40-1e45-4359-9799-7af428948d03" target="_blank" rel="noopener">The Ledger Read</a></div><div class="date">Updated 2026-09-01</div></div></li>
+    <li class="card"><span class="icon">🧪</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/6afa24a4-863d-473a-9569-24934d05ddcc" target="_blank" rel="noopener">The Grading Ledger</a></div><div class="date">Updated 2026-09-01</div></div></li>
+    <li class="card"><span class="icon">💰</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/ebcf971c-d256-46d0-9e79-a35a3432caf8" target="_blank" rel="noopener">FinForecast Pro</a></div><div class="date">Updated 2026-08-30</div></div></li>
+    <li class="card"><span class="icon">💠</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/0b97b343-665f-4083-be56-ffbf8a04dc96" target="_blank" rel="noopener">Glimmerfield Finance</a></div><div class="date">Updated 2026-08-30</div></div></li>
+    <li class="card"><span class="icon">🛰️</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/c0bcbbf0-7856-45d9-8770-9170ce87eb6b" target="_blank" rel="noopener">ShadowRealm Agents</a></div><div class="date">Updated 2026-08-30</div></div></li>
+    <li class="card"><span class="icon">🔀</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/532e41b3-2ddd-48a1-833f-e7e0d0e6e68c" target="_blank" rel="noopener">Cross-Skill Mapping Overview</a></div><div class="date">Updated 2026-08-26</div></div></li>
+    <li class="card"><span class="icon">🔀</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/f584e081-d61a-476a-b6a9-b7b71b565bb7" target="_blank" rel="noopener">Cross-Skill Ledger</a></div><div class="date">Updated 2026-08-26</div></div></li>
+    <li class="card"><span class="icon">🩺</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/dc0c55ed-f104-4547-89fa-ed8730fd9733" target="_blank" rel="noopener">Contoso Health Headcount</a></div><div class="date">Updated 2026-08-25</div></div></li>
+    <li class="card"><span class="icon">🩺</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/0f04db35-a79a-45d4-848e-d5cf4e65cb59" target="_blank" rel="noopener">Cigna Clinical Headcount</a></div><div class="date">Updated 2026-08-25</div></div></li>
+    <li class="card"><span class="icon">🗺️</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/98ebef56-cd4b-47b1-8b1f-212945990405" target="_blank" rel="noopener">Situation Brief</a></div><div class="date">Updated 2026-08-25</div></div></li>
+    <li class="card"><span class="icon">🆘</span><div class="info"><div class="title"><a href="https://claude.ai/code/artifact/399c00d4-aa4b-4342-ba92-5937942b8974" target="_blank" rel="noopener">Who Needs Help</a></div><div class="date">Updated 2026-08-25</div></div></li>
+  </ul>
+
+  <footer>
+    Generated from Claude's artifact list on 2026-09-01. To refresh, ask Claude in this project to "update the artifact index" — it will re-pull the list, regenerate this page, and push the update.
+  </footer>
+</div>
+</body>
+</html>
